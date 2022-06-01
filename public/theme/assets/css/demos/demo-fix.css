@@ -1,0 +1,101 @@
+
+
+.heading-testimonial {
+  margin-bottom: 0;
+  padding: .4rem 0 .2rem; }
+
+.testimonials {
+  justify-content: center; }
+
+.testimonial {
+  padding: 0 2rem;
+  text-align: center; }
+
+.owl-testimonial {
+  margin-top: -.1rem; }
+  .owl-testimonial .owl-item img {
+    min-width: 15rem;
+    border-radius: 0; }
+  .owl-testimonial .owl-dots {
+    margin: 4.4rem 0 .5rem; }
+  .owl-testimonial .owl-nav .owl-prev,
+  .owl-testimonial .owl-nav .owl-next {
+    margin-top: -4.2rem; }
+  .owl-testimonial .owl-nav .owl-prev {
+    left: -1.6rem; }
+  .owl-testimonial .owl-nav .owl-next {
+    right: -1.6rem; }
+
+.avatar {
+  margin-bottom: .2rem; }
+
+.comment {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 71rem;
+  margin: 0 auto .3rem; }
+  .comment p {
+    font-family: "Times New Roman", Sans-serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: #000;
+    text-align: center;
+    line-height: 3rem;
+    letter-spacing: .015em; }
+
+.commenter {
+  font-size: 1.6rem;
+  color: #999999; }
+
+
+@media screen and (max-width: 1599px) {
+  .owl-products .owl-nav .owl-prev {
+    left: 2%; }
+
+  .owl-products .owl-nav .owl-next {
+    right: 2%; } }
+@media screen and (max-width: 1440px) {
+  .header {
+    background: #fff; }
+
+  .intro-slider-wrapper {
+    background: none; } }
+@media screen and (max-width: 991px) {
+  .widget {
+    padding-left: 0; }
+
+  .banner-2-group {
+    flex-direction: column; }
+
+  .owl-testimonial.owl-simple.owl-carousel .owl-dots {
+    margin-top: 4.4rem; }
+
+  .banner-big .banner-content {
+    left: 30%; } }
+@media screen and (max-width: 767px) {
+  .banner-big .banner-content {
+    left: 50%; }
+
+  .height-x1 {
+    height: 250px; }
+
+  .height-x2 {
+    height: 500px; } }
+@media screen and (max-width: 575px) {
+  .owl-carousel .owl-nav .owl-prev,
+  .owl-carousel .owl-nav .owl-next {
+    display: none; }
+
+  .owl-products .product-body {
+    padding: 1.6rem .5rem; }
+
+  .banner-big .banner-content {
+    font-size: .9rem; }
+
+  .owl-instagram img {
+    min-height: 268px;
+    object-fit: cover; } }
+
+/*# sourceMappingURL=demo-31.css.map */
