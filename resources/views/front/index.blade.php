@@ -42,7 +42,7 @@
     <div class="container pt-6 new-arrivals">
         <div class="row">
             <div class="col-lg-12 mb-3 mb-lg-0 about-us">
-                <h2 class="title">About Our Store</h2><!-- End .title -->
+                <h2 class="title">About Aste</h2><!-- End .title -->
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. </p>
                 <hr class="mb">
             </div><!-- End .col-lg-6 -->
@@ -51,11 +51,47 @@
         <div class="mb-5"></div><!-- End .mb-4 -->
     </div>
     {{--  --}}
+
+      {{--  --}}
+      <div class="pt-2 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="banner banner-overlay">
+                        <a href="#">
+                            <img src="{{asset('theme/assets/images/demos/demo-6/banners/banner-1.jpg')}}" alt="Banner">
+                        </a>
+
+                        <div class="banner-content banner-content-center">
+                            <h4 class="banner-subtitle text-white"><a href="#">New in</a></h4><!-- End .banner-subtitle -->
+                            <h3 class="banner-title text-white"><a href="#"><strong>Sandals</strong></h3><!-- End .banner-title -->
+                            <a href="#" class="btn btn-outline-white banner-link underline">Shop Now</a>
+                        </div><!-- End .banner-content -->
+                    </div><!-- End .banner -->
+                </div><!-- End .col-sm-6 -->
+
+                <div class="col-sm-6">
+                    <div class="banner banner-overlay">
+                        <a href="#">
+                            <img src="{{asset('theme/assets/images/demos/demo-6/banners/banner-2.jpg')}}" alt="Banner">
+                        </a>
+
+                        <div class="banner-content banner-content-center">
+                            <h4 class="banner-subtitle text-white"><a href="#">New in</a></h4><!-- End .banner-subtitle -->
+                            <h3 class="banner-title text-white"><a href="#"><strong>Bags</strong></a></h3><!-- End .banner-title -->
+                            <a href="#" class="btn btn-outline-white banner-link underline">Shop Now</a>
+                        </div><!-- End .banner-content -->
+                    </div><!-- End .banner -->
+                </div><!-- End .col-sm-6 -->
+            </div><!-- End .row -->
+            <hr class="mt-0 mb-0">
+        </div><!-- End .container -->
+    </div><!-- End .bg-gray -->
+    {{--  --}}
     
     <div class="container">
         {{-- <hr class="mb-0"> --}}
-        <h2 class="title text-center mb-4">New Arrivals</h2><!-- End .title text-center -->
-
+       
         <div class="products">
             <div class="row justify-content-center">
                 <div class="col-6 col-md-4 col-lg-3">
@@ -704,53 +740,10 @@
  
 
     <div class="heading heading-testimonial text-center bg-gray"  style="padding-top:80px">
-        <h3 class="text-secondary">Testimonials</h3>
-        <h6>What Members Are Saying</h6>
+    
     </div><!--End .heading-->
 
-    <div class="row testimonials bg-gray">
-        <div class="col-sm-9 col-md-10 col-lg-10">
-            <div class="owl-carousel owl-simple owl-testimonial" data-toggle="owl" 
-                data-owl-options='{
-                "nav": false, 
-                "dots": true,
-                "responsive": {
-                    "992": {
-                        "nav": true
-                    }
-                }
-            }'>
-                <div class="testimonial">
-                    <figure class="avatar">
-                        <img src="{{asset('theme/assets/images/demos/demo-31/testimonials/1.png')}}" alt="Avatar" width="150" height="151">
-                    </figure><!--End .avatar-->
-
-                    <div class="comment">
-                        <p>“ Morbi interdum mollis sapien. Sedac risus phasellus lacinia, magna a ullamcorper laoreet, 
-                                lectusarcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus mauris nibh felis, 
-                                adipiscing varius, adipiscing in, lacinia vel, tellus. ”
-                        </p>
-                    </div><!--End .comment-->
-
-                    <div class="commenter">Sakina Stout</div>
-                </div><!--End .testimonial-->
-
-                <div class="testimonial">
-                    <figure class="avatar">
-                        <img src="{{asset('theme/assets/images/demos/demo-31/testimonials/2.png')}}" alt="Avatar" width="150" height="151">
-                    </figure><!--End .avatar-->
-
-                    <div class="comment">
-                        <p>“ Sedac risus phasellus lacinia, magna a ullamcorper laoreet, lectusarcu pulvinar risus, vitae facilisis libero dolor 
-                            a purus. Sed vel lacus mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. ”
-                        </p>
-                    </div><!--End .comment-->
-
-                    <div class="commenter">John Doe</div>
-                </div><!--End .testimonial-->
-            </div><!-- End .owl-carousel -->
-        </div>
-    </div><!--End .testimonials-->                
+                
 </div><!--End .container-->
 
 </main><!-- End .main -->
