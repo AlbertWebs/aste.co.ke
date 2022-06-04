@@ -23,6 +23,7 @@
     <link rel="stylesheet" href={{asset('theme/assets/css/skins/skin-demo-6.css')}}>
     <link rel="stylesheet" href={{asset('theme/assets/css/demos/demo-6.css')}}>
     <link rel="stylesheet" href="{{asset('theme/assets/css/demos/demo-fix.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/assets/css/demos/demo-5.css')}}">
     {{--  --}}
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
@@ -111,7 +112,7 @@
                     </div>
                     <div class="header-center">
                         <a href="index.html" class="logo">
-                            <img src="{{url('/')}}/uploads/logo/{{$Settings->logo}}" alt="{{$Settings->sitename}}" width="102" height="35">
+                            <img src="{{url('/')}}/uploads/logo/logo.png" alt="{{$Settings->sitename}}" width="142" height="45">
                         </a>
                     </div><!-- End .header-left -->
 
@@ -257,30 +258,18 @@
                             </div><!-- End .widget about-widget -->
                         </div><!-- End .col-sm-6 col-lg-3 -->
 
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="widget">
-                                <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
+                       
 
-                                <ul class="widget-list">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="#">Shop</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="contact.html">Contact us</a></li>
-                                    <li><a href="login.html">Log in</a></li>
-                                </ul><!-- End .widget-list -->
-                            </div><!-- End .widget -->
-                        </div><!-- End .col-sm-6 col-lg-3 -->
-
-                        <div class="col-sm-6 col-lg-3">
+                        <div class="col-sm-6 col-lg-6">
                             <div class="widget">
                                 <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
 
                                 <ul class="widget-list">
-                                    <li><a href="#">Payment Methods</a></li>
-                                    <li><a href="#">Returns</a></li>
-                                    <li><a href="#">Copyright</a></li>
-                                    <li><a href="#">Terms and conditions</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Products</a></li>
+                                    <li><a href="#">Your Cart</a></li>
+                                    <li><a href="#">Aste</a></li>
+                                    <li><a href="#">My Account</a></li>
                                 </ul><!-- End .widget-list -->
                             </div><!-- End .widget -->
                         </div><!-- End .col-sm-6 col-lg-3 -->
@@ -292,11 +281,12 @@
             {{--  --}}
             <div class="footer-bottom">
                 <div class="container">
-                    <p class="footer-copyright">Copyright © <?php echo date('Y') ?> {{$Settings->sitename}}. All Rights Reserved.</p><!-- End .footer-copyright -->
-                    {{-- <ul class="footer-menu">
-                        <li><a href="#">Terms Of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul> --}}
+                   
+                    <ul class="footer-menu">
+                        <li><a href="#"> <p class="footer-copyrights">Copyright © <?php echo date('Y') ?> {{$Settings->sitename}}. All Rights Reserved.</p><!-- End .footer-copyright --></a></li>
+                        <li><a href="{{url('/')}}/terms-and-conditions">Terms Of Use</a></li>
+                        <li><a href="{{url('/')}}/privacy-policy">Privacy Policy</a></li>
+                    </ul>
                     <!-- End .footer-menu -->
 
                     <div class="social-icons social-icons-color">
