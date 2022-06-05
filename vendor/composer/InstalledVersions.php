@@ -27,12 +27,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'cd237362503e1be5b78fc7f109f760c350f9e0a5',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -176,6 +176,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '7a8c6e56ab3ffcc538d05e8155bb42269abf1a0c',
+    ),
+    'dymantic/laravel-instagram-feed' => 
+    array (
+      'pretty_version' => 'v2.6.0',
+      'version' => '2.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '88d5c69034a8690b0056cb91f8139cfadc552724',
     ),
     'egulias/email-validator' => 
     array (
@@ -529,12 +538,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'cd237362503e1be5b78fc7f109f760c350f9e0a5',
     ),
     'laravel/sail' => 
     array (
@@ -716,6 +725,15 @@ private static $installed = array (
       ),
       'reference' => '6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0',
     ),
+    'phpfastcache/phpfastcache' => 
+    array (
+      'pretty_version' => '8.1.3',
+      'version' => '8.1.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'babf654c1618edeb4f9d592d6837b1da661b5107',
+    ),
     'phpoption/phpoption' => 
     array (
       'pretty_version' => '1.7.5',
@@ -787,6 +805,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c73c6737305e779771147af66c96ca6a7ed8a741',
+    ),
+    'psr/cache' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd11b50ad223250cf17b86e38383413f5a6764bf8',
     ),
     'psr/container' => 
     array (
@@ -886,6 +913,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'e4573f47750dd6c92dca5aee543fa77513cbd8d3',
+    ),
+    'raiym/instagram-php-scraper' => 
+    array (
+      'pretty_version' => 'v0.12.4',
+      'version' => '0.12.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3c13ebe81b295d82f15d69d7df3331e810d1cf18',
     ),
     'ralouphie/getallheaders' => 
     array (

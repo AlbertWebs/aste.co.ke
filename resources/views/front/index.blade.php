@@ -1013,6 +1013,8 @@
     <div class="container">
         <div class="instagram-feed-container">
             <div class="row">
+                @foreach ($images as $key => $image)
+
                 <div class="feed-col">
                     <div class="instagram-feed">
                         <img src="{{asset('theme/assets/images/demos/demo-5/instagram/1.jpg')}}" alt="img">
@@ -1023,7 +1025,7 @@
                         </div><!-- End .instagram-feed-content -->
                     </div><!-- End .instagram-feed -->
                 </div><!-- End .feed-col -->
-
+                @endforeach
                 <div class="feed-col">
                     <div class="instagram-feed">
                         <img src="{{asset('theme/assets/images/demos/demo-5/instagram/2.jpg')}}" alt="img">
