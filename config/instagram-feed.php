@@ -4,19 +4,19 @@ return [
     /*
      * The client_id from registering your app on Instagram
      */
-    'client_id'           => 'INSTAGRAM_CLIENT_ID',
+    'client_id'           => env('INSTAGRAM_CLIENT_ID'),
 
     /*
      * The client secret from registering your app on Instagram,
      * This is not the same as an access token.
      */
-    'client_secret'       => 'INSTAGRAM_CLIENT_SECRET',
+    'client_secret'       => env('INSTAGRAM_CLIENT_SECRET'),
 
     /*
      * The base url used to generate to auth callback route for instagram.
      * This defaults to your APP_URL, so normally you may leave it as null
      */
-    'base_url' => null,
+    'base_url' => 'https://aste.co.ke',
 
     /*
      * The route that will respond to the Instagram callback during the OAuth process.
