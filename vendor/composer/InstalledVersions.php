@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'cd237362503e1be5b78fc7f109f760c350f9e0a5',
+    'reference' => 'c9a70438558b67ef22f58946b232e52a29a78bc7',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -520,6 +520,15 @@ private static $installed = array (
         0 => 'v8.41.0',
       ),
     ),
+    'kitloong/laravel-migrations-generator' => 
+    array (
+      'pretty_version' => 'v6.2.0',
+      'version' => '6.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'db00d2dc59916f12bb2449b0b527fb3e05e58491',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
@@ -543,7 +552,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'cd237362503e1be5b78fc7f109f760c350f9e0a5',
+      'reference' => 'c9a70438558b67ef22f58946b232e52a29a78bc7',
     ),
     'laravel/sail' => 
     array (
@@ -636,6 +645,15 @@ private static $installed = array (
       array (
         0 => '1.10.2',
       ),
+    ),
+    'myclabs/php-enum' => 
+    array (
+      'pretty_version' => '1.8.3',
+      'version' => '1.8.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b942d263c641ddb5190929ff840c68f78713e937',
     ),
     'nesbot/carbon' => 
     array (

@@ -24,7 +24,16 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function(){
+            try{
+                Profile::where('username','aste.co.ke')->first()->refreshFeed(24);
+            }catch (Exception $e){
+                Log::error('Failed retriving Instagram feed', ['message' => $e->getMessage()]);
+            }
+            
+        })->everyMinute();
+
+        $schedule->command("instagram-feed:refresh-tokens")->everyMinute();
     }
 
     /**

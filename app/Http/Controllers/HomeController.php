@@ -9,16 +9,24 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Message;
 use App\Models\SendMails;
+use Dymantic\InstagramFeed\Profile;
 use Auth;
 use App\Models\Review;
 class HomeController extends Controller
 {
     public function index(){
+        $profile = \Dymantic\InstagramFeed\Profile::where('username', 'aste.co.ke')->first();
+        $data = [
+            'instagram_feed' => Profile::where('username', 'aste.co.ke')->first()->feed(24),
+        ];
+
+        dd($data);
+
         $Slider = DB::table('sliders')->get(); 
         $Products = DB::table('products')->where('featured','1')->paginate(12);
         $Trending = DB::table('products')->where('trending','1')->paginate(12);
         $SiteSettings = DB::table('_site_settings')->get(); 
-        return view('front.index',compact('SiteSettings','Products','Slider','Trending'));
+        return view('front.index',compact('SiteSettings','Products','Slider','Trending','data'));
     }
 
     public function about(){

@@ -119,9 +119,11 @@ final class Versions
   'fakerphp/faker' => 'v1.14.1@ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1',
   'filp/whoops' => '2.12.1@c13c0be93cff50f88bbd70827d993026821914dd',
   'hamcrest/hamcrest-php' => 'v2.0.1@8c3d0a3f6af734494ad8f6fbbee0ba92422859f3',
+  'kitloong/laravel-migrations-generator' => 'v6.2.0@db00d2dc59916f12bb2449b0b527fb3e05e58491',
   'laravel/sail' => 'v1.5.1@695f616c228c9df923a10282e4989feeae212c52',
   'mockery/mockery' => '1.4.3@d1339f64479af1bee0e82a0413813fe5345a54ea',
   'myclabs/deep-copy' => '1.10.2@776f831124e9c62e1a2c601ecc52e776d8bb7220',
+  'myclabs/php-enum' => '1.8.3@b942d263c641ddb5190929ff840c68f78713e937',
   'nunomaduro/collision' => 'v5.4.0@41b7e9999133d5082700d31a1d0977161df8322a',
   'phar-io/manifest' => '2.0.1@85265efd3af7ba3ca4b2a2c34dbfc5788dd29133',
   'phar-io/version' => '3.1.0@bae7c545bef187884426f042434e561ab1ddb182',
@@ -152,7 +154,7 @@ final class Versions
   'sebastian/type' => '2.3.1@81cd61ab7bbf2de744aba0ea61fae32f721df3d2',
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
-  'laravel/laravel' => 'dev-master@cd237362503e1be5b78fc7f109f760c350f9e0a5',
+  'laravel/laravel' => 'dev-master@c9a70438558b67ef22f58946b232e52a29a78bc7',
 );
 
     private function __construct()

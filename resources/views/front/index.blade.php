@@ -1013,7 +1013,7 @@
     <div class="container">
         <div class="instagram-feed-container">
             <div class="row">
-                @foreach ($images as $key => $image)
+                @foreach ($data as $key => $image)
 
                 <div class="feed-col">
                     <div class="instagram-feed">

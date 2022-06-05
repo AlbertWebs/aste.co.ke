@@ -19,6 +19,7 @@ use App\Http\Controllers\BlogController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 Route::get('/about-us', [HomeController::class, 'about']);
 Route::get('/products', [HomeController::class, 'products']);
 Route::get('/products/{slung}', [HomeController::class, 'products_cat']);
