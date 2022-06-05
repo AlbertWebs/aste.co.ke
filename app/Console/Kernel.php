@@ -25,7 +25,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command("instagram-feed:refresh-tokens")->everyMinute();
         $schedule->call(function(){
             try{
                 Profile::where('username','aste.co.ke')->first()->refreshFeed(24);
@@ -35,7 +34,7 @@ class Kernel extends ConsoleKernel
             
         })->everyMinute();
 
-        
+        $schedule->command("instagram-feed:refresh-tokens")->monthlyOn(15,03:00);
     }
 
     /**
