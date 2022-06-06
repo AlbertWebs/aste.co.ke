@@ -1013,17 +1013,29 @@
     <div class="container">
         <div class="instagram-feed-container">
             <div class="row">
+                <?php $Count = 0; ?>
                 @isset($data['instagram_feed'])
                     @foreach ($data['instagram_feed'] as  $image)
+                    @if($Count == 3)
+                    <div class="feed-col feed-col-title">
+                        <div class="instagram-feed-title">
+                            <i class="icon-instagram"></i>
+                            <p>@ASTE <br>on instagram</p>
+                            <a href="https://www.instagram.com/aste.co.ke/">FOLLOW</a>
+                        </div><!-- End .instagram-feed-title -->
+                    </div><!-- End .feed-col -->
+                    @else
                     <div class="feed-col">
                         <div class="instagram-feed">
                             <img style="width:218px; height:218px;" src="{{$image['url']}}" alt="img">
                             <div class="instagram-feed-content">
-                                <a href="#"><i class="icon-heart-o"></i>{{$image['caption']}}</a>
-                                <a href="#"><i class="icon-comments"></i>45</a>
+                                <a href="#">{{$image['caption']}}</a>
+                                {{-- <a href="#"><i class="icon-comments"></i>45</a> --}}
                             </div><!-- End .instagram-feed-content -->
                         </div><!-- End .instagram-feed -->
                     </div><!-- End .feed-col -->
+                    <?php $Count = $Count+1 ?>
+                    @endif
                     @endforeach
                 @endisset
                 <div class="feed-col">
@@ -1031,19 +1043,13 @@
                         <img src="{{asset('theme/assets/images/demos/demo-5/instagram/2.jpg')}}" alt="img">
 
                         <div class="instagram-feed-content">
-                            <a href="#"><i class="icon-heart-o"></i>691</a>
-                            <a href="#"><i class="icon-comments"></i>87</a>
+                            <a href="#">#homeMade691</a>
+                            {{-- <a href="#"><i class="icon-comments"></i>87</a> --}}
                         </div><!-- End .instagram-feed-content -->
                     </div><!-- End .instagram-feed -->
                 </div><!-- End .feed-col -->
 
-                <div class="feed-col feed-col-title">
-                    <div class="instagram-feed-title">
-                        <i class="icon-instagram"></i>
-                        <p>@ASTE <br>on instagram</p>
-                        <a href="https://www.instagram.com/aste.co.ke/">FOLLOW</a>
-                    </div><!-- End .instagram-feed-title -->
-                </div><!-- End .feed-col -->
+                
 
                 <div class="feed-col">
                     <div class="instagram-feed">
