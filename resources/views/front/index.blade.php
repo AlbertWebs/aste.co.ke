@@ -1016,7 +1016,7 @@
                 <?php $Count = 0; ?>
                 @isset($data['instagram_feed'])
                     @foreach ($data['instagram_feed'] as  $image)
-                    @if($Count == 3)
+                    @if($Count == 2)
                     <div class="feed-col feed-col-title">
                         <div class="instagram-feed-title">
                             <i class="icon-instagram"></i>
@@ -1028,14 +1028,15 @@
                     <div class="feed-col">
                         <div class="instagram-feed">
                             <img style="width:218px; height:218px;" src="{{$image['url']}}" alt="img">
-                            <div class="instagram-feed-content">
-                                <a href="#">{{$image['caption']}}</a>
+                            <div class="instagram-feed-content" style="text-align:center">
+                                <a target="new" href="{{$image['permalink']}}">{{$image['caption']}}</a>
                                 {{-- <a href="#"><i class="icon-comments"></i>45</a> --}}
                             </div><!-- End .instagram-feed-content -->
                         </div><!-- End .instagram-feed -->
                     </div><!-- End .feed-col -->
-                    <?php $Count = $Count+1 ?>
+                    
                     @endif
+                    <?php $Count = $Count+1 ?>
                     @endforeach
                 @endisset
                 

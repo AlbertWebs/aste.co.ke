@@ -34,7 +34,7 @@ class Kernel extends ConsoleKernel
             
         })->everyMinute();
 
-        $schedule->command("instagram-feed:refresh-tokens")->everyMinute();
+        $schedule->command("instagram-feed:refresh-tokens")->weekly();
     }
 
     /**
