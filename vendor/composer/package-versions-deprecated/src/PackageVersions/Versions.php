@@ -56,11 +56,13 @@ final class Versions
   'guzzlehttp/promises' => '1.4.1@8e7d04f1f6450fef59366c399cfad4b9383aa30d',
   'guzzlehttp/psr7' => '1.8.2@dc960a912984efb74d0a90222870c72c87f10c91',
   'laravel/framework' => 'v8.41.0@05417155d886df8710e55c84e12622b52d83c47c',
+  'laravel/socialite' => 'v5.5.2@68afb03259b82d898c68196cbcacd48596a9dd72',
   'laravel/tinker' => 'v2.6.1@04ad32c1a3328081097a181875733fa51f402083',
   'laravel/ui' => 'v3.2.1@e2478cd0342a92ec1c8c77422553bda8ee004fd0',
   'league/commonmark' => '1.6.2@7d70d2f19c84bcc16275ea47edabee24747352eb',
   'league/flysystem' => '1.1.3@9be3b16c877d477357c015cec057548cf9b2a14a',
   'league/mime-type-detection' => '1.7.0@3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3',
+  'league/oauth1-client' => 'v1.10.1@d6365b901b5c287dd41f143033315e2f777e1167',
   'monolog/monolog' => '2.2.0@1cb1cde8e8dd0f70cc0fe51354a59acad9302084',
   'nesbot/carbon' => '2.48.0@d3c447f21072766cddec3522f9468a5849a76147',
   'nikic/php-parser' => 'v4.10.5@4432ba399e47c66624bc73c8c0f811e5c109576f',
@@ -156,7 +158,7 @@ final class Versions
   'sebastian/type' => '2.3.1@81cd61ab7bbf2de744aba0ea61fae32f721df3d2',
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
-  'laravel/laravel' => 'dev-master@b7a693e525a6abcc91b3dae2560dbc53fe194d3d',
+  'laravel/laravel' => 'dev-master@c44a02474e49dda6c568fed938a16bcc631cbbe5',
 );
 
     private function __construct()

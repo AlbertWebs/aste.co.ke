@@ -268,3 +268,8 @@ Route::post('admin/deleteTopicsAjax', [AdminsController::class, 'deleteTopicsAja
 Route::post('admin/deleteSignalsAjax', [AdminsController::class, 'deleteSignalsAjax'])->middleware('is_admin');
 Route::post('admin/deleteProductAjax', [AdminsController::class, 'deleteProductAjax'])->middleware('is_admin');
 
+// SocialMedia
+Route::get('/facebook', [LoginController::class, 'facebook']);
+Route::get('/facebook/redirect', [LoginController::class, 'facebookRedirect']);
+Route::get('/google', [LoginController::class, 'google']);
+Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);

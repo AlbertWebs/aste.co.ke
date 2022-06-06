@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'b7a693e525a6abcc91b3dae2560dbc53fe194d3d',
+    'reference' => 'c44a02474e49dda6c568fed938a16bcc631cbbe5',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -535,7 +535,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'b7a693e525a6abcc91b3dae2560dbc53fe194d3d',
+      'reference' => 'c44a02474e49dda6c568fed938a16bcc631cbbe5',
     ),
     'laravel/sail' => 
     array (
@@ -545,6 +545,15 @@
       array (
       ),
       'reference' => '695f616c228c9df923a10282e4989feeae212c52',
+    ),
+    'laravel/socialite' => 
+    array (
+      'pretty_version' => 'v5.5.2',
+      'version' => '5.5.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '68afb03259b82d898c68196cbcacd48596a9dd72',
     ),
     'laravel/tinker' => 
     array (
@@ -590,6 +599,15 @@
       array (
       ),
       'reference' => '3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3',
+    ),
+    'league/oauth1-client' => 
+    array (
+      'pretty_version' => 'v1.10.1',
+      'version' => '1.10.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd6365b901b5c287dd41f143033315e2f777e1167',
     ),
     'mockery/mockery' => 
     array (
