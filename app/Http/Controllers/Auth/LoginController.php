@@ -93,7 +93,7 @@ class LoginController extends Controller
         ]);
 
         Auth::login($user, true);
-        return redirect()->to('/apps/my-course');
+        return redirect()->to('/dashboard');
     }
 
     public function facebook(){
@@ -116,7 +116,7 @@ class LoginController extends Controller
         ]);
 
         Auth::login($user, true);
-        return redirect()->to('/apps/my-course');
+        return redirect()->to('/dashboard');
     }
 
     
