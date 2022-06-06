@@ -25,9 +25,10 @@ class HomeController extends Controller
         ];
         $Slider = DB::table('sliders')->get(); 
         $Products = DB::table('products')->where('featured','1')->paginate(12);
-        $Trending = DB::table('products')->where('trending','1')->paginate(12);
+        $Trending = DB::table('products')->where('trending','1')->orderBy('id','DESC')->paginate(8);
+        $Lastest = DB::table('products')->orderBy('id','DESC')->paginate(20);
         $SiteSettings = DB::table('_site_settings')->get(); 
-        return view('front.index',compact('SiteSettings','Products','Slider','Trending','data'));
+        return view('front.index',compact('SiteSettings','Products','Slider','Trending','data','Lastest'));
     }
     
     public function welcome(){
@@ -53,6 +54,16 @@ class HomeController extends Controller
         return view('front.products',compact('SiteSettings','Products','Categories'));
     }
 
+    public function products_categories(){
+        $SiteSettings = DB::table('_site_settings')->get(); 
+        $Products = DB::table('products')->paginate(12);
+        $Categories = DB::table('categories')->inRandomOrder()->limit('4')->get();
+        return view('front.products_categories',compact('SiteSettings','Products','Categories'));
+    }
+
+
+
+    
     public function products_cat($slung){
         $ClickedCategory = DB::table('categories')->where('slung',$slung)->get();
         foreach ($ClickedCategory as $key => $value) {

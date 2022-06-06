@@ -37,7 +37,7 @@
         <div class="blog-login-in">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <img width="200" src="{{url('/')}}/uploads/logo/{{$SiteSettings->logo}}" alt="" />
+                <img width="200" src="{{url('/')}}/uploads/logo/logo.png" alt="" />
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

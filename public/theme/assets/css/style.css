@@ -16874,3 +16874,19 @@ button:focus {
 .about-us p{
   color:#000000 !important;
 }
+
+.product-image{
+  width:277px;
+  height:377px;
+}
+
+@media screen and (max-width: 768px) {
+  .product-image{
+    width:auto;
+    height:auto;
+  }
+}
+
+.price-center span{
+   margin:0px auto !important;
+}

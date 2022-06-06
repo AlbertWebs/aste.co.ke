@@ -22,6 +22,7 @@ Route::get('/', [HomeController::class, 'welcome'])->name('homes');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'about']);
 Route::get('/products', [HomeController::class, 'products']);
+Route::get('/products-categories', [HomeController::class, 'products_categories']);
 Route::get('/products/{slung}', [HomeController::class, 'products_cat']);
 Route::get('/quick-view/{id}', [HomeController::class, 'quick_view']);
 Route::get('/product/{slung}', [HomeController::class, 'product']);
@@ -57,7 +58,7 @@ Route::get('/latest-news/category/{slung}', [BlogController::class, 'blog_cat'])
 Auth::routes();
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('admin/home', [AdminsController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('admin/', [AdminsController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 // SiteSettings
 Route::get('admin/credentials', [AdminsController::class, 'systemsCredentials'])->middleware('is_admin');

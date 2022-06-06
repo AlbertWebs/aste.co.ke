@@ -119,14 +119,14 @@
                                 <div class="header-search-wrapper search-wrapper-wide">
                                     <label for="q" class="sr-only">Search</label>
                                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required>
+                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search product or category..." required>
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->
                     </div>
                     <div class="header-center">
-                        <a href="index.html" class="logo">
-                            <img src="{{url('/')}}/uploads/logo/logo.png" alt="{{$Settings->sitename}}" width="142" height="45">
+                        <a href="{{url('/')}}" class="logo">
+                            <img src="{{url('/')}}/uploads/logo/logo.png" alt="{{$Settings->sitename}}" width="200" height="45">
                         </a>
                     </div><!-- End .header-left -->
 
@@ -211,14 +211,20 @@
                                 <li class="megamenu-container active">
                                     <a href="{{url('/')}}">Home</a>
                                 </li>
+                                <?php $Categories = DB::table('categories')->get(); ?>
+                                @foreach ($Categories as $cat)
                                 <li>
-                                    <a href="index.html">Bags</a>
+                                    <a href="{{url('/')}}/products/{{$cat->slung}}">{{$cat->title}}</a>
+                                </li>
+                                @endforeach
+                                <li>
+                                    <a href="{{url('/')}}/dashboard">Track Order</a>
                                 </li>
                                 <li>
-                                    <a href="index.html">Sandals</a>
+                                    <a href="tel:{{$Settings->mobile_one}}"><i class="icon-phone"></i> Call Us</a>
                                 </li>
                                 <li>
-                                    <a href="index.html">T-Shirts</a>
+                                    <a href="tel:{{$Settings->email}}"><i class="la la-envelope"></i> Mail Us</a>
                                 </li>
                                 
                             </ul><!-- End .menu -->
@@ -231,7 +237,7 @@
                     </div><!-- End .header-left -->
 
                     <div class="header-right">
-                        <i class="la la-lightbulb-o"></i><p>Clearance Up to 30% Off</span></p>
+                        {{-- <i class="la la-lightbulb-o"></i><p>Offers Up to 30% Off</span></p> --}}
                     </div>
                 </div><!-- End .container -->
             </div><!-- End .header-bottom -->
