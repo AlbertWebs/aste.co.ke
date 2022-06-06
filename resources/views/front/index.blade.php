@@ -1017,8 +1017,7 @@
                     @foreach ($data['instagram_feed'] as  $image)
                     <div class="feed-col">
                         <div class="instagram-feed">
-                            <img src="{{$image['permalink']}}" alt="img">
-
+                            <img src="{{$image['url']}}" alt="img">
                             {{-- <div class="instagram-feed-content">
                                 <a href="#"><i class="icon-heart-o"></i>387</a>
                                 <a href="#"><i class="icon-comments"></i>45</a>
@@ -1042,7 +1041,7 @@
                     <div class="instagram-feed-title">
                         <i class="icon-instagram"></i>
                         <p>@ASTE <br>on instagram</p>
-                        <a href="#">FOLLOW</a>
+                        <a href="https://www.instagram.com/aste.co.ke/">FOLLOW</a>
                     </div><!-- End .instagram-feed-title -->
                 </div><!-- End .feed-col -->
 
@@ -1169,6 +1168,7 @@
 </div><!-- End .bg-lighter pt-5 pb-5 -->
 
 </main><!-- End .main -->
+<?php dd($data) ?>
 @endforeach
 
 @endsection
