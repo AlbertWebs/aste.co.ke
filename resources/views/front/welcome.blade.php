@@ -103,7 +103,7 @@
                 </div><!-- End .col-md-9 col-lg-8 -->
             </div><!-- End .row -->
         </div><!-- End .container -->
-        <div class="soon-bg bg-image" style="background-image: url(assets/images/backgrounds/soon-bg.jpg)"></div>
+        <div class="soon-bg bg-image" style="background-image: url({{asset('theme/assets/images/backgrounds/soon-bg.jpg')}})"></div>
         <!-- End .soon-bg bg-image -->
     </div><!-- End .soon -->
     <!-- Plugins JS File -->
