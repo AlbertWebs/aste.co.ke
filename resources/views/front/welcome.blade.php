@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Aste  - Classy Bags - Sandals - Shoes</title>
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Molla - Bootstrap eCommerce Template">
-    <meta name="author" content="p-themes">
+    <meta name="keywords" content="Aste -  Bags Sandals">
+    <meta name="description" content="
+    Aste offers a modern and sophisticated collection of apparel for Both Men and Women, We Make and Sell Bags and Sandals among other">
+    <meta name="author" content="Designekta Studios">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
