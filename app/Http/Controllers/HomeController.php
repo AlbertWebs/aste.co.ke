@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Rate;
 use App\Models\FAQ;
 use App\Models\Product;
 use App\Models\Category;
@@ -13,6 +14,7 @@ use Dymantic\InstagramFeed\Profile;
 use Response;
 use Newsletter;
 use Auth;
+use Session;
 use App\Models\Review;
 class HomeController extends Controller
 {
@@ -149,5 +151,14 @@ class HomeController extends Controller
             return Response::json($data);
         }
 
+    }
+
+    public function swap($currency){
+        $Currency = Rate::where('currency',$currency)->get();
+        foreach($Currency as $cur){
+            Session::put('rates', $cur->rates);
+        }
+
+        return back();
     }
 }

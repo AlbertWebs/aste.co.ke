@@ -36,6 +36,9 @@ Route::get('/frequently-asked-questions', [HomeController::class, 'faq']);
 
 Route::post('/newsletter', [HomeController::class, 'newsletter']);
 
+Route::get('/google-translate',[App\Http\Controllers\HomeController::class, 'translate'])->name('translate');
+Route::get('/currency-swap/{code}',[App\Http\Controllers\HomeController::class, 'swap'])->name('swap');
+
 
 Route::get('/shopping-cart', [CartController::class, 'index']);
 Route::get('/shopping-cart/checkout', [CartController::class, 'checkout']);

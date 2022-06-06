@@ -52,6 +52,7 @@
                                 <a href="#">Links</a>
                                 <ul>
                                     <li><a href="tel:{{$Settings->mobile_one}}"><i class="icon-phone"></i>Call: {{$Settings->mobile_one}}</a></li>
+                                    <li><a href="mailto:{{$Settings->email}}"><i class="icon-envelope"></i>Call: {{$Settings->email}}</a></li>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
@@ -59,10 +60,10 @@
 
                     <div class="header-right">
                         <div class="social-icons social-icons-color">
-                            <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
-                            <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
-                            <a href="#" class="social-icon social-pinterest" title="Instagram" target="_blank"><i class="icon-pinterest-p"></i></a>
-                            <a href="#" class="social-icon social-instagram" title="Pinterest" target="_blank"><i class="icon-instagram"></i></a>
+                            <a href="{{$Settings->facebook}}" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                            <a href="{{$Settings->twitter}}" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                            <a href="{{$Settings->linkedin}}" class="social-icon social-linkedin" title="linkedin" target="_blank"><i class="icon-linkedin"></i></a>
+                            <a href="{{$Settings->instagram}}" class="social-icon social-instagram" title="Pinterest" target="_blank"><i class="icon-instagram"></i></a>
                         </div><!-- End .soial-icons -->
                         <ul class="top-menu top-link-menu">
                             <li>
@@ -72,13 +73,28 @@
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
+                        
 
                         <div class="header-dropdown">
-                            <a href="#">USD</a>
+                            @if (session()->has('rates'))
+                            <a href="#">
+                                <?php
+                                    $rates = Session::get('rates');
+                                    $Rates = DB::table('rates')->where('rates',$rates)->get();
+                                ?>
+                                @foreach ($Rates as $rt)
+                                    {{$rt->currency}}
+                                @endforeach
+                            </a>
+                            @else
+                            <a href="{{url('/')}}/currency-swap/KES">KES</a>
+                            @endif
                             <div class="header-menu">
                                 <ul>
-                                    <li><a href="#">Eur</a></li>
-                                    <li><a href="#">Usd</a></li>
+                                    <li><a  href="{{url('/')}}/currency-swap/KES">KES</a></li>
+                                    <li><a href="{{url('/')}}/currency-swap/USD">USD</a></li>
+                                    <li><a href="{{url('/')}}/currency-swap/GBP">GBP</a></li>
+                                    
                                 </ul>
                             </div><!-- End .header-menu -->
                         </div><!-- End .header-dropdown -->
@@ -87,9 +103,7 @@
                             <a href="#">Eng</a>
                             <div class="header-menu">
                                 <ul>
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">Spanish</a></li>
+                                    <li><a id="lang" href="#">English</a></li>
                                 </ul>
                             </div><!-- End .header-menu -->
                         </div><!-- End .header-dropdown -->
@@ -606,6 +620,67 @@
     <!-- Main JS File -->
     <script src={{asset('theme/assets/js/main.js')}}></script>
     <script src={{asset('theme/assets/js/demos/demo-6.js')}}></script>
+
+    {{--  --}}
+    <script type="text/javascript">
+        $('#newsletterz').on('submit', function(e) {
+            e.preventDefault(); 
+            var email = $('#email').val();
+            alert(email)
+            $.ajax({
+                type: "POST",
+                url: host+'/newsletter',
+                data: {email:email}
+                success: function( msg ) {
+                    alert( msg );
+                }
+            });
+        });
+    </script>
+    {{--  --}}
+
+    {{--  --}}
+    {{-- Translator --}}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#lang").click(
+            //
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    {pageLanguage: 'en'},
+                    'google_translate_element'
+                );
+
+            //
+            });
+        })
+
+    </script>
+
+    <!-- Live Search Scripts -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.loading-image').hide();
+        });
+        $('#search').on('keyup',function(){
+            // Add preloader
+            $('.loading-image').show();
+            $value=$(this).val();
+            $.ajax({
+            type : 'get',
+            url : '{{url('/')}}/search',
+            data:{'search':$value},
+            success:function(data){
+            $('.loading-image').hide();
+            $('tbody').html(data);
+            }
+            });
+        })
+    </script>
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    {{-- Google Translate --}}
+    {{--  --}}
 </body>
 @endforeach
 
