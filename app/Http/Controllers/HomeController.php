@@ -20,8 +20,6 @@ class HomeController extends Controller
             'instagram_feed' => Profile::where('username', 'aste.co.ke')->first()->feed(24),
         ];
 
-        dd($data);
-
         $Slider = DB::table('sliders')->get(); 
         $Products = DB::table('products')->where('featured','1')->paginate(12);
         $Trending = DB::table('products')->where('trending','1')->paginate(12);

@@ -1013,19 +1013,20 @@
     <div class="container">
         <div class="instagram-feed-container">
             <div class="row">
-                @foreach ($data as $key => $image)
+                @isset($data['instagram_feed'])
+                    @foreach ($data['instagram_feed'] as  $image)
+                    <div class="feed-col">
+                        <div class="instagram-feed">
+                            <img src="{{$image['permalink']}}" alt="img">
 
-                <div class="feed-col">
-                    <div class="instagram-feed">
-                        <img src="{{asset('theme/assets/images/demos/demo-5/instagram/1.jpg')}}" alt="img">
-
-                        <div class="instagram-feed-content">
-                            <a href="#"><i class="icon-heart-o"></i>387</a>
-                            <a href="#"><i class="icon-comments"></i>45</a>
-                        </div><!-- End .instagram-feed-content -->
-                    </div><!-- End .instagram-feed -->
-                </div><!-- End .feed-col -->
-                @endforeach
+                            {{-- <div class="instagram-feed-content">
+                                <a href="#"><i class="icon-heart-o"></i>387</a>
+                                <a href="#"><i class="icon-comments"></i>45</a>
+                            </div><!-- End .instagram-feed-content --> --}}
+                        </div><!-- End .instagram-feed -->
+                    </div><!-- End .feed-col -->
+                    @endforeach
+                @endisset
                 <div class="feed-col">
                     <div class="instagram-feed">
                         <img src="{{asset('theme/assets/images/demos/demo-5/instagram/2.jpg')}}" alt="img">
