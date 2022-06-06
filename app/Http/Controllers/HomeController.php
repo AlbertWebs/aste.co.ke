@@ -10,6 +10,8 @@ use App\Models\Category;
 use App\Models\Message;
 use App\Models\SendMails;
 use Dymantic\InstagramFeed\Profile;
+use Response;
+use Newsletter;
 use Auth;
 use App\Models\Review;
 class HomeController extends Controller
@@ -24,6 +26,14 @@ class HomeController extends Controller
         $Trending = DB::table('products')->where('trending','1')->paginate(12);
         $SiteSettings = DB::table('_site_settings')->get(); 
         return view('front.index',compact('SiteSettings','Products','Slider','Trending','data'));
+    }
+    
+    public function welcome(){
+        $Products = DB::table('products')->where('featured','1')->paginate(12);
+        $Trending = DB::table('products')->where('trending','1')->paginate(12);
+        $SiteSettings = DB::table('_site_settings')->get(); 
+        $About = DB::table('abouts')->get();
+        return view('front.welcome',compact('SiteSettings','Products','About','Trending'));
     }
 
     public function about(){
@@ -126,5 +136,18 @@ class HomeController extends Controller
         $Review->rating = $preparedAVG;
         $Review->save();
         return "Success";
+    }
+
+    public function newsletter(Request $request){
+        if($request->verify_contact == $request->verify_contacts){
+            $email = $request->email;
+            Newsletter::subscribe($email);
+            $data = "Success";
+            return Response::json($data);
+        }else{
+            $data = "Success";
+            return Response::json($data);
+        }
+
     }
 }

@@ -18,8 +18,8 @@ use App\Http\Controllers\BlogController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
+Route::get('/', [HomeController::class, 'welcome'])->name('homes');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'about']);
 Route::get('/products', [HomeController::class, 'products']);
 Route::get('/products/{slung}', [HomeController::class, 'products_cat']);
@@ -34,6 +34,7 @@ Route::get('/terms-and-conditions', [HomeController::class, 'terms']);
 Route::get('/copyright-statement', [HomeController::class, 'copyright']);
 Route::get('/frequently-asked-questions', [HomeController::class, 'faq']);
 
+Route::post('/newsletter', [HomeController::class, 'newsletter']);
 
 
 Route::get('/shopping-cart', [CartController::class, 'index']);

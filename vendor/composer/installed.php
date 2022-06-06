@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'c9a70438558b67ef22f58946b232e52a29a78bc7',
+    'reference' => 'b7a693e525a6abcc91b3dae2560dbc53fe194d3d',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -150,6 +150,15 @@
       array (
       ),
       'reference' => '7a8c6e56ab3ffcc538d05e8155bb42269abf1a0c',
+    ),
+    'drewm/mailchimp-api' => 
+    array (
+      'pretty_version' => 'v2.5.4',
+      'version' => '2.5.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c6cdfab4ca6ddbc3b260913470bd0a4a5cb84c7a',
     ),
     'dymantic/laravel-instagram-feed' => 
     array (
@@ -526,7 +535,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'c9a70438558b67ef22f58946b232e52a29a78bc7',
+      'reference' => 'b7a693e525a6abcc91b3dae2560dbc53fe194d3d',
     ),
     'laravel/sail' => 
     array (
@@ -1110,6 +1119,15 @@
       array (
       ),
       'reference' => '3dd4319c3d42a9db2bae30582844528799bb22d2',
+    ),
+    'spatie/laravel-newsletter' => 
+    array (
+      'pretty_version' => '4.11.0',
+      'version' => '4.11.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '25e456abecaba25e20d1c11e934bdc3f89601245',
     ),
     'swiftmailer/swiftmailer' => 
     array (

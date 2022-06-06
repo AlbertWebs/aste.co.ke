@@ -46,6 +46,7 @@ final class Versions
   'doctrine/inflector' => '2.0.3@9cf661f4eb38f7c881cac67c75ea9b00bf97b210',
   'doctrine/lexer' => '1.2.1@e864bbf5904cb8f5bb334f99209b48018522f042',
   'dragonmantank/cron-expression' => 'v3.1.0@7a8c6e56ab3ffcc538d05e8155bb42269abf1a0c',
+  'drewm/mailchimp-api' => 'v2.5.4@c6cdfab4ca6ddbc3b260913470bd0a4a5cb84c7a',
   'dymantic/laravel-instagram-feed' => 'v2.6.0@88d5c69034a8690b0056cb91f8139cfadc552724',
   'egulias/email-validator' => '2.1.25@0dbf5d78455d4d6a41d186da50adc1122ec066f4',
   'fideloper/proxy' => '4.4.1@c073b2bd04d1c90e04dc1b787662b558dd65ade0',
@@ -80,6 +81,7 @@ final class Versions
   'ramsey/uuid' => '4.1.1@cd4032040a750077205918c86049aa0f43d22947',
   'spatie/laravel-activitylog' => '3.17.0@bdc44862aaca39ecbd824133b80dbd7c8017ed7f',
   'spatie/laravel-honeypot' => '3.0.1@3dd4319c3d42a9db2bae30582844528799bb22d2',
+  'spatie/laravel-newsletter' => '4.11.0@25e456abecaba25e20d1c11e934bdc3f89601245',
   'swiftmailer/swiftmailer' => 'v6.2.7@15f7faf8508e04471f666633addacf54c0ab5933',
   'symfony/console' => 'v5.2.8@864568fdc0208b3eba3638b6000b69d2386e6768',
   'symfony/css-selector' => 'v5.2.7@59a684f5ac454f066ecbe6daecce6719aed283fb',
@@ -154,7 +156,7 @@ final class Versions
   'sebastian/type' => '2.3.1@81cd61ab7bbf2de744aba0ea61fae32f721df3d2',
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
-  'laravel/laravel' => 'dev-master@c9a70438558b67ef22f58946b232e52a29a78bc7',
+  'laravel/laravel' => 'dev-master@b7a693e525a6abcc91b3dae2560dbc53fe194d3d',
 );
 
     private function __construct()

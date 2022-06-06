@@ -20,7 +20,8 @@
         "phpfastcache/phpfastcache": "^8.1",
         "raiym/instagram-php-scraper": "^0.12.4",
         "spatie/laravel-activitylog": "^3.17",
-        "spatie/laravel-honeypot": "^3.0"
+        "spatie/laravel-honeypot": "^3.0",
+        "spatie/laravel-newsletter": "^4.11"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

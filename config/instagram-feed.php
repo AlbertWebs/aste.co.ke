@@ -16,7 +16,7 @@ return [
      * The base url used to generate to auth callback route for instagram.
      * This defaults to your APP_URL, so normally you may leave it as null
      */
-    'base_url' => 'https://aste.co.ke/public',
+    'base_url' => 'https://aste.co.ke',
 
     /*
      * The route that will respond to the Instagram callback during the OAuth process.
