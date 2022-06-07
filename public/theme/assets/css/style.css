@@ -7759,7 +7759,7 @@ a:focus {
   margin-bottom: 1.3rem; }
 
 .new-price {
-  color: #ef837b;
+  color: #d62676;
   margin-right: .8rem; }
 
 .old-price {
@@ -16880,13 +16880,34 @@ button:focus {
   height:377px;
 }
 
+.price-center span{
+  margin:0px auto !important;
+  /* text-align: center !important; */
+}
+.price-box{
+  margin:0px auto !important;
+}
+
+.insta{
+ width:218px; height:218px;
+}
+
 @media screen and (max-width: 768px) {
   .product-image{
     width:auto;
     height:auto;
   }
+  .insta{
+    width:auto;
+    height:auto;
+   }
+   .footer-copyrights{
+     width:100% !important;
+   }
+   .footer-menu li{
+    /* width:100% !important; */
+    clear:both;
+   }
 }
 
-.price-center span{
-   margin:0px auto !important;
-}
+

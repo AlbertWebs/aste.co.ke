@@ -42,7 +42,7 @@
     <div class="container pt-6 new-arrivals">
         <div class="row">
             <div class="col-lg-12 mb-3 mb-lg-0 about-us">
-                <h2 class="title">About Aste</h2><!-- End .title -->
+                <h2 class="title">We are Aste!</h2><!-- End .title -->
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. </p>
                 <hr class="mb">
             </div><!-- End .col-lg-6 -->
@@ -79,7 +79,7 @@
                             </div><!-- End .product-action-vertical -->
 
                             <div class="product-action">
-                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                <a href="{{url('/')}}/shopping-cart/add-to-cart/{{$Trends->id}}" class="btn-product btn-cart"><span>add to cart</span></a>
                             </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
 
@@ -92,28 +92,29 @@
                             @endforeach
                             <h3 class="product-title text-center"><a href="{{url('/')}}/product/{{$Trends->slung}}">{{$Trends->name}}</a></h3><!-- End .product-title -->
                             <div class="product-price price-center">
-                                
                                 {{--  --}}
                                 @if (session()->has('rates'))
-                                    <?php
-                                        $rates = Session::get('rates');
-                                        $Rates = DB::table('rates')->where('rates',$rates)->get();
-                                    ?>
-                                    @foreach ($Rates as $rt)
-                                        @if($Trends->price == $Trends->price_raw)
-                                           <span>{{$rt->symbol}} <?php $total = $Trends->price*$rt->rates; echo ceil($total) ?></span>
-                                        @else
-                                            <span class="new-price">Now {{$rt->symbol}} <?php $total = $Trends->price*$rt->rates; echo ceil($total) ?></span>
-                                            <span class="old-price">Was {{$rt->symbol}} <?php $total = $Trends->price_raw*$rt->rates; echo ceil($total) ?></span>
-                                        @endif
-                                    @endforeach
+                                    <div class="price-box">
+                                        <?php
+                                            $rates = Session::get('rates');
+                                            $Rates = DB::table('rates')->where('rates',$rates)->get();
+                                        ?>
+                                        @foreach ($Rates as $rt)
+                                            @if($Trends->price == $Trends->price_raw)
+                                            <span>{{$rt->symbol}} <?php $total = $Trends->price*$rt->rates; echo ceil($total) ?></span>
+                                            @else
+                                                <span class="new-price">Now {{$rt->symbol}} <?php $total = $Trends->price*$rt->rates; echo ceil($total) ?></span><br>
+                                                <span class="old-price">Was {{$rt->symbol}} <?php $total = $Trends->price_raw*$rt->rates; echo ceil($total) ?></span>
+                                            @endif
+                                        @endforeach
+                                    </div>
                                 @else
                                     <div class="price-box">
                                         @if($Trends->price == $Trends->price_raw)
                                             <span class="new-price">Now  <?php $total = $Trends->price; echo ceil($total) ?></span>
                                             
                                         @else
-                                            <span class="new-price">Now  <?php $total = $Trends->price; echo ceil($total) ?></span>
+                                            <span class="new-price">Now  <?php $total = $Trends->price; echo ceil($total) ?></span><br>
                                             <span class="old-price">Was  <?php $total = $Trends->price_raw; echo ceil($total) ?></span>
                                         @endif
                                     </div><!-- End .price-box -->

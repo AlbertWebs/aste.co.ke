@@ -43,7 +43,7 @@
                                     </div><!-- End .product-action -->
 
                                     <div class="product-action product-action-transparent">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                        <a href="{{url('/')}}/shopping-cart/add-to-cart/{{$latest->id}}" class="btn-product btn-cart"><span>add to cart</span></a>
                                     </div><!-- End .product-action -->
                                 </figure><!-- End .product-media -->
 

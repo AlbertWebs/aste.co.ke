@@ -41,11 +41,12 @@ Route::get('/google-translate',[App\Http\Controllers\HomeController::class, 'tra
 Route::get('/currency-swap/{code}',[App\Http\Controllers\HomeController::class, 'swap'])->name('swap');
 
 
-Route::get('/shopping-cart', [CartController::class, 'index']);
+Route::get('/shopping-cart', [CartController::class, 'index'])->name('shopping-cart');
 Route::get('/shopping-cart/checkout', [CartController::class, 'checkout']);
+Route::get('/shopping-cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.addtocart');
 Route::post('/shopping-cart/add-to-cart', [CartController::class, 'addToCart'])->name('cart.addtocart');
 Route::post('/shopping-cart/add-to-cart-now', [CartController::class, 'addToCart'])->name('cart.addtocartnow');
-Route::get('/shopping-cart/remove-cart/{id}', [CartController::class, 'remove'])->name('cart.removecart');
+Route::get('/shopping-cart/remove-from-cart/{id}', [CartController::class, 'remove'])->name('cart.removecart');
 Route::post('/shopping-cart/remove-cart-post}', [CartController::class, 'remover'])->name('cart.removercart');
 
 Route::get('/latest-news', [BlogController::class, 'index']);
