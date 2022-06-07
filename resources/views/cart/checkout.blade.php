@@ -1,347 +1,262 @@
-@extends('front.master-product')
+@extends('front.master')
 @section('content')
 @foreach ($SiteSettings as $Settings)
-	<!-- Sidebar -->
-    <div class="sidebar-wrapper">
-        <div class="sidebar-top"><a href="#" class="slidepanel-toggle"><i class="icon icon-left-arrow-circular"></i></a></div>
-        <ul class="sidebar-nav">
-            <li> <a href="index.html">HOME</a> </li>
-            <li> <a href="gallery.html">GALLERY</a> </li>
-            <li> <a href="blog.html">BLOG</a> </li>
-            <li> <a href="category-fixed-sidebar.html">SHOP</a> </li>
-            <li> <a href="faq.html">FAQ</a> </li>
-            <li> <a href="contact.html">CONTACT</a> </li>
-        </ul>
-        <div class="sidebar-bot">
-            <div class="share-button toTop">
-                <span class="toggle"></span>
-                <ul class="social-list">
-                    <li>
-                        <a href="#" class="icon icon-google google"></a>
-                    </li>
-                    <li>
-                        <a href="#" class="icon icon-fancy fancy"></a>
-                    </li>
-                    <li>
-                        <a href="#" class="icon icon-pinterest pinterest"></a>
-                    </li>
-                    <li>
-                        <a href="#" class="icon icon-twitter-logo twitter"></a>
-                    </li>
-                    <li>
-                        <a href="#" class="icon icon-facebook-logo facebook"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /Sidebar -->
-    <!-- Page Content -->
-    <main class="page-main">
-        <div class="block">
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <h1 class="page-title">Checkout<span>Shop</span></h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="checkout">
             <div class="container">
-                <ul class="breadcrumbs">
-                    <li><a href="index.html"><i class="icon icon-home"></i></a></li>
-                    <li>/<span>Checkout</span></li>
-                </ul>
-            </div>
-        </div>
-        <?php $Cart = \Cart::getContent(); ?>
-        <div class="block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>Billing Details</h2>
-                        <form class="white" action="#">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Country<span class="required">*</span></label>
-                                    <div class="select-wrapper">
-                                        <select class="form-control">
-                                            <option> - Select Country - </option>
-                                            <option data-code="US" value="United States">United States</option>
-                                            <option data-code="NL" value="Netherlands">Netherlands</option>
-                                            <option data-code="CA" value="Canada">Canada</option>
-                                            <option data-code="TD" value="Chad">Chad</option>
-                                            <option data-code="CL" value="Chile">Chile</option>
-                                            <option data-code="CN" value="China">China</option>
-                                            <option data-code="CY" value="Cyprus">Cyprus</option>
-                                            <option data-code="EG" value="Egypt">Egypt</option>
-                                            <option data-code="FI" value="Finland">Finland</option>
-                                            <option data-code="FR" value="French">French</option>
-                                            <option data-code="DE" value="German">German</option>
-                                            <option data-code="GR" value="Greece">Greece</option>
-                                            <option data-code="HT" value="Haiti">Haiti</option>
-                                            <option data-code="HU" value="Hungary">Hungary</option>
-                                            <option data-code="IS" value="Iceland">Iceland</option>
-                                            <option data-code="IN" value="India">India</option>
-                                            <option data-code="ID" value="Indonesia">Indonesia</option>
-                                            <option data-code="IR" value="Iran, Islamic Republic Of">Iran</option>
-                                            <option data-code="IQ" value="Iraq">Iraq</option>
-                                            <option data-code="IE" value="Ireland">Ireland</option>
-                                            <option data-code="IL" value="Israel">Israel</option>
-                                            <option data-code="IT" value="Italy">Italy</option>
-                                            <option data-code="JP" value="Japan">Japan</option>
-                                            <option data-code="LU" value="Luxembourg">Luxembourg</option>
-                                            <option data-code="MX" value="Mexico">Mexico</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label>State/Province <span class="required">*</span></label>
-                                    <div class="select-wrapper">
-                                        <select class="form-control">
-                                            <option> - Select Province/State - </option>
-                                            <option value="AB">Alberta</option>
-                                            <option value="BC">British Columbia</option>
-                                            <option value="MB">Manitoba</option>
-                                            <option value="NB">New Brunswick</option>
-                                            <option value="NL">Newfoundland and Labrador</option>
-                                            <option value="NS">Nova Scotia</option>
-                                            <option value="NT">Northwest Territories</option>
-                                            <option value="NU">Nunavut</option>
-                                            <option value="ON">Ontario</option>
-                                            <option value="PE">Prince Edward Island</option>
-                                            <option value="QC">Quebec</option>
-                                            <option value="SK">Saskatchewan</option>
-                                            <option value="YT">Yukon</option>
-                                            <option> ---------------- </option>
-                                            <option value="AL">Alabama</option>
-                                            <option value="AK">Alaska</option>
-                                            <option value="AZ">Arizona</option>
-                                            <option value="AR">Arkansas</option>
-                                            <option value="CA">California</option>
-                                            <option value="CO">Colorado</option>
-                                            <option value="CT">Connecticut</option>
-                                            <option value="DE">Delaware</option>
-                                            <option value="DC">District Of Columbia</option>
-                                            <option value="FL">Florida</option>
-                                            <option value="GA">Georgia</option>
-                                            <option value="HI">Hawaii</option>
-                                            <option value="ID">Idaho</option>
-                                            <option value="IL">Illinois</option>
-                                            <option value="IN">Indiana</option>
-                                            <option value="IA">Iowa</option>
-                                            <option value="KS">Kansas</option>
-                                            <option value="KY">Kentucky</option>
-                                            <option value="LA">Louisiana</option>
-                                            <option value="ME">Maine</option>
-                                            <option value="MD">Maryland</option>
-                                            <option value="MA">Massachusetts</option>
-                                            <option value="MI">Michigan</option>
-                                            <option value="MN">Minnesota</option>
-                                            <option value="MS">Mississippi</option>
-                                            <option value="MO">Missouri</option>
-                                            <option value="MT">Montana</option>
-                                            <option value="NE">Nebraska</option>
-                                            <option value="NV">Nevada</option>
-                                            <option value="NH">New Hampshire</option>
-                                            <option value="NJ">New Jersey</option>
-                                            <option value="NM">New Mexico</option>
-                                            <option value="NY">New York</option>
-                                            <option value="NC">North Carolina</option>
-                                            <option value="ND">North Dakota</option>
-                                            <option value="OH">Ohio</option>
-                                            <option value="OK">Oklahoma</option>
-                                            <option value="OR">Oregon</option>
-                                            <option value="PA">Pennsylvania</option>
-                                            <option value="RI">Rhode Island</option>
-                                            <option value="SC">South Carolina</option>
-                                            <option value="SD">South Dakota</option>
-                                            <option value="TN">Tennessee</option>
-                                            <option value="TX">Texas</option>
-                                            <option value="UT">Utah</option>
-                                            <option value="VT">Vermont</option>
-                                            <option value="VA">Virginia</option>
-                                            <option value="WA">Washington</option>
-                                            <option value="WV">West Virginia</option>
-                                            <option value="WI">Wisconsin</option>
-                                            <option value="WY">Wyoming</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <label>Street Address</label>
-                            <input type="text" class="form-control">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Town / City<span class="required">*</span></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label>Postcode / Zip<span class="required">*</span></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>First Name<span class="required">*</span></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label>Last Name<span class="required">*</span></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <label>Company Name</label>
-                            <input type="text" class="form-control">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>E-mail<span class="required">*</span></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label>Phone Number<span class="required">*</span></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="checkbox-group">
-                                    <input type="checkbox" name="createAccount" id="checkbox-createAccount">
-                                    <label for="checkbox-createAccount"><span class="check"></span><span class="box"></span>Create an Account ?</label>
-                                </div>
-                            </div>
-                        </form>
-                        <h2>Delivery</h2>
-                        <p>Choose delivery option below</p>
-                        <form class="white" action="#">
-                            <div class="radioset">
-                                <label class="radio">
-                                    <input id="radioDelivery1" type="radio" name="radioDelivery" value="none">
-                                    <span class="outer"><span class="inner"></span></span><b>Standard Delivery</b> $5.99 / Delivery in 5 to 7 business Days
-                                </label>
-                                <label class="radio">
-                                    <input id="radioDelivery2" type="radio" name="radioDelivery" value="none">
-                                    <span class="outer"><span class="inner"></span></span><b>Express Delivery</b> $19.99 / Delivery in 1 business Days
-                                </label>
-                            </div>
-                        </form>
-                        <h2>Payment & Order Review</h2>
-                        <form class="white" action="#">
-                            <p>Credit Card</p>
-                            <p class="payment-link">
-                                <a href="#"><img src="{{asset('theme/images/payment-logo/icon-pay-1.png')}}" alt=""></a>
-                                <a href="#"><img src="{{asset('theme/images/payment-logo/icon-pay-2.png')}}" alt=""></a>
-                                <a href="#"><img src="{{asset('theme/images/payment-logo/icon-pay-3.png')}}" alt=""></a>
-                                <a href="#"><img src="{{asset('theme/images/payment-logo/icon-pay-4.png')}}" alt=""></a>
-                                <a href="#"><img src="{{asset('theme/images/payment-logo/icon-pay-5.png')}}" alt=""></a>
-                            </p>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Credit Card Number<span class="required">*</span></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="col-xs-6 col-sm-3">
-                                    <label>Month<span class="required">*</span></label>
-                                    <div class="select-wrapper">
-                                        <select class="form-control">
-                                            <option value="">01</option>
-                                            <option value="">02</option>
-                                            <option value="">03</option>
-                                            <option value="">04</option>
-                                            <option value="">05</option>
-                                            <option value="">06</option>
-                                            <option value="">07</option>
-                                            <option value="">08</option>
-                                            <option value="">09</option>
-                                            <option value="">10</option>
-                                            <option value="">11</option>
-                                            <option value="">12</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-3">
-                                    <label>Year<span class="required">*</span></label>
-                                    <div class="select-wrapper">
-                                        <select class="form-control">
-                                            <option value="">2017</option>
-                                            <option value="">2018</option>
-                                            <option value="">2019</option>
-                                            <option value="">2020</option>
-                                            <option value="">2021</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Your Order</h2>
-                        <div class="cart-table cart-table--sm">
-                            <div class="table-header">
-                                <div class="photo">
-                                    Product Image
-                                </div>
-                                <div class="name">
-                                    Product Name
-                                </div>
-                                <div class="price">
-                                    Unit Price
-                                </div>
-                                <div class="qty">
-                                    Qty
-                                </div>
-                                <div class="subtotal">
-                                    Subtotal
-                                </div>
-                            </div>
-                            @foreach ($Cart as $item)
-                            <?php $Product = DB::table('products')->where('id',$item->id)->get(); ?> 
-                            @foreach ($Product as $product)
-                            <div class="table-row">
-                                <div class="photo">
-                                    <a href="{{url('/')}}/product/{{$product->slung}}"><img src="{{url('/')}}/uploads/products/{{$product->image_one}}" alt=""></a>
-                                </div>
-                                <div class="name">
-                                    <a href="{{url('/')}}/product/{{$product->slung}}">{{$product->name}}</a>
-                                </div>
-                                <div class="price">
-                                    ${{$item->price}}
-                                </div>
-                                <div class="qty qty-changer">
-                                    <fieldset>
-                                        {{-- <input type="button" value="&#8210;" class="decrease"> --}}
-                                        <input type="text" class="qty-input" value="{{$item->quantity}}" data-min="0" data-max="5">
-                                        {{-- <input type="button" value="+" class="increase"> --}}
-                                    </fieldset>
-                                </div>
-                                <div class="subtotal">
-                                    $<?php $Price = $item->price; $qty = $item->quantity; echo $Subtotal = $Price*$qty ?>
-                                </div>
-                              
-                            </div>
-                            @endforeach
-                            @endforeach
-                        </div>
-                        <table class="total-price">
-                            <tr>
-                                <td>Subtotal</td>
-                                <td>{{\Cart::getSubTotal()}}</td>
-                            </tr>
-                            {{-- <tr>
-                                <td>Discount</td>
-                                <td>$12.00</td>
-                            </tr> --}}
-                            <tr class="total">
-                                <td>Grand Total</td>
-                                <td>{{\Cart::getTotal()}}</td>
-                            </tr>
-                        </table>
-                        <div class="clearfix"></div>
-                        <h2>Order Notes</h2>
-                        <form class="white" action="#">
-                            <label>Notes about your order, e.g. special notes for delivery</label>
-                            <textarea class="form-control"></textarea>
-                            <div>
-                                <button class="btn btn-alt">PLACE ORDER</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="divider"></div>
-    </main>
-    <!-- /Page Content -->
+                <div class="checkout-discount">
+                    <form action="#">
+                        <input type="text" class="form-control" required id="checkout-discount-input">
+                        <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
+                    </form>
+                </div><!-- End .checkout-discount -->
+                <form action="#">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>First Name *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div><!-- End .col-sm-6 -->
+
+                                    <div class="col-sm-6">
+                                        <label>Last Name *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div><!-- End .col-sm-6 -->
+                                </div><!-- End .row -->
+
+                                <label>Company Name (Optional)</label>
+                                <input type="text" class="form-control">
+
+                                <label>Country *</label>
+                                <input type="text" class="form-control" required>
+
+                                <label>Street address *</label>
+                                <input type="text" class="form-control" placeholder="House number and Street name" required>
+                                <input type="text" class="form-control" placeholder="Appartments, suite, unit etc ..." required>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Town / City *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div><!-- End .col-sm-6 -->
+
+                                    <div class="col-sm-6">
+                                        <label>State / County *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div><!-- End .col-sm-6 -->
+                                </div><!-- End .row -->
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Postcode / ZIP *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div><!-- End .col-sm-6 -->
+
+                                    <div class="col-sm-6">
+                                        <label>Phone *</label>
+                                        <input type="tel" class="form-control" required>
+                                    </div><!-- End .col-sm-6 -->
+                                </div><!-- End .row -->
+
+                                <label>Email address *</label>
+                                <input type="email" class="form-control" required>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
+                                    <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
+                                </div><!-- End .custom-checkbox -->
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="checkout-diff-address">
+                                    <label class="custom-control-label" for="checkout-diff-address">Ship to a different address?</label>
+                                </div><!-- End .custom-checkbox -->
+
+                                <label>Order notes (optional)</label>
+                                <textarea class="form-control" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                        </div><!-- End .col-lg-9 -->
+                        <aside class="col-lg-3">
+                            <div class="summary">
+                                <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+
+                                <table class="table table-summary">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="#">Beige knitted elastic runner shoes</a></td>
+                                            <td>$84.00</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><a href="#">Blue utility pinafore denimdress</a></td>
+                                            <td>$76,00</td>
+                                        </tr>
+                                        <tr class="summary-subtotal">
+                                            <td>Subtotal:</td>
+                                            <td>$160.00</td>
+                                        </tr><!-- End .summary-subtotal -->
+                                        <tr>
+                                            <td>Shipping:</td>
+                                            <td>Free shipping</td>
+                                        </tr>
+                                        <tr class="summary-total">
+                                            <td>Total:</td>
+                                            <td>$160.00</td>
+                                        </tr><!-- End .summary-total -->
+                                    </tbody>
+                                </table><!-- End .table table-summary -->
+
+                                <div class="accordion-summary" id="accordion-payment">
+                                    <div class="card">
+                                        <div class="card-header" id="heading-1">
+                                            <h2 class="card-title">
+                                                <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                                                    Direct bank transfer
+                                                </a>
+                                            </h2>
+                                        </div><!-- End .card-header -->
+                                        <div id="collapse-1" class="collapse show" aria-labelledby="heading-1" data-parent="#accordion-payment">
+                                            <div class="card-body">
+                                                <address>
+                                                    <strong>
+                                                    ACCOUNT NUMBER:<input onclick="this.select();" type='text' value='1234567890' /><br>
+                                                    ACCOUNT NAME: <input onclick="this.select();" type='text' value='ASTE' /><br>
+                                                    ACCOUNT BRANCH: <input onclick="this.select();" type='text' value='WESTLANDS' /><br>
+                                                    </strong>
+                                                </address>
+                                                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                                    <span class="btn-text"> Verify Payment</span>
+                                                    <span class="btn-hover-text">Submit Transaction Info</span>
+                                                </button>
+                                            </div><!-- End .card-body -->
+                                        </div><!-- End .collapse -->
+                                    </div><!-- End .card -->
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading-2">
+                                            <h2 class="card-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                                                    Checkout With M-PESA
+                                                </a>
+                                            </h2>
+                                        </div><!-- End .card-header -->
+                                        <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion-payment">
+                                            <div class="card-body">
+                                                <form>
+                                                    <address>
+                                                        <strong>
+                                                        MPESA NUMBER:<input onclick="this.select();" type='text' value='1234567890' /><br>
+                                                        
+                                                        </strong>
+                                                    </address>
+                                                    <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                                        <span class="btn-text"> Pay Now</span>
+                                                        <span class="btn-hover-text">Initiate Transaction</span>
+                                                    </button>
+                                                </form>
+                                            </div><!-- End .card-body -->
+                                        </div><!-- End .collapse -->
+                                    </div><!-- End .card -->
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading-5">
+                                            <h2 class="card-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+                                                    Credit Card (Paypal)
+                                                    <img src="{{asset('theme/assets/images/payments-summary.png')}}" alt="payments cards">
+                                                </a>
+                                            </h2>
+                                        </div><!-- End .card-header -->
+                                        <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion-payment">
+                                            <div class="card-body"> 
+                                                {{--  --}}
+                                                <form id="paypal_donate_form-onetime" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                                                    
+                                                    <input type="hidden" name="item_name">
+                                                    <input type="hidden" name="currency_code" value="USD">
+                                                    <input type="hidden" name="amount" value="">
+                                                    
+                                      
+                                                   
+                                                    <input type="hidden" name="cmd" value="_xclick">
+                                                    <input type="hidden" name="business" value="aste.co.ke@gmail.com">
+                                                    <input type="hidden" name="no_shipping" value="1">
+                                                    <input type="hidden" name="cn" value="Comments...">
+                                                    <input type="hidden" name="currency_code" value="USD">
+                                                    <input type="hidden" name="tax" value="0">
+                                                    <input type="hidden" name="lc" value="US">
+                                                    <input type="hidden" name="bn" value="PP-DonationsBF">
+                                                    <input type="hidden" name="return" value="https://aste.co.ke/paypal-call-back">
+                                                    <input type="hidden" name="cancel_return" value="ttps://aste.co.ke/paypal-call-back">
+                                                    <input type="hidden" name="notify_url" value="ttps://aste.co.ke/paypal-call-back">              
+                                                    <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_200x51.png" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                                    <img alt="" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_200x51.png" width="1" height="1">
+                                                  </form>
+                                                {{--  --}}
+                                            </div><!-- End .card-body -->
+                                        </div><!-- End .collapse -->
+                                    </div><!-- End .card -->
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading-3">
+                                            <h2 class="card-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+                                                    Cash on delivery
+                                                </a>
+                                            </h2>
+                                        </div><!-- End .card-header -->
+                                        <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#accordion-payment">
+                                            <div class="card-body">
+                                                <form>
+                                                    
+                                                    <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                                        <span class="btn-text"> Place Order</span>
+                                                        <span class="btn-hover-text">Submit Your Order Now</span>
+                                                    </button>
+                                                </form>
+                                            </div><!-- End .card-body -->
+                                        </div><!-- End .collapse -->
+                                    </div><!-- End .card -->
+
+                                    
+
+                                    
+                                </div><!-- End .accordion -->
+
+                                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                    <span class="btn-text">Place Order</span>
+                                    <span class="btn-hover-text">Proceed to Checkout</span>
+                                </button>
+                            </div><!-- End .summary -->
+                        </aside><!-- End .col-lg-3 -->
+                    </div><!-- End .row -->
+                </form>
+            </div><!-- End .container -->
+        </div><!-- End .checkout -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
 @endforeach
 @endsection

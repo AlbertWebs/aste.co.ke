@@ -9,13 +9,17 @@ use Darryldecode\Cart\Cart;
 use Darryldecode\Cart\CartCondition;
 use Redirect;
 use Session;
-
+use Dymantic\InstagramFeed\Profile;
 
 class CartController extends Controller
 {
     public function index(){
+        $profile = \Dymantic\InstagramFeed\Profile::where('username', 'aste.co.ke')->first();
+        $data = [
+            'instagram_feed' => Profile::where('username', 'aste.co.ke')->first()->feed(9),
+        ];
         $SiteSettings = DB::table('_site_settings')->get(); 
-        return view('cart.index',compact('SiteSettings'));
+        return view('cart.index',compact('SiteSettings','data'));
     }
 
     public function checkout(){
@@ -81,7 +85,6 @@ class CartController extends Controller
             ));
         }
         return redirect()->route('shopping-cart');
-
     }
 
     

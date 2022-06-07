@@ -145,7 +145,7 @@
                     <div class="deal-content text-center">
                         <h4>Limited quantities. </h4>
                         <h2>Deal of the Day</h2>
-                        <div class="deal-countdown" data-until="+10h"></div><!-- End .deal-countdown -->
+                        <div class="deal-countdown" data-until="+1h"></div><!-- End .deal-countdown -->
                     </div><!-- End .deal-content -->
                     <div class="row deal-products">
                         <div class="col-6 deal-product text-center">
@@ -158,7 +158,7 @@
 
                             <div class="product-body">
                                 <h3 class="product-title"><a href="product.html">Elasticated cotton shorts</a></h3><!-- End .product-title -->
-                                <div class="product-price">
+                                <div class="product-price price-center">
                                     <span class="new-price">Now $24.99</span>
                                     <span class="old-price">Was $30.99</span>
                                 </div><!-- End .product-price -->
@@ -175,7 +175,7 @@
 
                             <div class="product-body">
                                 <h3 class="product-title"><a href="product.html">Fine-knit jumper</a></h3><!-- End .product-title -->
-                                <div class="product-price">
+                                <div class="product-price price-center">
                                     <span class="new-price">Now $8.99</span>
                                     <span class="old-price">Was $17.99</span>
                                 </div><!-- End .product-price -->
