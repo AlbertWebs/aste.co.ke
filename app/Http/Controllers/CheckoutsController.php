@@ -14,6 +14,22 @@ use Dymantic\InstagramFeed\Profile;
 
 class CartController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    
     public function index(){
         $profile = \Dymantic\InstagramFeed\Profile::where('username', 'aste.co.ke')->first();
         $data = [

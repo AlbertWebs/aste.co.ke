@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BlogController;
@@ -42,7 +43,12 @@ Route::get('/currency-swap/{code}',[App\Http\Controllers\HomeController::class, 
 
 
 Route::get('/shopping-cart', [CartController::class, 'index'])->name('shopping-cart');
-Route::get('/shopping-cart/checkout', [CartController::class, 'checkout']);
+Route::get('/shopping-cart/checkout', [CheckoutController::class, 'index'])->name('dashboard');
+Route::get('/shopping-cart/payment', [CheckoutController::class, 'payment'])->name('payment');
+Route::get('/shopping-cart/place-order', [CartController::class, 'place_order']);
+Route::get('/shopping-cart/complete-order', [CartController::class, 'complete_order']);
+
+
 Route::get('/shopping-cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.addtocart');
 Route::post('/shopping-cart/add-to-cart', [CartController::class, 'addToCart'])->name('cart.addtocart');
 Route::post('/shopping-cart/add-to-cart-now', [CartController::class, 'addToCart'])->name('cart.addtocartnow');

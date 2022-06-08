@@ -47,7 +47,7 @@
                                                 </figure>
 
                                                 <h3 class="product-title">
-                                                    <a href="#">Beige knitted elastic runner shoes</a>
+                                                    <a href="#">{{$product->name}}</a>
                                                 </h3><!-- End .product-title -->
                                             </div><!-- End .product -->
                                         </td>
@@ -177,7 +177,7 @@
                                     </tr><!-- End .summary-shipping-row -->
 
                                     <tr class="summary-shipping-estimate">
-                                        <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>
+                                        <td>Estimate for Your Country<br> <a href="{{url('/')}}/dashboard">Change address</a></td>
                                         <td>&nbsp;</td>
                                     </tr><!-- End .summary-shipping-estimate -->
 

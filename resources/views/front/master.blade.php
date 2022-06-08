@@ -70,7 +70,7 @@
                                 <a href="#">Links</a>
                                 <ul>
                                     @if(Auth::user())
-                                    <a href="{{url('/')}}/dashboard" class="d-lg-block d-none">
+                                    <a href="{{url('/')}}/dashboard">Welcome Back! {{Auth::user()->name}}</a>
                                     @else
                                     <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                                     @endif
@@ -81,17 +81,17 @@
 
                         <div class="header-dropdown">
                             @if (session()->has('rates'))
-                            <a href="#">
-                                <?php
-                                    $rates = Session::get('rates');
-                                    $Rates = DB::table('rates')->where('rates',$rates)->get();
-                                ?>
-                                @foreach ($Rates as $rt)
-                                    {{$rt->currency}}
-                                @endforeach
-                            </a>
+                                <a href="#">
+                                    <?php
+                                        $rates = Session::get('rates');
+                                        $Rates = DB::table('rates')->where('rates',$rates)->get();
+                                    ?>
+                                    @foreach ($Rates as $rt)
+                                        {{$rt->currency}}
+                                    @endforeach
+                                </a>
                             @else
-                            <a href="{{url('/')}}/currency-swap/KES">KES</a>
+                                <a href="#">KES</a>
                             @endif
                             <div class="header-menu">
                                 <ul>
@@ -536,6 +536,48 @@
  
     <!-- Plugins JS File -->
     <script src={{asset('theme/assets/js/jquery.min.js')}}></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          
+            $('.loading-image').hide();
+            
+        });
+
+        // this is the id of the form
+        $("#stk_push_initiate").submit(function(e) {
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+
+            var form = $(this);
+            var actionUrl = form.attr('action');
+            $('.loading-image').show();
+            
+            setTimeout(function() {
+                $('.text-success').html("Check your m-pesa phone.....")
+            }, 2000);
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: form.serialize(), 
+                success: function(data) {
+                    setTimeout(function() {
+                        $('.text-success').html("Successful!  Redirecting....")
+                        $('.loading-image').hide();
+                    }, 1000);
+                   
+                    setTimeout(function() {
+						window.location = "{{url('shopping-cart/place-order')}}"
+                    }, 5000);
+                }
+            });
+
+        });
+
+        
+        
+        
+    </script>
+    
     <script src={{asset('theme/assets/js/bootstrap.bundle.min.js')}}></script>
     <script src={{asset('theme/assets/js/jquery.hoverIntent.min.js')}}></script>
     <script src={{asset('theme/assets/js/jquery.waypoints.min.js')}}></script>
@@ -608,8 +650,11 @@
 
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     {{-- Google Translate --}}
+
+    
     {{--  --}}
 </body>
+
 @endforeach
 
 </html>

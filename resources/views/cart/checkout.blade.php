@@ -30,67 +30,61 @@
                     <div class="row">
                         <div class="col-lg-9">
                             <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>First Name *</label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Full Name *</label>
+                                    <input type="text" name="name" class="form-control" value="{{Auth::user()->name}}" required>
+                                </div><!-- End .col-sm-6 -->
 
-                                    <div class="col-sm-6">
-                                        <label>Last Name *</label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
-                                </div><!-- End .row -->
+                                <div class="col-sm-6">
+                                    <label>Email address *</label>
+                                    <input type="email" name="email" value="{{Auth::user()->email}}" class="form-control" required>
+                                </div><!-- End .col-sm-6 -->
+                            </div><!-- End .row -->
 
-                                <label>Company Name (Optional)</label>
-                                <input type="text" class="form-control">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Company Name (Optional)</label>
+                                    <input type="text" name="company" value="{{Auth::user()->company}}" class="form-control">
+                                </div>
 
-                                <label>Country *</label>
-                                <input type="text" class="form-control" required>
+                                <div class="col-sm-6">
+                                    <label>Country *</label>
+                                    <input type="text" name="country" value="{{Auth::user()->country}}" class="form-control" required>
+                                </div>
+                            </div>
 
-                                <label>Street address *</label>
-                                <input type="text" class="form-control" placeholder="House number and Street name" required>
-                                <input type="text" class="form-control" placeholder="Appartments, suite, unit etc ..." required>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Street address *</label>
+                                    <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control" placeholder="House number and Street name" required>
+                                </div>
 
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>Town / City *</label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
+                                <div class="col-sm-6">
+                                    <label>Town / City *</label>
+                                    <input type="text" name="town"  value="{{Auth::user()->town}}" class="form-control" required>
+                                </div>
+                            </div>
 
-                                    <div class="col-sm-6">
-                                        <label>State / County *</label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
-                                </div><!-- End .row -->
+                            
 
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>Postcode / ZIP *</label>
-                                        <input type="text" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
+                            
+                           
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Postcode / ZIP *</label>
+                                    <input value="{{Auth::user()->zip}}" name="zip" type="text" class="form-control" required>
+                                </div><!-- End .col-sm-6 -->
 
-                                    <div class="col-sm-6">
-                                        <label>Phone *</label>
-                                        <input type="tel" class="form-control" required>
-                                    </div><!-- End .col-sm-6 -->
-                                </div><!-- End .row -->
+                                <div class="col-sm-6">
+                                    <label>Phone *</label>
+                                    <input value="{{Auth::user()->mobile}}" name="mobile" type="tel" class="form-control" required>
+                                </div><!-- End .col-sm-6 -->
+                            </div><!-- End .row -->
 
-                                <label>Email address *</label>
-                                <input type="email" class="form-control" required>
-
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
-                                    <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
-                                </div><!-- End .custom-checkbox -->
-
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkout-diff-address">
-                                    <label class="custom-control-label" for="checkout-diff-address">Ship to a different address?</label>
-                                </div><!-- End .custom-checkbox -->
-
-                                <label>Order notes (optional)</label>
-                                <textarea class="form-control" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                            <label>Order notes (optional)</label>
+                            <textarea class="form-control" cols="30" rows="4" name="notes" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                            </form>
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-3">
                             <div class="summary">
@@ -103,17 +97,40 @@
                                             <th>Total</th>
                                         </tr>
                                     </thead>
-
+                                    <?php $CartItems = \Cart::getContent(); ?>
                                     <tbody>
-                                        <tr>
-                                            <td><a href="#">Beige knitted elastic runner shoes</a></td>
-                                            <td>$84.00</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><a href="#">Blue utility pinafore denimdress</a></td>
-                                            <td>$76,00</td>
-                                        </tr>
+                                        @foreach ($CartItems as $item)
+                                        <?php $Product = DB::table('products')->where('id',$item->id)->get(); ?> 
+                                        @foreach ($Product as $product)
+                                            <tr>
+                                                <td><a href="#">{{$product->name}}</a></td>
+                                                <td>
+                                                    {{--  --}}
+                                                    @if (session()->has('rates'))
+                                                   
+                                                        <?php
+                                                            $rates = Session::get('rates');
+                                                            $Rates = DB::table('rates')->where('rates',$rates)->get();
+                                                        ?>
+                                                        @foreach ($Rates as $rt)
+                                                            
+                                                                {{$rt->symbol}} <?php $total = $product->price*$rt->rates; echo ceil($total) ?>
+                                                                
+                                                         
+                                                        @endforeach
+                                                    </div>
+                                                    @else
+                                                        <div class="price-box">
+                                                            
+                                                                KES <?php $total = $product->price; echo ceil($total) ?>
+                                                          
+                                                        
+                                                    @endif
+                                                    {{--  --}}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endforeach
                                         <tr class="summary-subtotal">
                                             <td>Subtotal:</td>
                                             <td>$160.00</td>
@@ -165,17 +182,21 @@
                                         </div><!-- End .card-header -->
                                         <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion-payment">
                                             <div class="card-body">
-                                                <form>
+                                                <form id="stk_push_initiate" action="{{url('/')}}/api/v1/stk/push">
+                                                    @csrf
                                                     <address>
                                                         <strong>
-                                                        MPESA NUMBER:<input onclick="this.select();" type='text' value='1234567890' /><br>
+                                                        MPESA NUMBER:<input name="mobile" onclick="this.select();" type='text' placeholder="254" value='254 ' /><br>
                                                         
                                                         </strong>
                                                     </address>
+                                                    <input type="hidden" name="amount" value="<?php $tt = Cart::getTotal();  echo $tt; ?>">
                                                     <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
                                                         <span class="btn-text"> Pay Now</span>
                                                         <span class="btn-hover-text">Initiate Transaction</span>
+                                                        <img class="loading-image" style="width:30px; margin-left:20px" src="{{url('/')}}/uploads/icon/loading.gif" alt="Aste Loading">
                                                     </button>
+                                                    <p class="text-success"></p>
                                                 </form>
                                             </div><!-- End .card-body -->
                                         </div><!-- End .collapse -->
@@ -246,17 +267,23 @@
                                     
                                 </div><!-- End .accordion -->
 
-                                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
-                                    <span class="btn-text">Place Order</span>
-                                    <span class="btn-hover-text">Proceed to Checkout</span>
+                                <button onclick="location.href='{{url('/')}}';" type="button" class="btn btn-outline-primary-2 btn-order btn-block">
+                                    <span class="btn-text">Continue Shopping</span>
+                                    <span class="btn-hover-text">Go Back To Shop</span>
                                 </button>
+                                <script>
+                                    function clickShop(){
+                                        window.open({{url('/')}});
+                                    }
+                                </script>
                             </div><!-- End .summary -->
                         </aside><!-- End .col-lg-3 -->
                     </div><!-- End .row -->
-                </form>
+                {{-- </form> --}}
             </div><!-- End .container -->
         </div><!-- End .checkout -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
+
 @endforeach
 @endsection

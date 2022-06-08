@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use DB;
 use App\Models\Product;
 use Darryldecode\Cart\Cart;
@@ -12,9 +10,27 @@ use Session;
 use Auth;
 use Dymantic\InstagramFeed\Profile;
 
-class CartController extends Controller
+use Illuminate\Http\Request;
+
+class CheckoutController extends Controller
 {
-    public function index(){
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    
+    public function indexs(){
         $profile = \Dymantic\InstagramFeed\Profile::where('username', 'aste.co.ke')->first();
         $data = [
             'instagram_feed' => Profile::where('username', 'aste.co.ke')->first()->feed(9),
@@ -23,7 +39,7 @@ class CartController extends Controller
         return view('cart.index',compact('SiteSettings','data'));
     }
 
-    public function checkout(){
+    public function index(){
         $page_title = 'Checkout';
         $CartItems = \Cart::getContent();
         $SiteSettings = DB::table('_site_settings')->get();
@@ -194,4 +210,26 @@ class CartController extends Controller
         /** Load The Thank You Page */
         }}
 }
+
+public function checkout(){
+    $page_title = 'Checkout';
+    $CartItems = \Cart::getContent();
+    $SiteSettings = DB::table('_site_settings')->get();
+    $page_name = 'Cobfirm'; 
+    $keywords = '';
+    if(Auth::check()){
+        // return redirect()->route('cart/checkout/payment','CheckoutController@payment');
+        return redirect()->route('payment');
+    }
+    else{
+        
+        return view('checkout.index', compact('keywords','CartItems','page_title','SiteSettings','page_name'));
+    }
+}
+
+public function payment(){
+    $SiteSettings = DB::table('_site_settings')->get(); 
+    return view('cart.checkout',compact('SiteSettings'));
+}
+
 }

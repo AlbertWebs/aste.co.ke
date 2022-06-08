@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     owlCarousels();
     quantityInputs();
+    
 
     // Header Search Toggle
 
@@ -785,4 +786,6 @@ $(document).ready(function () {
             }, 500)
         }, 900)
     }
+
+    
 });
