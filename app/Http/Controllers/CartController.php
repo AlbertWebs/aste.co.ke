@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Product;
+use App\Models\orders;
+use App\Models\ReplyMessage;
 use Darryldecode\Cart\Cart;
 use Darryldecode\Cart\CartCondition;
 use Redirect;
@@ -156,28 +158,14 @@ class CartController extends Controller
         ReplyMessage::mailclient($email,$name,$InvoiceNumber,$ShippingFee,$TotalCost);
         ReplyMessage::mailmerchant($email,$name,$phone);
 
-        Cart::destroy();
+        // Cart::destroy();
         // Destrony Invoice & Order Sessions
         session()->forget('Invoice');
         session()->forget('Order');
         session()->forget('Shipping');
         session()->forget('TotalCost');
 
-        /**Load The Thank You Page */
-        $SEOSettings = DB::table('seosettings')->get();
-        foreach($SEOSettings as $Settings){
-        SEOMeta::setTitle('Thanks You For Your Order'.$Settings->sitename.' - Orders');
-        SEOMeta::setDescription(''.$Settings->welcome.'');
-        SEOMeta::setCanonical(''.$Settings->url.'/dashboard/thankyou');
-
-        OpenGraph::setDescription(''.$Settings->welcome.''); 
-        OpenGraph::setTitle(''.$Settings->sitename.' - '.$Settings->welcome.'');
-        OpenGraph::setUrl(''.$Settings->url.'/dashboard/thanksyou');
-        OpenGraph::addProperty('type', 'articles');
-        
-        
-        Twitter::setTitle(''.$Settings->sitename.' - '.$Settings->welcome.'');
-        Twitter::setSite(''.$Settings->twitter.'');
+       
         $id = Auth::user()->id;
         $page_name = '';
         $page_title = '';
@@ -187,11 +175,11 @@ class CartController extends Controller
         Session::forget('coupon');
         Session::forget('coupon-code');
         Session::forget('coupon-total');
-
-
-        return view('dashboard.thankyou',compact('page_title','page_name','page_title','keywords'));
+        $Orders = DB::table('orders')->where('user_id',$id)->get();
+        $SiteSettings = DB::table('_site_settings')->get(); 
+        return view('dashboard.index',compact('page_title','page_name','page_title','keywords','Orders','SiteSettings'));
 
         /** Load The Thank You Page */
-        }}
+        }
 }
 }

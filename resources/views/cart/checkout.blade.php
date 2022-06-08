@@ -20,13 +20,15 @@
     <div class="page-content">
         <div class="checkout">
             <div class="container">
-                <div class="checkout-discount">
+                {{-- <div class="checkout-discount">
                     <form action="#">
                         <input type="text" class="form-control" required id="checkout-discount-input">
                         <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
                     </form>
-                </div><!-- End .checkout-discount -->
-                <form action="#">
+                    <p id="coupon-processing" style="color:#d62676; font-weight:600;">Processing....</p>
+                </div><!-- End .checkout-discount --> --}}
+                <form  id="updateSettings">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-9">
                             <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
@@ -83,7 +85,16 @@
                             </div><!-- End .row -->
 
                             <label>Order notes (optional)</label>
+                            <br><label>Last Notes:</label>
+                            {!! html_entity_decode(Auth::user()->notes, ENT_QUOTES, 'UTF-8') !!}
                             <textarea class="form-control" cols="30" rows="4" name="notes" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+
+                            <button  type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                <span class="btn-text"> Save Your Info <i class="icon-arrow-right"></i> </span>
+                                <span class="btn-hover-text">Update Your Info</span>
+                            </button>
+                            <center><img class="spinner text-center" width="25" src="{{asset('uploads/icon/loading.gif')}}" alt=""></center>
+                            <div id="saved" class="text-success text-center"></div>
                             </form>
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-3">
@@ -253,7 +264,7 @@
                                             <div class="card-body">
                                                 <form>
                                                     
-                                                    <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                                    <button type="button" onclick="location.href='{{url('/')}}/shopping-cart/place-order';" class="btn btn-outline-primary-2 btn-order btn-block">
                                                         <span class="btn-text"> Place Order</span>
                                                         <span class="btn-hover-text">Submit Your Order Now</span>
                                                     </button>
@@ -271,11 +282,7 @@
                                     <span class="btn-text">Continue Shopping</span>
                                     <span class="btn-hover-text">Go Back To Shop</span>
                                 </button>
-                                <script>
-                                    function clickShop(){
-                                        window.open({{url('/')}});
-                                    }
-                                </script>
+                                
                             </div><!-- End .summary -->
                         </aside><!-- End .col-lg-3 -->
                     </div><!-- End .row -->

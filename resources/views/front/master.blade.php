@@ -540,6 +540,7 @@
         $(document).ready(function(){
           
             $('.loading-image').hide();
+            $('.spinner').hide();
             
         });
 
@@ -576,6 +577,30 @@
         
         
         
+    </script>
+    <script>
+        $('#updateSettings').on('submit', function (e) {
+          $('.spinner').show();
+              e.preventDefault();
+                  $.ajax({
+                      type: 'post',
+                      url: '{{url('/')}}/dashboard/update-settings',
+                      data: $('#updateSettings').serialize(),
+                          success: function ($results) {
+                              // alert('Verification Was Successfull')
+                              $('#success-alert').html('The Purchase Was Successfull')
+                              $('#veryfyID').html('Successfull')
+                              $('#saved').html('Successfull')
+                              $('.spinner').hide();
+                            //   setTimeout(function() {
+                            //     window.open('{{url('/')}}/shopping-cart/payment','_self')
+                            //   }, 5000);
+                            //   
+                          }
+                  });
+
+          });
+
     </script>
     
     <script src={{asset('theme/assets/js/bootstrap.bundle.min.js')}}></script>

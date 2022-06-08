@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\Auth\LoginController;
@@ -60,6 +61,20 @@ Route::get('/latest-news/{slung}', [BlogController::class, 'blog']);
 Route::post('/latest-news/post-comment', [BlogController::class, 'post_comment']);
 Route::get('/latest-news/category/{slung}', [BlogController::class, 'blog_cat']);
 
+
+Auth::routes();
+Route::group(['prefix'=>'dashboard'], function(){
+Route::get('/', [ClientController::class, 'index'])->name('dashboard.home');
+Route::post('/update-settings', [ClientController::class, 'save'])->name('dashboard.update');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+// SocialMedia
+Route::get('/facebook', [LoginController::class, 'facebook']);
+Route::get('/facebook/redirect', [LoginController::class, 'facebookRedirect']);
+Route::get('/google', [LoginController::class, 'google']);
+Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);
+
+});
 
 
 Auth::routes();
