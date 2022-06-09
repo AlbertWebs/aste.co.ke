@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '2dd3ab3a83d71a438ce1e9cc9139c97faaecd628',
+    'reference' => 'c3ca8748527dcbe90016d6a987052e218c4f7c82',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -538,6 +538,15 @@ private static $installed = array (
         0 => 'v8.83.15',
       ),
     ),
+    'javcorreia/laravel-wishlist' => 
+    array (
+      'pretty_version' => '2.0',
+      'version' => '2.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0f0977f5c7f7ccbd795ed70fa9e66f2344e6c894',
+    ),
     'kitloong/laravel-migrations-generator' => 
     array (
       'pretty_version' => 'v6.2.0',
@@ -570,7 +579,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '2dd3ab3a83d71a438ce1e9cc9139c97faaecd628',
+      'reference' => 'c3ca8748527dcbe90016d6a987052e218c4f7c82',
     ),
     'laravel/sail' => 
     array (

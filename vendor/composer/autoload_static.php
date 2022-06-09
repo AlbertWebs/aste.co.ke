@@ -50,6 +50,10 @@ class ComposerStaticInit472f1362a81198dfec1300313f4545ad
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'j' => 
+        array (
+            'javcorreia\\Wishlist\\' => 20,
+        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -216,6 +220,10 @@ class ComposerStaticInit472f1362a81198dfec1300313f4545ad
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'javcorreia\\Wishlist\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/javcorreia/laravel-wishlist/src',
         ),
         'Whoops\\' => 
         array (
@@ -6419,6 +6427,10 @@ class ComposerStaticInit472f1362a81198dfec1300313f4545ad
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'javcorreia\\Wishlist\\Facades\\Wishlist' => __DIR__ . '/..' . '/javcorreia/laravel-wishlist/src/Facades/Wishlist.php',
+        'javcorreia\\Wishlist\\Models\\Wishlist' => __DIR__ . '/..' . '/javcorreia/laravel-wishlist/src/Models/Wishlist.php',
+        'javcorreia\\Wishlist\\Providers\\WishlistServiceProvider' => __DIR__ . '/..' . '/javcorreia/laravel-wishlist/src/Providers/WishlistServiceProvider.php',
+        'javcorreia\\Wishlist\\Wishlist' => __DIR__ . '/..' . '/javcorreia/laravel-wishlist/src/Wishlist.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

@@ -9,6 +9,7 @@ use App\Models\orders;
 use App\Models\ReplyMessage;
 use Darryldecode\Cart\Cart;
 use Darryldecode\Cart\CartCondition;
+use javcorreia\Wishlist\Facades\Wishlist;
 use Redirect;
 use Session;
 use Auth;
@@ -108,6 +109,25 @@ class CartController extends Controller
         return redirect()->route('shopping-cart');
     }
 
+    public function addWishlist($id){
+        // Check Session
+        if(Auth::user()){
+             $User = Auth::user()->id;
+        }else{
+             $User = \Request::ip();
+        }
+        Wishlist::add($id, $User);
+        return redirect()->route('wish-list');
+    }
+
+    public function wishlist(){
+        $profile = \Dymantic\InstagramFeed\Profile::where('username', 'aste.co.ke')->first();
+        $data = [
+            'instagram_feed' => Profile::where('username', 'aste.co.ke')->first()->feed(9),
+        ];
+        $SiteSettings = DB::table('_site_settings')->get(); 
+        return view('cart.wishlist',compact('SiteSettings','data'));
+    }
     
     
     public function remover(Request $request){
@@ -124,6 +144,18 @@ class CartController extends Controller
         Session::flash('message', "Changes have been saved");
         return Redirect::back();
     }
+    public function remove_wishlist($id){
+
+        if(Auth::user()){
+            $User = Auth::user()->id;
+        }else{
+            $User = \Request::ip();
+        }
+       Wishlist::removeByItem($id, $User);
+       return Redirect::back();
+    }
+
+    
     public function delete($id){
         \Cart::remove($id);
     }

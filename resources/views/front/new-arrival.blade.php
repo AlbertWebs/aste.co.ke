@@ -39,7 +39,7 @@
                                     </a>
 
                                     <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
+                                        <a href="{{url('/')}}/shopping-cart/add-to-wishlist/{{$latest->id}}" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
                                     </div><!-- End .product-action -->
 
                                     <div class="product-action product-action-transparent">

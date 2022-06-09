@@ -135,11 +135,21 @@
                     </div><!-- End .header-left -->
 
                     <div class="header-right">
-                        <a href="wishlist.html" class="wishlist-link hide-mobile">
+                        <a href="{{url('/')}}/shopping-cart/wishlist" class="wishlist-link hide-mobile">
                             <i class="icon-heart-o"></i>
-                            <span class="wishlist-count">3</span>
+                            <span class="wishlist-count">
+                                <?php
+                                    if(Auth::user()){
+                                        $User = Auth::user()->id;
+                                    }else{
+                                        $User = \Request::ip();
+                                    }
+                                    echo $Counter = Wishlist::count($User);    
+                                ?>
+                            </span>
                             <span class="wishlist-txt">My Wishlist</span>
                         </a>
+                        
 
                         <?php
                            $CartItems = Cart::getContent();

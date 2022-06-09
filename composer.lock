@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aab37e993dcbedecc426cb92699efee4",
+    "content-hash": "16c1cbd30467a31adc80135713a23d98",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -1702,6 +1702,72 @@
                 }
             ],
             "time": "2022-03-20T21:51:18+00:00"
+        },
+        {
+            "name": "javcorreia/laravel-wishlist",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/javcorreia/laravel-wishlist.git",
+                "reference": "0f0977f5c7f7ccbd795ed70fa9e66f2344e6c894"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/javcorreia/laravel-wishlist/zipball/0f0977f5c7f7ccbd795ed70fa9e66f2344e6c894",
+                "reference": "0f0977f5c7f7ccbd795ed70fa9e66f2344e6c894",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.8|^6.0|^7.0|^8.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "illuminate/database": "^5.8|^6.0|^7.0|^8.0",
+                "illuminate/session": "^5.8|^6.0|^7.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "javcorreia\\Wishlist\\Providers\\WishlistServiceProvider"
+                    ],
+                    "aliases": {
+                        "Wishlist": "javcorreia\\Wishlist\\Facades\\Wishlist"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "javcorreia\\Wishlist\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bhavin Rudani",
+                    "email": "bhavinrudani94@gmail.com"
+                },
+                {
+                    "name": "José Correia",
+                    "email": "javcorreia@gmail.com"
+                }
+            ],
+            "description": "wishlist for laravel 5.8|6.*|7.*|8.*",
+            "keywords": [
+                "ecommerce laravel wishlist",
+                "laravel",
+                "laravel ecommerce",
+                "laravel wishlist",
+                "wishlist",
+                "wishlist laravel"
+            ],
+            "support": {
+                "source": "https://github.com/javcorreia/laravel-wishlist/tree/2.0"
+            },
+            "time": "2021-03-13T16:56:03+00:00"
         },
         {
             "name": "laravel/framework",

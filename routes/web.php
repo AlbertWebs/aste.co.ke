@@ -49,6 +49,10 @@ Route::get('/currency-swap/{code}',[App\Http\Controllers\HomeController::class, 
 
 
 Route::get('/shopping-cart', [CartController::class, 'index'])->name('shopping-cart');
+Route::get('/shopping-cart/wishlist', [CartController::class, 'wishlist'])->name('wish-list');
+
+
+
 Route::get('/shopping-cart/checkout', [CheckoutController::class, 'index'])->name('dashboard');
 Route::get('/shopping-cart/payment', [CheckoutController::class, 'payment'])->name('payment');
 Route::get('/shopping-cart/place-order', [CartController::class, 'place_order']);
@@ -56,10 +60,13 @@ Route::get('/shopping-cart/complete-order', [CartController::class, 'complete_or
 
 
 Route::get('/shopping-cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.addtocart');
+Route::get('/shopping-cart/add-to-wishlist/{id}', [CartController::class, 'addWishlist'])->name('cart.wishlist');
 Route::post('/shopping-cart/add-to-cart', [CartController::class, 'addToCart'])->name('cart.addtocart');
 Route::post('/shopping-cart/add-to-cart-now', [CartController::class, 'addToCart'])->name('cart.addtocartnow');
 Route::get('/shopping-cart/remove-from-cart/{id}', [CartController::class, 'remove'])->name('cart.removecart');
 Route::post('/shopping-cart/remove-cart-post}', [CartController::class, 'remover'])->name('cart.removercart');
+Route::get('/shopping-cart/remove-wishlist/{id}', [CartController::class, 'remove_wishlist'])->name('cart.remove.wishlist');
+
 
 Route::get('/latest-news', [BlogController::class, 'index']);
 Route::get('/latest-news/{slung}', [BlogController::class, 'blog']);
