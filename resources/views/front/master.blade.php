@@ -47,12 +47,12 @@
             <div class="header-top">
                 <div class="container">
                     <div class="header-left">
-                        <ul class="top-menu top-link-menu d-none d-md-block">
+                        <ul class="top-menu top-link-menu d-nones d-md-block">
                             <li>
                                 <a href="#">Links</a>
                                 <ul>
                                     <li><a href="tel:{{$Settings->mobile_one}}"><i class="icon-phone"></i>Call: {{$Settings->mobile_one}}</a></li>
-                                    <li><a href="mailto:{{$Settings->email}}"><i class="icon-envelope"></i>Call: {{$Settings->email}}</a></li>
+                                    <li class="hide-mobile"><a href="mailto:{{$Settings->email}}"><i class="icon-envelope"></i>Call: {{$Settings->email}}</a></li>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
@@ -135,7 +135,7 @@
                     </div><!-- End .header-left -->
 
                     <div class="header-right">
-                        <a href="wishlist.html" class="wishlist-link">
+                        <a href="wishlist.html" class="wishlist-link hide-mobile">
                             <i class="icon-heart-o"></i>
                             <span class="wishlist-count">3</span>
                             <span class="wishlist-txt">My Wishlist</span>

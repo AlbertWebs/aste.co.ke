@@ -16908,6 +16908,12 @@ button:focus {
     /* width:100% !important; */
     clear:both;
    }
+   .hide-mobile{
+     display: none !important;
+   }
+   .display-block{
+     display: block !important;
+   }
 }
 
 
