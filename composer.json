@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "artesaos/seotools": "^0.22.0",
         "binary-cats/laravel-sku": "^0.4.0",
         "ckeditor/ckeditor": "^4.16",
         "darryldecode/cart": "^4.2",

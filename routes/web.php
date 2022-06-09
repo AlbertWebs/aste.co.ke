@@ -32,6 +32,11 @@ Route::get('/contact-us', [HomeController::class, 'contact']);
 Route::post('/send-contact', [HomeController::class, 'contact_post']);
 Route::post('/post-review', [HomeController::class, 'post_review']);
 
+
+Route::post('/secure-login', [App\Http\Controllers\HomeController::class, 'handleLogin']);
+Route::post('/secure-sign-up', [App\Http\Controllers\HomeController::class, 'handleSignUp']);
+
+
 Route::get('/privacy-policy', [HomeController::class, 'privacy']);
 Route::get('/terms-and-conditions', [HomeController::class, 'terms']);
 Route::get('/copyright-statement', [HomeController::class, 'copyright']);

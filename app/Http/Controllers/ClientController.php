@@ -49,7 +49,7 @@ class ClientController extends Controller
      */
     public function index(){
         $keywords = '';
-        $SEOSettings = DB::table('seosettings')->get();
+        $SEOSettings = DB::table('_site_settings')->get();
         foreach($SEOSettings as $Settings){
         SEOMeta::setTitle('My Account - '.$Settings->sitename.' - Clients Area');
         SEOMeta::setDescription(''.$Settings->welcome.'');
@@ -71,7 +71,8 @@ class ClientController extends Controller
         $page_title = '';
         $page_title = 'ClientArea';
         $Order= DB::table('orders')->where('user_id',$id)->paginate(3);
-        return view('clientarea.index',compact('keywords','page_title','Order','page_name','page_title','Orders'));
+        $SiteSettings = DB::table('_site_settings')->get();
+        return view('dashboard.index',compact('keywords','page_title','Order','page_name','page_title','Orders','SiteSettings'));
         }
     }
 

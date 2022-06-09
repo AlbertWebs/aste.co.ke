@@ -81,4 +81,42 @@ class ReplyMessage extends Model
             $message->to($toVariable, $toVariableName)->cc('albertmuhatia@gmail.com')->cc('aste.co.ke@gmail.com')->cc('info@aste.co.ke')->subject($subject);
         });
     }
+
+    public static function messageClient($email,$name){
+        //The Generic mailler Goes here
+        $url = ('/privacy');
+        $messageee = 'Hi '.$name.',
+        You have created an account with Aste Company Limited,
+        Should you require to update your info please login to the clients dashboard,
+        Go to profile settings and update your info
+         <br>
+         Your info is safe with us in accordance to our <a href="https://aste.co.ke/privacy-policy">privacy policy</a>. ';
+        $data = array(
+
+
+            'content'=>$messageee,
+
+
+
+        );
+        $subject = "Account Created!";
+        $appName = config('app.name');
+        $appEmail = config('mail.username');
+
+
+        $FromVariable = "aste.co.ke@gmail.com";
+        $FromVariableName = "Aste Company Limited";
+
+        $toVariable = $email;
+
+        $toVariableName = $name;
+
+
+        Mail::send('mailContact', $data, function($message) use ($subject,$FromVariable,$FromVariableName,$toVariable,$toVariableName){
+            $message->from($FromVariable , $FromVariableName);
+            $message->to($toVariable, $toVariableName)->cc('info@aste.co.ke')->subject($subject);
+        });
+    }
+
+    
 }

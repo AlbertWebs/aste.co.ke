@@ -7,12 +7,16 @@ use DB;
 use App\Models\Rate;
 use App\Models\FAQ;
 use App\Models\Product;
+use App\Models\User;
 use App\Models\Category;
 use App\Models\Message;
 use App\Models\SendMails;
 use Dymantic\InstagramFeed\Profile;
+use Illuminate\Support\Facades\Input;
+use App\Models\ReplyMessage;
 use Response;
 use Newsletter;
+use Hash;
 use Auth;
 use Session;
 use App\Models\Review;
@@ -169,5 +173,61 @@ class HomeController extends Controller
         }
 
         return back();
+    }
+
+    // manual login
+    public function handleLogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            $status = 1;
+            return $status;
+        }
+            
+        // authentication failed...
+        $status = 0;
+        return $status;
+    }
+
+    public function handleSignUp(Request $request){
+        $name = $request->input('register-name');
+        $email = $request->input('register-email');
+        $password_confirm = $request->input('register-password-confirm');
+        $password = $request->input('register-password');
+
+        $User = DB::table('users')->where('email',$email)->get();
+        $Check = count($User);
+        if($password == $password_confirm){
+            if($Check == 0){
+                // create user
+                $password_inSecured = $password;
+                //harshing password Here
+                $password = Hash::make($password_inSecured);
+                $User = new User;
+                $User->name = $name;
+                $User->email = $email;
+                $User->password = $password;
+                $User->save();
+
+                // Notify Client
+                ReplyMessage::messageClient($email,$request->name);
+                $user = User::where('email','=',$email)->first();
+                Auth::loginUsingId($user->id, TRUE);
+                // Redirect
+                $status = 1;
+                return $status;
+            }else{
+                Session::flash('message_error', "That email is already in use by another person");
+                $status = 0;
+                return $status;
+            }
+        }else{
+            Session::flash('message_error', "Password Did Not Match!");
+            // Return with form Data
+            $status = 1;
+            return $status;
+        }
     }
 }
