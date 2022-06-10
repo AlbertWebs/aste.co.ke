@@ -128,6 +128,26 @@ class HomeController extends Controller
         return view('front.privacy',compact('SiteSettings','Privacy'));
     }
 
+    public function delivery_policy(){
+        $Privacy = DB::table('privacies')->get();
+        $SiteSettings = DB::table('_site_settings')->get(); 
+        return view('front.delivery_policy',compact('SiteSettings','Privacy'));
+    }
+
+    public function return_policy(){
+        $Privacy = DB::table('privacies')->get();
+        $SiteSettings = DB::table('_site_settings')->get(); 
+        return view('front.return_policy',compact('SiteSettings','Privacy'));
+    }
+
+    public function size_guide(){
+        $Privacy = DB::table('privacies')->get();
+        $SiteSettings = DB::table('_site_settings')->get(); 
+        return view('front.size_guide',compact('SiteSettings','Privacy'));
+    }
+    
+    
+
     public function copyright(){
         $Copyright = DB::table('copyrights')->get();
         $SiteSettings = DB::table('_site_settings')->get(); 

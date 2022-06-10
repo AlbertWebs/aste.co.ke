@@ -64,7 +64,7 @@
                                 <div class="input-field col s12">
                                     <div class="file-field">
                                         <div class="btn">
-                                            <span>File</span>
+                                            <span>File(272px by 377px)</span>
                                             <input required name="image_one" type="file">
                                         </div>
                                         <div class="file-path-wrapper">

@@ -136,7 +136,7 @@
                                             KES <?php $total = $Product->price; echo ceil($total) ?>
                                             
                                         @else
-                                            <?php $total = $Product->price; echo ceil($total) ?>
+                                            <?php $total = $Product->price; echo ceil($total) ?><br>
                                            KES <del><?php $total = $Product->price_raw; echo ceil($total) ?></del>
                                         @endif
                                         <!-- End .price-box -->
@@ -172,7 +172,7 @@
                                     </select>
                                 </div><!-- End .select-custom -->
 
-                                <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
+                                <a target="new" href="{{url('/')}}/size-guide" class="size-guide"><i class="icon-th-list"></i>size guide</a>
                             </div><!-- End .details-filter-row -->
 
                             <div class="details-filter-row details-row-size">

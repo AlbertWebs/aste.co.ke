@@ -42,6 +42,10 @@ Route::post('/secure-sign-up', [App\Http\Controllers\HomeController::class, 'han
 
 
 Route::get('/privacy-policy', [HomeController::class, 'privacy']);
+Route::get('/delivery-policy', [HomeController::class, 'delivery_policy']);
+Route::get('/return-policy', [HomeController::class, 'return_policy']);
+Route::get('/size-guide', [HomeController::class, 'size_guide']);
+
 Route::get('/terms-and-conditions', [HomeController::class, 'terms']);
 Route::get('/copyright-statement', [HomeController::class, 'copyright']);
 Route::get('/frequently-asked-questions', [HomeController::class, 'faq']);

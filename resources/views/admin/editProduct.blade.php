@@ -169,7 +169,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-default btn-file">
-                                                       <small> Image One: Size 320 by 400  Browse… </small><input name="image_one" type="file" id="imgInp">
+                                                       <small> Image One: Size 277 by 377  Browse… </small><input name="image_one" type="file" id="imgInp">
                                                     </span>
                                                 </span>
                                                 <input type="text" class="form-control" readonly>
@@ -184,7 +184,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-default btn-file">
-                                                        <small>Image Two: Size 320 by 400  Browse… </small>
+                                                        <small>Image Two: Size 277 by 377 Browse… </small>
                                                         <input name="image_two" type="file" id="imgInp">
                                                     </span>
                                                 </span>
@@ -200,7 +200,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-default btn-file">
-                                                        <small>Image Three: Size 320 by 400  Browse… </small><input name="image_three" type="file" id="imgInp">
+                                                        <small>Image Three: Size 277 by 377  Browse… </small><input name="image_three" type="file" id="imgInp">
                                                     </span>
                                                 </span>
                                                 <input type="text" class="form-control" readonly>
@@ -214,6 +214,7 @@
                             <input type="hidden" name="image_one_cheat" value="{{$Product->image_one}}">
                             <input type="hidden" name="image_two_cheat" value="{{$Product->image_two}}">
                             <input type="hidden" name="image_three_cheat" value="{{$Product->image_three}}">
+                            <input type="hidden" name="image_four_cheat" value="{{$Product->image_four}}">
                             
                             <div class="row">
                                 <div class="input-field col s12">
