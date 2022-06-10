@@ -597,3 +597,15 @@
       margin-top: 0; } }
 
 /*# sourceMappingURL=demo-5.css.map */
+
+.trending {
+  position: relative; }
+  .trending img {
+    min-height: 315px;
+    object-fit: cover; }
+  .trending .banner {
+    position: static; }
+  .trending .banner-content {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }

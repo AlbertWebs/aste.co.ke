@@ -20,6 +20,10 @@ use Hash;
 use Auth;
 use Session;
 use App\Models\Review;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
 class HomeController extends Controller
 {
     public function index(){
@@ -55,7 +59,8 @@ class HomeController extends Controller
         $SiteSettings = DB::table('_site_settings')->get(); 
         $Products = DB::table('products')->paginate(12);
         $Categories = DB::table('categories')->inRandomOrder()->limit('4')->get();
-        return view('front.products',compact('SiteSettings','Products','Categories'));
+        $Title = "All Products";
+        return view('front.products',compact('SiteSettings','Products','Categories','Title'));
     }
 
     public function products_categories(){
@@ -264,5 +269,41 @@ class HomeController extends Controller
         }
         DB::table('products')->update($UpdateDetails);
         return "Done";
+    }
+
+    
+    public function searchsite()
+    {
+        $search = $_GET['query'];
+       
+
+        $Products = DB::table('products')->where('name', 'like', '%' . $search . '%')->orWhere('sku', 'like', '%' . $search . '%')->paginate(200);
+        $page_name = $search;
+        $Title = $search;
+        $search_results = $search;
+        $search_results_category = 'All Categories';
+        $SEOSettings = DB::table('_site_settings')->get();
+        foreach ($SEOSettings as $Settings) {
+            SEOMeta::setTitle('Our Products | ' . $Settings->sitename .'');
+            SEOMeta::setDescription('Pioneer Car Speakers, Sony Car Speakers, Kenwood Car speakers, Kenwood speakers, Sony Speakers' . $Settings->welcome . '');
+            SEOMeta::setCanonical('' . $Settings->url . '/search-results/');
+            OpenGraph::setDescription('' . $Settings->welcome . '');
+            OpenGraph::setTitle('' . $Settings->sitename . ' - ' . $Settings->welcome . '');
+            OpenGraph::setUrl('' . $Settings->url . '/search-results/');
+            OpenGraph::addProperty('type', 'website');
+      
+            
+            $SiteSettings = DB::table('_site_settings')->get(); 
+            // Call Route
+            // return redirect()->route('search-results', ['ProductsTag'=>$ProductsTag,'ProductsBrand'=>$ProductsBrand,'ProductsCategory'=>$ProductsCategory]);
+
+            return view('front.search-results', compact('SiteSettings','Title', 'Products', 'page_name', 'search_results', 'search_results_category','search'));
+
+
+        }
+
+
+
+
     }
 }

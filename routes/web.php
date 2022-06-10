@@ -31,6 +31,9 @@ Route::get('/product/{slung}', [HomeController::class, 'product']);
 Route::get('/contact-us', [HomeController::class, 'contact']);
 Route::post('/send-contact', [HomeController::class, 'contact_post']);
 Route::post('/post-review', [HomeController::class, 'post_review']);
+Route::get('/search-results',[App\Http\Controllers\HomeController::class, 'searchsite'])->name('search-results');
+
+
 
 
 Route::get('/update-temp', [HomeController::class, 'tempUpdate']);

@@ -18,7 +18,7 @@
                     <h3 class="intro-subtitle text-white">You're Looking Good</h3><!-- End .h3 intro-subtitle -->
                     <h1 class="intro-title text-white">New Lookbook</h1><!-- End .intro-title -->
 
-                    <a href="category.html" class="btn btn-outline-white-4">
+                    <a href="{{url('/')}}/products" class="btn btn-outline-white-4">
                         <span>Discover More</span>
                     </a>
                 </div><!-- End .intro-content -->
@@ -27,9 +27,9 @@
             <div class="intro-slide" style="background-image: url({{asset('theme/assets/images/demos/demo-6/slider/slide-2.jpg')}});">
                 <div class="container intro-content text-center">
                     <h3 class="intro-subtitle text-white">Don’t Miss</h3><!-- End .h3 intro-subtitle -->
-                    <h1 class="intro-title text-white">Mysrety Deals</h1><!-- End .intro-title -->
+                    <h1 class="intro-title text-white">Amaizing Deals</h1><!-- End .intro-title -->
 
-                    <a href="category.html" class="btn btn-outline-white-4">
+                    <a href="{{url('/')}}/products" class="btn btn-outline-white-4">
                         <span>Discover More</span>
                     </a>
                 </div><!-- End .intro-content -->
@@ -138,109 +138,21 @@
 
     <div class="mb-5"></div><!-- End .mb-5 -->
 
-    <div class="deal bg-image pt-8 pb-8" style="background-image: url({{asset('theme/assets/images/demos/demo-6/deal/bg-1.jpg')}});">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-sm-12 col-md-8 col-lg-6">
-                    <div class="deal-content text-center">
-                        <h4>Limited quantities. </h4>
-                        <h2>Deal of the Day</h2>
-                        <div class="deal-countdown" data-until="+1h"></div><!-- End .deal-countdown -->
-                    </div><!-- End .deal-content -->
-                    <div class="row deal-products">
-                        <div class="col-6 deal-product text-center">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('theme/assets/images/demos/demo-6/deal/product-1.jpg')}}" alt="Product image" class="product-image">
-                                </a>
+    <div class="trending">
+        <a href="#">
+            <img src="{{asset('theme/assets/images/demos/demo-8/banners/banner-4.jpg')}}" alt="Banner">
+        </a>
+        <div class="banner banner-big d-md-block">
+            <div class="banner-content text-center">
+                <h4 class="banner-subtitle text-white">Trending</h4><!-- End .banner-subtitle -->
+                <h3 class="banner-title text-white">New League</h3><!-- End .banner-title -->
+                {{-- <p class="d-none d-lg-block text-white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br>Donec odio. Quisque volutpat mattis eros. </p>  --}}
 
-                            </figure><!-- End .product-media -->
+                <a href="{{url('/')}}/products" class="btn btn-primary-white"><span>Shop Now</span><i class="icon-long-arrow-right"></i></a>
+            </div><!-- End .banner-content -->
+        </div><!-- End .banner -->
+    </div>
 
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Elasticated cotton shorts</a></h3><!-- End .product-title -->
-                                <div class="product-price price-center">
-                                    <span class="new-price">Now $24.99</span>
-                                    <span class="old-price">Was $30.99</span>
-                                </div><!-- End .product-price -->
-                            </div><!-- End .product-body -->
-                            <a href="category.html" class="action">shop now</a>
-                        </div>
-                        <div class="col-6 deal-product text-center">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('theme/assets/images/demos/demo-6/deal/product-2.jpg')}}" alt="Product image" class="product-image">
-                                </a>
-
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Fine-knit jumper</a></h3><!-- End .product-title -->
-                                <div class="product-price price-center">
-                                    <span class="new-price">Now $8.99</span>
-                                    <span class="old-price">Was $17.99</span>
-                                </div><!-- End .product-price -->
-                            </div><!-- End .product-body -->
-                            <a href="category.html" class="action">shop now</a>
-                        </div>
-                    </div>
-                </div><!-- End .col-lg-5 -->
-            </div><!-- End .row -->
-        </div><!-- End .container -->
-    </div><!-- End .deal -->
-
-    <div class="pt-4 pb-3" style="background-color: #222;">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="icon-box text-center">
-                        <span class="icon-box-icon">
-                            <i class="icon-truck"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h3 class="icon-box-title">Payment & Delivery</h3><!-- End .icon-box-title -->
-                            <p>Free shipping for orders over $50</p>
-                        </div><!-- End .icon-box-content -->
-                    </div><!-- End .icon-box -->
-                </div><!-- End .col-lg-3 col-sm-6 -->
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="icon-box text-center">
-                        <span class="icon-box-icon">
-                            <i class="icon-rotate-left"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h3 class="icon-box-title">Return & Refund</h3><!-- End .icon-box-title -->
-                            <p>Free 100% money back guarantee</p>
-                        </div><!-- End .icon-box-content -->
-                    </div><!-- End .icon-box -->
-                </div><!-- End .col-lg-3 col-sm-6 -->
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="icon-box text-center">
-                        <span class="icon-box-icon">
-                            <i class="icon-unlock"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h3 class="icon-box-title">Secure Payment</h3><!-- End .icon-box-title -->
-                            <p>100% secure payment</p>
-                        </div><!-- End .icon-box-content -->
-                    </div><!-- End .icon-box -->
-                </div><!-- End .col-lg-3 col-sm-6 -->
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="icon-box text-center">
-                        <span class="icon-box-icon">
-                            <i class="icon-headphones"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h3 class="icon-box-title">Quality Support</h3><!-- End .icon-box-title -->
-                            <p>Alway online feedback 24/7</p>
-                        </div><!-- End .icon-box-content -->
-                    </div><!-- End .icon-box -->
-                </div><!-- End .col-lg-3 col-sm-6 -->
-            </div><!-- End .row -->
-        </div><!-- End .container -->
-    </div><!-- End .bg-light pt-2 pb-2 -->
 
     <div class="mb-6"></div><!-- End .mb-5 -->
 
