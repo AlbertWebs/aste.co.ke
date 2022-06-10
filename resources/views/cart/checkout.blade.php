@@ -144,7 +144,19 @@
                                     @endforeach
                                         <tr class="summary-subtotal">
                                             <td>Subtotal:</td>
-                                            <td>$160.00</td>
+                                            <td>
+                                                @if (session()->has('rates'))
+                                                    <?php
+                                                        $rates = Session::get('rates');
+                                                        $Rates = DB::table('rates')->where('rates',$rates)->get();
+                                                    ?>
+                                                    @foreach ($Rates as $rt)  
+                                                    {{$rt->symbol}} <?php $tt = Cart::getTotal(); $total = $tt*$rt->rates; echo ceil($total) ?></span>  
+                                                    @endforeach
+                                                @else
+                                                KSH <?php $tt = Cart::getTotal();  echo $tt; ?>
+                                                @endif
+                                            </td>
                                         </tr><!-- End .summary-subtotal -->
                                         <tr>
                                             <td>Shipping:</td>
@@ -152,7 +164,19 @@
                                         </tr>
                                         <tr class="summary-total">
                                             <td>Total:</td>
-                                            <td>$160.00</td>
+                                            <td>
+                                                @if (session()->has('rates'))
+                                                    <?php
+                                                        $rates = Session::get('rates');
+                                                        $Rates = DB::table('rates')->where('rates',$rates)->get();
+                                                    ?>
+                                                    @foreach ($Rates as $rt)  
+                                                       {{$rt->symbol}} <?php $tt = Cart::getTotal(); $total = $tt*$rt->rates; echo ceil($total) ?>
+                                                    @endforeach
+                                                @else
+                                                      KSH <?php $tt = Cart::getTotal();  echo $tt; ?>
+                                                @endif
+                                            </td>
                                         </tr><!-- End .summary-total -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->
@@ -170,15 +194,17 @@
                                             <div class="card-body">
                                                 <address>
                                                     <strong>
-                                                    ACCOUNT NUMBER:<input onclick="this.select();" type='text' value='1234567890' /><br>
-                                                    ACCOUNT NAME: <input onclick="this.select();" type='text' value='ASTE' /><br>
-                                                    ACCOUNT BRANCH: <input onclick="this.select();" type='text' value='WESTLANDS' /><br>
+                                                        ACCOUNT NUMBER:<input onclick="this.select();" type='text' value='1234567890' /><br>
+                                                        ACCOUNT NAME: <input onclick="this.select();" type='text' value='ASTE COMPANY LIMITED' /><br>
+                                                        ACCOUNT BRANCH: <input onclick="this.select();" type='text' value='KILIMANI' /><br>
                                                     </strong>
                                                 </address>
-                                                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
-                                                    <span class="btn-text"> Verify Payment</span>
-                                                    <span class="btn-hover-text">Submit Transaction Info</span>
-                                                </button>
+                                                {{-- <form method="POST" action="{{url('/')}}/verify-bank-payment"> --}}
+                                                    <a href="{{url('/')}}/verify-bank-payment" onclick="return confirm('Proceed To Verify Payment')" type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                                        <span class="btn-text"> Verify Payment</span>
+                                                        <span class="btn-hover-text">Submit Transaction Info</span>
+                                                    </a>
+                                                {{-- </form> --}}
                                             </div><!-- End .card-body -->
                                         </div><!-- End .collapse -->
                                     </div><!-- End .card -->
@@ -218,34 +244,48 @@
                                             <h2 class="card-title">
                                                 <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
                                                     Credit Card (Paypal)
-                                                    <img src="{{asset('theme/assets/images/payments-summary.png')}}" alt="payments cards">
+                                                    {{-- <img src="{{asset('theme/assets/images/payments-summary.png')}}" alt="payments cards"> --}}
                                                 </a>
                                             </h2>
                                         </div><!-- End .card-header -->
                                         <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion-payment">
                                             <div class="card-body"> 
+                                              
                                                 {{--  --}}
-                                                <form id="paypal_donate_form-onetime" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                                                    
-                                                    <input type="hidden" name="item_name">
-                                                    <input type="hidden" name="currency_code" value="USD">
-                                                    <input type="hidden" name="amount" value="">
-                                                    
-                                      
-                                                   
-                                                    <input type="hidden" name="cmd" value="_xclick">
+                                                <form id="ShowPaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart">
+                                                    <input type="hidden" name="upload" value="1">
+                                                    <?php $SiteSettings = DB::table('_site_settings')->get(); ?>
+                                                    @foreach($SiteSettings as $Sett)
                                                     <input type="hidden" name="business" value="aste.co.ke@gmail.com">
-                                                    <input type="hidden" name="no_shipping" value="1">
-                                                    <input type="hidden" name="cn" value="Comments...">
-                                                    <input type="hidden" name="currency_code" value="USD">
-                                                    <input type="hidden" name="tax" value="0">
-                                                    <input type="hidden" name="lc" value="US">
-                                                    <input type="hidden" name="bn" value="PP-DonationsBF">
-                                                    <input type="hidden" name="return" value="https://aste.co.ke/paypal-call-back">
-                                                    <input type="hidden" name="cancel_return" value="ttps://aste.co.ke/paypal-call-back">
-                                                    <input type="hidden" name="notify_url" value="ttps://aste.co.ke/paypal-call-back">              
-                                                    <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_200x51.png" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                                                    <img alt="" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_200x51.png" width="1" height="1">
+                                                    @endforeach
+                                                    <!-- Collect Data -->
+                                                    <?php $Count = 1; ?>
+                                                    @foreach($CartItems as $CartItem)
+                                                    <?php
+                                                        $Products = DB::table('products')->where('id',$CartItem->id)->get();
+                                                    ?>
+                                                    @foreach($Products as $Product)
+                                                    <?php
+                                                          $RawPrice = $Product->price;
+                                                          $dollarPrice = dollar($Product->price);
+                                                          $PaypalCont = 0.029;
+                                                          $paypalCut = $PaypalCont*$dollarPrice;
+                                                          $PaypalToatal = $paypalCut+$dollarPrice;
+
+                                                     ?>
+                                                    <input type="hidden" name="item_name_{{$Count}}" value="{{$Product->name}}">
+                                                    <input type="hidden" name="amount_{{$Count}}" value="<?php echo $PaypalToatal; ?>"><?php $PaypalToatal; ?>
+                                                    <input type="hidden" name="quantity_{{$Count}}" value="{{$CartItem->qty}}">
+                                                    <input type="hidden" name="shipping_{{$Count}}" value="10">
+                                                    @endforeach
+                                                    <?php $Count = $Count+1;  ?>
+                                                    @endforeach
+
+
+
+                                                    <input type="hidden" name="cancel_return" id="cancel_return" value="https://aste.co.ke/shopping-cart/checkout/payment" />
+                                                    <button  style="cursor:pointer" type="submit"><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppcmcvdam.png" alt="Pay with PayPal Credit or any major credit card" /></button>
                                                   </form>
                                                 {{--  --}}
                                             </div><!-- End .card-body -->

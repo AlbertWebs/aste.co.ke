@@ -29,6 +29,9 @@ Route::get('/products/{slung}', [HomeController::class, 'products_cat']);
 Route::get('/quick-view/{id}', [HomeController::class, 'quick_view']);
 Route::get('/product/{slung}', [HomeController::class, 'product']);
 Route::get('/contact-us', [HomeController::class, 'contact']);
+Route::get('/verify-bank-payment', [HomeController::class, 'verify_bank_payment']);
+Route::post('/verify-bank-payment-post', [HomeController::class, 'verify_bank_payment_post']);
+
 Route::post('/send-contact', [HomeController::class, 'contact_post']);
 Route::post('/post-review', [HomeController::class, 'post_review']);
 Route::get('/search-results',[App\Http\Controllers\HomeController::class, 'searchsite'])->name('search-results');

@@ -24,7 +24,8 @@
         "raiym/instagram-php-scraper": "^0.12.4",
         "spatie/laravel-activitylog": "^3.17",
         "spatie/laravel-honeypot": "^3.0",
-        "spatie/laravel-newsletter": "^4.11"
+        "spatie/laravel-newsletter": "^4.11",
+        "stevebauman/location": "^6.5"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

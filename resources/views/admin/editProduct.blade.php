@@ -163,13 +163,13 @@
                             {{-- Style --}}
                             <div class="row">
                                 <div class="">
-                                    <div class="input-field col s4 col-lg-4">
+                                    <div class="input-field col s3 col-lg-3">
                                         <div class="form-group">
                                             <label>Image One</label>
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-default btn-file">
-                                                       <small> Image One: Size 277 by 377  Browse… </small><input name="image_one" type="file" id="imgInp">
+                                                       <small> One: Size 277 by 377  Browse… </small><input name="image_one" type="file" id="imgInp">
                                                     </span>
                                                 </span>
                                                 <input type="text" class="form-control" readonly>
@@ -178,13 +178,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s4 col-lg-4">
+                                    <div class="input-field col s3 col-lg-3">
                                         <div class="form-group">
-                                            <label>Image One</label>
+                                            <label>Image Two</label>
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-default btn-file">
-                                                        <small>Image Two: Size 277 by 377 Browse… </small>
+                                                        <small>Two: Size 277 by 377 Browse… </small>
                                                         <input name="image_two" type="file" id="imgInp">
                                                     </span>
                                                 </span>
@@ -194,13 +194,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-field col s4 col-lg-4">
+                                    <div class="input-field col s3 col-lg-3">
                                         <div class="form-group">
-                                            <label>Image One</label>
+                                            <label>Image Three</label>
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-default btn-file">
-                                                        <small>Image Three: Size 277 by 377  Browse… </small><input name="image_three" type="file" id="imgInp">
+                                                        <small> Three: Size 277 by 377  Browse… </small><input name="image_three" type="file" id="imgInp">
                                                     </span>
                                                 </span>
                                                 <input type="text" class="form-control" readonly>
@@ -208,6 +208,23 @@
                                             <img class="image-preview img-upload" style="width:100%" src="{{url('/')}}/uploads/products/{{$Product->image_three}}"/>
                                         </div>
                                     </div>
+
+                                    <div class="input-field col s3 col-lg-3">
+                                        <div class="form-group">
+                                            <label>Image Four</label>
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <span class="btn btn-default btn-file">
+                                                        <small> Four: Size 277 by 377  Browse… </small><input name="image_four" type="file" id="imgInp">
+                                                    </span>
+                                                </span>
+                                                <input type="text" class="form-control" readonly>
+                                            </div>
+                                            <img class="image-preview img-upload" style="width:100%" src="{{url('/')}}/uploads/products/{{$Product->image_four}}"/>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
 

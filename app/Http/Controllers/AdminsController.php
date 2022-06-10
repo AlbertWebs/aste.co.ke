@@ -685,6 +685,15 @@ class AdminsController extends Controller
             }else{
                 $image_three = $request->image_three_cheat;
             }
+            if(isset($request->image_four)){
+                $file = $request->file('image_four');
+                $filename = $file->getClientOriginalName();
+                $file->move($path, $filename);
+                $image_four = $filename;
+            }else{
+                $image_four = $request->image_four_cheat;
+            }
+
 
         if($request->stock == 'on'){
             $new_stock = "In Stock";
@@ -701,7 +710,8 @@ class AdminsController extends Controller
             'category'=>$request->category,
             'image_one'=>$image_one,
             'image_two'=>$image_two,
-            'image_three'=>$image_three
+            'image_three'=>$image_three,
+            'image_four'=>$image_four
         
         );
         DB::table('products')->where('id',$id)->update($updateDetails);

@@ -8,6 +8,7 @@ use Darryldecode\Cart\CartCondition;
 use Redirect;
 use Session;
 use Auth;
+use Stevebauman\Location\Facades\Location;
 use Dymantic\InstagramFeed\Profile;
 
 use Illuminate\Http\Request;
@@ -47,11 +48,138 @@ class CheckoutController extends Controller
         $keywords = '';
         if(Auth::check()){
             // return redirect()->route('cart/checkout/payment','CheckoutController@payment');
+            $this->payments();
             return redirect()->route('payment');
         }
         else{
             
             return view('checkout.index', compact('keywords','CartItems','page_title','SiteSettings','page_name'));
+        }
+    }
+
+    public function payments(){
+        // Check For Empty Carts
+
+        $cartCollection = \Cart::getContent();
+        $cart = $cartCollection->count();
+
+        if($cart == 0){
+            // Redirect To Cart
+            echo "<script>alert('Your Shopping Cart is Empty')</script>";
+            return redirect()->route('payment');
+        }else{
+            // $ip = \Request::ip();
+            $ip = '154.76.108.131';
+
+            $data = \Location::get($ip);
+            // Get The Delivery Charge
+            $AreaCode =  $data->areaCode;
+            if($AreaCode == '30'){
+                $Shipping = 300;
+            }else{
+                $Shipping = 400;
+            }
+
+            // Create an invoice, Mail and Register
+            if(Session::has('Invoice')){
+                $InvoiceNumber = session()->get('Invoice');
+                $OrderNumberNumber = session()->get('Order');
+            }else{
+                // Create Invoice
+                $MPESA = DB::table('invoices')->orderBy('id','DESC')->Limit('1')->get();
+                $count_mpesa = count($MPESA);
+                if($count_mpesa == 0){
+                    $InvoiceNumber = 'ASTE001';
+                    $OrderNumberNumber = 'ASTE001';
+                    session()->put('Order', $OrderNumberNumber);
+                    session()->put('Invoice', $InvoiceNumber);
+                }else{
+                    foreach($MPESA as $mpesa){
+                        $LastID = $mpesa->id;
+                        $Next = $LastID+1;
+                        $InvoiceNumber = "ASTE0".$Next;
+                        $OrderNumberNumber = "ASTE10".$Next;
+                        // Create Session
+                        session()->put('Order', $OrderNumberNumber);
+                        session()->put('Invoice', $InvoiceNumber);
+                        }
+                }
+            }
+
+            // echo $InvoiceNumber;
+            // dd(session()->all());
+            if(Session::has('coupon-total')){
+                $totalWithCoupon = Session::get('coupon-total');
+                // AmountVariables
+                if(Session::has('campaign')){
+                    $cost = \Cart::getSubTotal();
+                    $percentage = 10;
+                    $PrepeTotalCart = str_replace( ',', '', $totalWithCoupon);
+                    $FormatTotalCart = round($PrepeTotalCart, 0);
+                    $discount = ($percentage / 100) * $FormatTotalCart;
+                    $TotalCart = ($FormatTotalCart - $discount);
+                    $ShippingFee = $Shipping;
+                    $TotalCost = $TotalCart+$Shipping;
+                }
+                else{
+                    $TotalCart = \Cart::getSubTotal();
+                    $PrepeTotalCart = str_replace( ',', '', $TotalCart );
+                    $FormatTotalCart = round($PrepeTotalCart, 0);
+                    $ShippingFee = $Shipping;
+                    $TotalCost = $FormatTotalCart+$ShippingFee;
+                }
+
+            }else{
+                // AmountVariables
+                if(Session::has('campaign')){
+                    $cost = \Cart::getSubTotal();
+                    $percentage = 10;
+                    $PrepeTotalCart = str_replace( ',', '', $cost );
+                    $FormatTotalCart = round($PrepeTotalCart, 0);
+                    $discount = ($percentage / 100) * $FormatTotalCart;
+                    $TotalCart = ($FormatTotalCart - $discount);
+                    $ShippingFee = $Shipping;
+                    $TotalCost = $TotalCart+$Shipping;
+                }
+                else{
+                    $TotalCart = \Cart::getSubTotal();
+                    $PrepeTotalCart = str_replace( ',', '', $TotalCart );
+                    $FormatTotalCart = round($PrepeTotalCart, 0);
+                    $ShippingFee = $Shipping;
+                    $TotalCost = $FormatTotalCart+$ShippingFee;
+                }
+                //
+            }
+
+
+            if(Session::has('Invoice')){
+
+            }else{
+                $CheckInvoice = DB::table('invoices')->where('number',$InvoiceNumber)->where('status','0')->where('user_id',Auth::user()->id)->get();
+                $CountCheckInvoice = count($CheckInvoice);
+                if($CountCheckInvoice == 0){
+                     // Record Invoice
+                     $Invoice = new Invoice;
+                     $Invoice->number = $InvoiceNumber;
+                     $Invoice->shipping = $Shipping;
+                     $Invoice->products = serialize(\Cart::getContent());
+                     $Invoice->user_id = Auth::user()->id;
+                     $Invoice->amount = $TotalCost;
+                     $Invoice->save();
+                     // Mail Invoice
+                     $email = Auth::user()->email;
+                     $name = Auth::user()->name;
+                    //  ReplyMessage::mailclientinvoice($email,$name,$InvoiceNumber,$ShippingFee,$TotalCost);
+
+                }else{
+                    // The Invoice already Exists
+
+                }
+            }
+            session()->put('TotalCost', $TotalCost);
+            //Go to payments page
+            
+            
         }
     }
 

@@ -184,7 +184,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">{{$Product->name}}({{$CartItem->qty}})</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">{{$Product->name}}({{$CartItem->quantity}})</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -196,7 +196,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">KES {{$CartItem->total}}</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">KES {{$CartItem->price}}</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -360,22 +360,7 @@
                                 <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Do you wish to pay?</td>
                             </tr>
                            
-                            <tr>
-                                <td align="center">
-                                    <!-- BULLETPROOF BUTTON -->
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td align="center" style="padding-top: 25px;" class="padding">
-                                                <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
-                                                    <tr>
-                                                        <td align="center" style="border-radius: 3px;" bgcolor="#d62676"><a href="{{url('/')}}/clientarea/invoice/{{$invoicenumber}}" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Pay Now</a></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
+                            
                         </table>
                     </td>
                 </tr>

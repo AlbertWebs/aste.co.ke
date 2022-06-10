@@ -602,8 +602,7 @@
         
         
         
-    </script>
-    <script>
+  
         $('#updateSettings').on('submit', function (e) {
           $('.spinner').show();
               e.preventDefault();
@@ -626,7 +625,29 @@
 
           });
 
-    </script>
+
+        $('#verifyBank').on('submit', function (e) {
+        $('.spinner').show();
+            e.preventDefault();
+                $.ajax({
+                    type: 'post',
+                    url: '{{url('/')}}/verify-bank-payment-post',
+                    data: $('#verifyBank').serialize(),
+                        success: function ($results) {
+                            // alert('Verification Was Successfull')
+                            $('#success-alert').html('Successfull')
+                            
+                            $('.spinner').hide();
+                              setTimeout(function() {
+                                window.open('{{url('/')}}/shopping-cart/complete-order','_self')
+                              }, 5000);
+                              
+                        }
+                });
+
+        });
+
+</script>
     @include('front.sign')
     
     <script src={{asset('theme/assets/js/bootstrap.bundle.min.js')}}></script>

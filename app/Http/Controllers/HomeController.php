@@ -7,6 +7,7 @@ use DB;
 use App\Models\Rate;
 use App\Models\FAQ;
 use App\Models\Product;
+use App\Models\Bank;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Message;
@@ -120,6 +121,23 @@ class HomeController extends Controller
         $SiteSettings = DB::table('_site_settings')->get(); 
         return view('front.contact',compact('SiteSettings'));
     }
+
+    public function verify_bank_payment(){
+        $SiteSettings = DB::table('_site_settings')->get(); 
+        return view('front.verify_bank_payment',compact('SiteSettings'));
+    }
+
+    public function verify_bank_payment_post(Request $request){
+        $user_id = $request->user_id;
+        $transCode = $request->transCode;
+        $Bank = new Bank;
+        $Bank->user_id = $user_id;
+        $Bank->content = $transCode;
+        $Bank->save();
+        return "Success";
+    }
+
+    
 
     public function terms(){
         $Terms = DB::table('terms')->get();
