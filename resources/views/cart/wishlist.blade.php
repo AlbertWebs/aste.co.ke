@@ -41,7 +41,7 @@
 
                             <tbody>
                                 @foreach ($Cart as $item)
-                                <?php $Product = DB::table('products')->where('id',$item->id)->get(); ?> 
+                                <?php $Product = DB::table('products')->where('id',$item->item_id)->get(); ?> 
                                     @foreach ($Product as $product)
                                     <tr>
                                         <td class="product-col">
