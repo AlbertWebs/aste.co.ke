@@ -87,7 +87,7 @@
                             <label>Order notes (optional)</label>
                             <br><label>Last Notes:</label>
                             {!! html_entity_decode(Auth::user()->notes, ENT_QUOTES, 'UTF-8') !!}
-                            <textarea class="form-control" cols="30" rows="4" name="notes" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                            <textarea class="form-control" cols="30" rows="4" name="notes" placeholder="Notes about your order, e.g. product size or color"></textarea>
 
                             <button  type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
                                 <span class="btn-text"> Save Your Info <i class="icon-arrow-right"></i> </span>

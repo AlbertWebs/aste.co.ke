@@ -149,14 +149,13 @@
 
                             <div class="details-filter-row details-row-size">
                                 <label>Color:</label>
-
+                                <div class="select-custom">
+                                    <select name="size" id="size" class="form-control">
+                                        <option value="#" selected="selected">Specify Your Colour On Checkout</option>
+                                    </select>
+                                </div><!-- End .select-custom -->
                                 <div class="product-nav product-nav-thumbs">
-                                    <a href="#" class="active">
-                                        <img src="{{asset('theme/assets/images/products/single/1-thumb.jpg')}}" alt="product desc">
-                                    </a>
-                                    <a href="#">
-                                        <img src="{{asset('theme/assets/images/products/single/2-thumb.jpg')}}" alt="product desc">
-                                    </a>
+                                    
                                 </div><!-- End .product-nav -->
                             </div><!-- End .details-filter-row -->
 
@@ -164,7 +163,7 @@
                                 <label for="size">Size:</label>
                                 <div class="select-custom">
                                     <select name="size" id="size" class="form-control">
-                                        <option value="#" selected="selected">Select a size</option>
+                                        <option value="#" selected="selected">Specify Your Size On Checkout</option>
                                         <option value="s">Small</option>
                                         <option value="m">Medium</option>
                                         <option value="l">Large</option>
