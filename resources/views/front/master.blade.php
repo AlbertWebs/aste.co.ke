@@ -24,6 +24,7 @@
     <link rel="stylesheet" href={{asset('theme/assets/css/demos/demo-6.css')}}>
     <link rel="stylesheet" href="{{asset('theme/assets/css/demos/demo-fix.css')}}">
     <link rel="stylesheet" href="{{asset('theme/assets/css/demos/demo-5.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/assets/css/plugins/nouislider/nouislider.css')}}">
     {{--  --}}
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
@@ -633,12 +634,15 @@
     <script src={{asset('theme/assets/js/superfish.min.js')}}></script>
     <script src={{asset('theme/assets/js/owl.carousel.min.js')}}></script>
     <script src={{asset('theme/assets/js/bootstrap-input-spinner.js')}}></script>
+    <script src={{asset('theme/assets/js/jquery.elevateZoom.min.js')}}></script>
     <script src={{asset('theme/assets/js/jquery.plugin.min.js')}}></script>
     <script src={{asset('theme/assets/js/jquery.magnific-popup.min.js')}}></script>
     <script src={{asset('theme/assets/js/jquery.countdown.min.js')}}></script>
     <!-- Main JS File -->
     <script src={{asset('theme/assets/js/main.js')}}></script>
     <script src={{asset('theme/assets/js/demos/demo-6.js')}}></script>
+
+    
 
     {{--  --}}
     <script type="text/javascript">

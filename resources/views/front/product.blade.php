@@ -1,14 +1,16 @@
-@extends('front.master-product')
+@extends('front.master')
 @section('content')
 
 @foreach ($SiteSettings as $Settings)
 @foreach ($Product as $Product)
-<main class="page-main">
-    <div class="block">
-        <div class="container">
-            <ul class="breadcrumbs">
-                <li><a href="{{url('/')}}"><i class="icon icon-home"></i></a></li>
-                <li>/
+{{--  --}}
+<main class="main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+        <div class="container d-flex align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Products</a></li>
+                <li class="breadcrumb-item">
                     <?php $CategorlyLink = DB::table('categories')->where('id',$Product->category)->get(); ?>
                     @foreach ($CategorlyLink as $catlink)
                     <a href="{{url('/')}}/products/{{$catlink->slung}}">
@@ -16,482 +18,394 @@
                     </a>
                     @endforeach
                 </li>
-                <li>/<span>{{$Product->name}}</span></li>
-                <?php 
+                <li class="breadcrumb-item active" aria-current="page">{{$Product->name}}</li>
+            </ol>
+            <?php 
                     $productID = $Product->id;
                     $NextProductID = $productID+1;
                     $PrevProductID = $productID-1;
                     $FetchNext = DB::table('products')->where('id',$NextProductID)->get();
                     $FetchPreve = DB::table('products')->where('id',$PrevProductID)->get();
-                ?>
-                <li class="product-nav">
-                    @if($FetchPreve->isEmpty())
+            ?>
+
+            <nav class="product-pager ml-auto" aria-label="Product">
+                @if($FetchPreve->isEmpty())
 
                     @else
                     @foreach ($FetchPreve as $fetchpre)
-                    <i class="icon icon-angle-left"></i><a href="{{url('/')}}/product/{{$fetchpre->slung}}" class="product-nav-prev">prev product
-                        <span class="product-nav-preview">
-                            <span class="image"><img src="{{url('/')}}/uploads/products/{{$fetchpre->image_one}}" alt=""><span class="price">${{$fetchpre->price}}.00</span></span>
-                            <span class="name">{{$fetchpre->name}}</span>
-                        </span></a>/
+                    <a class="product-pager-link product-pager-prev" href="{{url('/')}}/product/{{$fetchpre->slung}}" aria-label="Previous" tabindex="-1">
+                        <i class="icon-angle-left"></i>
+                        <span>Prev</span>
+                    </a>
                     @endforeach
                     @endif
                     @if($FetchNext->isEmpty())
 
                     @else
                     @foreach ($FetchNext as $fetchnext)
-                    <a href="{{url('/')}}/product/{{$fetchnext->slung}}" class="product-nav-next">next product
-                        <span class="product-nav-preview">
-                            <span class="image"><img src="{{url('/')}}/uploads/products/{{$fetchnext->image_one}}" alt=""><span class="price">${{$fetchnext->price}}.00</span></span>
-                            <span class="name">{{$fetchnext->name}}</span>
-                        </span></a><i class="icon icon-angle-right"></i>
-                    @endforeach
+
+                        <a class="product-pager-link product-pager-next" href="{{url('/')}}/product/{{$fetchnext->slung}}" aria-label="Next" tabindex="-1">
+                            <span>Next</span>
+                            <i class="icon-angle-right"></i>
+                        </a>
+
+                        @endforeach
                     @endif
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="block product-block">
+            </nav><!-- End .pager-nav -->
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                    <!-- Product Gallery -->
-                    <div class="main-image">
-                        <img src="{{url('/')}}/uploads/products/{{$Product->image_one}}" class="zoom" alt="" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_one}}" />
-                        <div class="dblclick-text"><span>Double click for enlarge</span></div>
+            <div class="product-details-top">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-gallery product-gallery-vertical">
+                            <div class="row">
+                                <figure class="product-main-image">
+                                    <img id="product-zoom" src="{{url('/')}}/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
 
-                        @if($Product->video == null)
-                        @else
-                        <a href="{{$Product->video}}" class="video-link"><i class="icon icon-film"></i></a>
-                        @endif
-                        <a href="{{url('/')}}/uploads/products/{{$Product->image_one}}" class="zoom-link"><i class="icon icon-zoomin"></i></a>
-                    </div>
-                    <div class="product-previews-wrapper">
-                        <div class="product-previews-carousel" id="previewsGallery">
-                            <a href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_one}}"><img src="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="" /></a>
-                            <a href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_two}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_two}}"><img src="{{url('/')}}/uploads/products/{{$Product->image_two}}" alt="" /></a>
-                            <a href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_three}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_three}}"><img src="{{url('/')}}/uploads/products/{{$Product->image_three}}" alt="" /></a>
+                                    <a href="{{url('/')}}/uploads/products/{{$Product->image_one}}" id="btn-product-gallery" class="btn-product-gallery">
+                                        <i class="icon-arrows"></i>
+                                    </a>
+                                </figure><!-- End .product-main-image -->
 
-                        </div>
-                    </div>
-                    <!-- /Product Gallery -->
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-8">
-                    <div class="product-info-block classic">
-                        <div class="product-info-top">
-                            <div class="product-sku">SKU: <span>{{$Product->sku}}</span></div>
-                            <div class="rating">
-                                <i class="icon icon-star fill"></i><i class="icon icon-star fill"></i><i class="icon icon-star fill"></i><i class="icon icon-star fill"></i><i class="icon icon-star"></i><span class="count">18 reviews</span>
-                            </div>
-                        </div>
-                        <div class="product-name-wrapper">
-                            <h1 class="product-name">{{$Product->name}}</h1>
-                            <div class="product-labels">
-                                <span class="product-label sale">SALE</span>
-                                <span class="product-label new">NEW</span>
-                            </div>
-                        </div>
-                        <div class="product-availability">Availability: <span>{{$Product->stock}}</span></div>
-                        <div class="product-description">
-                            <p>{{$Product->meta}}</p>
-                        </div>
-                        {{-- Discount Area --}}
-                        {{-- <div class="countdown-circle hidden-xs">
-                            <div class="countdown-wrapper">
-                                <div class="countdown" data-promoperiod="0"></div>
-                                <div class="countdown-text">
-                                    <div class="text1">Discount 45% OFF</div>
-                                    <div class="text2">Hurry, there are only <span>14</span> item(s) left!</div>
-                                </div>
-                            </div>
-                        </div> --}}
-                        <?php $CheckVariations = DB::table('variations')->where('product_id',$Product->id)->get(); ?>
-                        @if($CheckVariations->isEmpty())
-                        <div class="product-description">
-                            <p>{!! html_entity_decode($Product->content, ENT_QUOTES, 'UTF-8') !!}</p>
-                        </div>
-                        @else
-                        <div class="product-options">
-                            <div class="product-size swatches">
-                                <span class="option-label">Size:</span>
-                                <div class="select-wrapper-sm">
-                                    <select class="form-control input-sm size-variants">
-                                        <?php $Size = DB::table('variations')->where('type','size')->where('product_id',$Product->id)->get(); ?>
-                                        @foreach ($Size as $size)
-                                        <option value="{{$size->value}}">{{$size->value}} - ${{$size->price}}.00 USD</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <ul class="size-list">
+                                <div id="product-zoom-gallery" class="product-image-gallery">
+                                    <a class="product-gallery-item active" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_one}}">
+                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
+                                    </a>
+
+                                    @if($Product->image_two == null OR $Product->image_two =="0")
+
+                                    @else
+                                    <a class="product-gallery-item" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_two}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_two}}">
+                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_two}}" alt="product cross">
+                                    </a>
+                                    @endif
+
+                                    @if($Product->image_three == null OR $Product->image_three =="0")
+
+                                    @else
+                                    <a class="product-gallery-item" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_three}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_three}}">
+                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_three}}" alt="product with model">
+                                    </a>
+                                    @endif
+
+                                    @if($Product->image_four == null OR $Product->image_four =="0")
+
+                                    @else
+                                    <a class="product-gallery-item" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_four}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_four}}">
+                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_four}}" alt="product back">
+                                    </a>
+                                    @endif
+                                </div><!-- End .product-image-gallery -->
+                            </div><!-- End .row -->
+                        </div><!-- End .product-gallery -->
+                    </div><!-- End .col-md-6 -->
+
+                    <div class="col-md-6">
+                        <div class="product-details">
+                            <h1 class="product-title">{{$Product->name}}</h1><!-- End .product-title -->
+
+                            <div class="ratings-container">
+                                <div class="ratings">
+                                    <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
+                                </div><!-- End .ratings -->
+                                <a class="ratings-text" href="#product-review-link" id="review-link">( 0 Reviews )</a>
+                            </div><!-- End .rating-container -->
+
+                            <div class="product-price">
+                                @if (session()->has('rates'))
                                     
-                                    @foreach ($Size as $size)
-                                        @if($size->status == '1')
-                                        <li><a href="{{url('/')}}/product-variation/{{$size->id}}" data-value='{{$size->value}}'><span class="value">{{$size->value}}</span></a></li>
-                                        @else 
-                                        <li class="absent-option"><a href="{{url('/')}}/product-variation/{{$size->id}}" data-value='{{$size->value}}'><span class="value">{{$size->value}}</span></a></li>
+                                        <?php
+                                            $rates = Session::get('rates');
+                                            $Rates = DB::table('rates')->where('rates',$rates)->get();
+                                        ?>
+                                        @foreach ($Rates as $rt)
+                                            @if($Product->price == $Product->price_raw)
+                                               {{$rt->symbol}} <?php $total = $Product->price*$rt->rates; echo ceil($total) ?>
+                                            @else
+                                                {{$rt->symbol}} <?php $total = $Product->price*$rt->rates; echo ceil($total) ?>
+                                                <del>Was {{$rt->symbol}} <?php $total = $Product->price_raw*$rt->rates; echo ceil($total) ?></del>
+                                            @endif
+                                        @endforeach
+                                    
+                                @else
+                                   
+                                        @if($Product->price == $Product->price_raw)
+                                            KES <?php $total = $Product->price; echo ceil($total) ?>
+                                            
+                                        @else
+                                            <?php $total = $Product->price; echo ceil($total) ?>
+                                           KES <del><?php $total = $Product->price_raw; echo ceil($total) ?></del>
+                                        @endif
+                                        <!-- End .price-box -->
+                                @endif
+                            </div><!-- End .product-price -->
+
+                            <div class="product-content">
+                                <p> {!! html_entity_decode($Product->meta, ENT_QUOTES, 'UTF-8') !!} </p>
+                            </div><!-- End .product-content -->
+
+                            <div class="details-filter-row details-row-size">
+                                <label>Color:</label>
+
+                                <div class="product-nav product-nav-thumbs">
+                                    <a href="#" class="active">
+                                        <img src="{{asset('theme/assets/images/products/single/1-thumb.jpg')}}" alt="product desc">
+                                    </a>
+                                    <a href="#">
+                                        <img src="{{asset('theme/assets/images/products/single/2-thumb.jpg')}}" alt="product desc">
+                                    </a>
+                                </div><!-- End .product-nav -->
+                            </div><!-- End .details-filter-row -->
+
+                            <div class="details-filter-row details-row-size">
+                                <label for="size">Size:</label>
+                                <div class="select-custom">
+                                    <select name="size" id="size" class="form-control">
+                                        <option value="#" selected="selected">Select a size</option>
+                                        <option value="s">Small</option>
+                                        <option value="m">Medium</option>
+                                        <option value="l">Large</option>
+                                        <option value="xl">Extra Large</option>
+                                    </select>
+                                </div><!-- End .select-custom -->
+
+                                <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
+                            </div><!-- End .details-filter-row -->
+
+                            <div class="details-filter-row details-row-size">
+                                <label for="qty">Qty:</label>
+                                <div class="product-details-quantity">
+                                    <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                </div><!-- End .product-details-quantity -->
+                            </div><!-- End .details-filter-row -->
+
+                            <div class="product-details-action">
+                                <a href="{{url('/')}}/shopping-cart/add-to-cart/{{$Product->id}}" class="btn-product btn-cart"><span>add to cart</span></a>
+
+                                <div class="details-action-wrapper">
+                                    <a href="{{url('/')}}/shopping-cart/add-to-wishlist/{{$Product->id}}" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
+                                    <a href="{{url('/')}}/shopping-cart/add-to-cart/{{$Product->id}}" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a>
+                                </div><!-- End .details-action-wrapper -->
+                            </div><!-- End .product-details-action -->
+
+                            <div class="product-details-footer">
+                                <div class="product-cat">
+                                    <span>Category:</span>
+                                    <a href="{{url('/')}}/products/{{$catlink->slung}}">
+                                        {{$catlink->title}}
+                                    </a>,
+                                    <a href="{{url('/')}}">Aste</a>
+                                    
+                                </div><!-- End .product-cat -->
+
+                                <div class="social-icons social-icons-sm">
+                                    <span class="social-label">Share:</span>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{url('/')}}/product/{{$Product->slung}}" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                                    <a href="https://twitter.com/share?hashtags={{$Settings->sitename}},{{$catlink->title}}&text={{$Product->name}}&via={{$Settings->twitter}}" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{url('/')}}/product/{{$Product->slung}}" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                                    {{-- <a href="#" class="social-icon" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a> --}}
+                                </div>
+                            </div><!-- End .product-details-footer -->
+                        </div><!-- End .product-details -->
+                    </div><!-- End .col-md-6 -->
+                </div><!-- End .row -->
+            </div><!-- End .product-details-top -->
+
+            <div class="product-details-tab">
+                <ul class="nav nav-pills justify-content-center" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab" role="tab" aria-controls="product-desc-tab" aria-selected="true">Description</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab" role="tab" aria-controls="product-info-tab" aria-selected="false">Additional information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab" role="tab" aria-controls="product-shipping-tab" aria-selected="false">Shipping & Returns</a>
+                    </li>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
+                    </li> --}}
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
+                        <div class="product-desc-content">
+                            <h3>Product Information</h3>
+                            {!! html_entity_decode($Product->content, ENT_QUOTES, 'UTF-8') !!}
+                        </div><!-- End .product-desc-content -->
+                    </div><!-- .End .tab-pane -->
+                    <div class="tab-pane fade" id="product-info-tab" role="tabpanel" aria-labelledby="product-info-link">
+                        <div class="product-desc-content">
+                            <h3>Information</h3>
+                            <p>{!! html_entity_decode($Product->meta, ENT_QUOTES, 'UTF-8') !!}</p>
+                        </div><!-- End .product-desc-content -->
+                    </div><!-- .End .tab-pane -->
+                    <div class="tab-pane fade" id="product-shipping-tab" role="tabpanel" aria-labelledby="product-shipping-link">
+                        <div class="product-desc-content">
+                            <h3>Delivery & returns</h3>
+                            <p>We deliver our products around the world. For full details of the delivery options we offer, please view our <a href="{{url('/')}}/delivery-policy">Delivery information</a><br>
+                            We hope you’ll love every purchase, but if you ever need to return an item you can do so within a month of receipt. For full details of how to make a return, please view our <a href="{{url('/')}}/return-policy">Returns information</a></p>
+                        </div><!-- End .product-desc-content -->
+                    </div><!-- .End .tab-pane -->
+                    <div class="tab-pane fade" id="product-review-tab" role="tabpanel" aria-labelledby="product-review-link">
+                        <div class="reviews">
+                            <h3>Reviews (2)</h3>
+                            <div class="review">
+                                <div class="row no-gutters">
+                                    <div class="col-auto">
+                                        <h4><a href="#">Samanta J.</a></h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+                                                <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                            </div><!-- End .ratings -->
+                                        </div><!-- End .rating-container -->
+                                        <span class="review-date">6 days ago</span>
+                                    </div><!-- End .col -->
+                                    <div class="col">
+                                        <h4>Good, perfect size</h4>
+
+                                        <div class="review-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum dolores assumenda asperiores facilis porro reprehenderit animi culpa atque blanditiis commodi perspiciatis doloremque, possimus, explicabo, autem fugit beatae quae voluptas!</p>
+                                        </div><!-- End .review-content -->
+
+                                        <div class="review-action">
+                                            <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
+                                            <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                                        </div><!-- End .review-action -->
+                                    </div><!-- End .col-auto -->
+                                </div><!-- End .row -->
+                            </div><!-- End .review -->
+
+                            <div class="review">
+                                <div class="row no-gutters">
+                                    <div class="col-auto">
+                                        <h4><a href="#">John Doe</a></h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+                                                <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
+                                            </div><!-- End .ratings -->
+                                        </div><!-- End .rating-container -->
+                                        <span class="review-date">5 days ago</span>
+                                    </div><!-- End .col -->
+                                    <div class="col">
+                                        <h4>Very good</h4>
+
+                                        <div class="review-content">
+                                            <p>Sed, molestias, tempore? Ex dolor esse iure hic veniam laborum blanditiis laudantium iste amet. Cum non voluptate eos enim, ab cumque nam, modi, quas iure illum repellendus, blanditiis perspiciatis beatae!</p>
+                                        </div><!-- End .review-content -->
+
+                                        <div class="review-action">
+                                            <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>
+                                            <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                                        </div><!-- End .review-action -->
+                                    </div><!-- End .col-auto -->
+                                </div><!-- End .row -->
+                            </div><!-- End .review -->
+                        </div><!-- End .reviews -->
+                    </div><!-- .End .tab-pane -->
+                </div><!-- End .tab-content -->
+            </div><!-- End .product-details-tab -->
+
+            <h2 class="title text-center mb-4">You May Also Like</h2><!-- End .title text-center -->
+
+            <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                data-owl-options='{
+                    "nav": false, 
+                    "dots": true,
+                    "margin": 20,
+                    "loop": false,
+                    "responsive": {
+                        "0": {
+                            "items":1
+                        },
+                        "480": {
+                            "items":2
+                        },
+                        "768": {
+                            "items":3
+                        },
+                        "992": {
+                            "items":5
+                        },
+                        "1200": {
+                            "items":5,
+                            "nav": true,
+                            "dots": false
+                        }
+                    }
+                }'>
+                <?php $ProductsRelated = DB::table('products')->where('category',$Product->category)->get(); ?>
+                @foreach ($ProductsRelated as $Trends)
+                <div class="product product-7 text-center">
+                    <figure class="product-media">
+                        <a href="{{url('/')}}/product/{{$Trends->slung}}">
+                            <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                            @if($Trends->image_two == null or $Trends->image_two == 0)
+
+                            @else
+                            <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
+                            @endif
+                        </a>
+
+                        <div class="product-action-vertical">
+                            <a href="{{url('/')}}/shopping-cart/add-to-wishlist/{{$Trends->id}}" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                        </div><!-- End .product-action-vertical -->
+
+                        <div class="product-action">
+                            <a href="{{url('/')}}/shopping-cart/add-to-cart/{{$Trends->id}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                        </div><!-- End .product-action -->
+                    </figure><!-- End .product-media -->
+
+                    <div class="product-body text-center">
+                        <?php $Category = DB::table('categories')->where('id',$Trends->category)->get(); ?>
+                        @foreach ($Category as $item)
+                        <div class="product-cat">
+                            <a href="#">{{$item->title}}</a>
+                        </div><!-- End .product-cat -->
+                        @endforeach
+                        <h3 class="product-title text-center"><a href="{{url('/')}}/product/{{$Trends->slung}}">{{$Trends->name}}</a></h3><!-- End .product-title -->
+                        <div class="product-price price-center">
+                            {{--  --}}
+                            @if (session()->has('rates'))
+                                <div class="price-box">
+                                    <?php
+                                        $rates = Session::get('rates');
+                                        $Rates = DB::table('rates')->where('rates',$rates)->get();
+                                    ?>
+                                    @foreach ($Rates as $rt)
+                                        @if($Trends->price == $Trends->price_raw)
+                                        <span>{{$rt->symbol}} <?php $total = $Trends->price*$rt->rates; echo ceil($total) ?></span>
+                                        @else
+                                            <span class="new-price">Now {{$rt->symbol}} <?php $total = $Trends->price*$rt->rates; echo ceil($total) ?></span><br>
+                                            <span class="old-price">Was {{$rt->symbol}} <?php $total = $Trends->price_raw*$rt->rates; echo ceil($total) ?></span>
                                         @endif
                                     @endforeach
-                                </ul>
-                            </div>
-                            <div class="product-color swatches">
-                                <span class="option-label">Color:</span>
-                                <div class="select-wrapper-sm">
-                                    <select class="form-control input-sm">
-                                        <?php $Color = DB::table('variations')->where('type','color')->where('product_id',$Product->id)->get(); ?>
-                                        @foreach ($Color as $item)
-                                        <option value="{{$item->value}}">{{$item->value}}</option>
-                                        @endforeach
-                                    </select>
                                 </div>
-                                <ul class="color-list">
-                                    @foreach ($Color as $item)
-                                    @if($item->status == '1')
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="{{$item->value}}" data-value="{{$item->value}}" data-image="{{url('/')}}/uploads/variations/{{$item->image}}"><span class="value"><img src="{{url('/')}}/uploads/variations/{{$item->image}}" alt=""></span></a></li>
-                                    @else 
-                                    <li class="absent-option"><a href="#" data-toggle="tooltip" data-placement="top" title="{{$item->value}}" data-value="{{$item->value}}" data-image="{{url('/')}}/uploads/variations/{{$item->image}}"><span class="value"><img src="{{url('/')}}/uploads/variations/{{$item->image}}" alt=""></span></a></li>
-                                    @endif
-                                    @endforeach
-                                </ul>
-                            </div>
-                            {{-- <div class="product-qty">
-                                <span class="option-label">Qty:</span>
-                                <div class="qty qty-changer">
-                                    <fieldset>
-                                        <input type="button" value="&#8210;" class="decrease">
-                                        <input type="text" class="qty-input" value="1" data-min="0">
-                                        <input type="button" value="+" class="increase">
-                                    </fieldset>
-                                </div>
-                            </div> --}}
-                        </div>
-                        @endif
-                        <div class="product-actions">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    {{-- <div class="product-meta">
-                                        <span><a href="#"><i class="icon icon-heart"></i> Add to wishlist</a></span>
-                                        <span><a href="#"><i class="icon icon-balance"></i> Add to Compare</a></span>
-                                    </div> --}}
-                                    <div class="social">
-                                        <div class="share-button toLeft">
-                                            <span class="toggle">Share</span>
-                                            <ul class="social-list">
-                                                <?php $Cat = DB::table('categories')->where('id',$Product->category)->get(); ?>
-                                                @foreach ($Cat as $cat) 
-    
-                                                @endforeach
-                                                <li>
-                                                    <a target="new" href="https://twitter.com/share?hashtags={{$Settings->sitename}},{{$cat->title}}&text={{$Product->name}}&via={{$Settings->twitter}}" class="icon icon-twitter-logo twitter"></a>
-                                                </li>
-                                                <li>
-                                                    <a target="new" href="https://www.facebook.com/sharer/sharer.php?u={{url('/')}}/product/{{$Product->slung}}" class="icon icon-facebook-logo facebook"></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="price">
-                                        {{-- <span class="old-price"><span>$140.00</span></span> --}}
-                                        <span class="special-price"><span>${{$Product->price}}.00</span></span>
-                                    </div>
-                                    <div class="actions">
-                                        <button 
-                                          onclick="addToCartNow(this)" 
-                                          data-product="{{$Product->id}}"
-                                          data-loading-text='<i class="icon icon-spinner spin"></i><span>Add to cart</span>'
-                                          class="btn btn-lg btn-loading add-to-cart">
-                                          <i class="icon icon-cart"></i>
-                                          <span>Add to cart</span>
-                                        </button>
-                                        <a target="new" href="{{url('/')}}/product/{{$Product->slung}}" class="btn btn-lg product-details"><i class="icon icon-external-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="block">
-        <div class="tabaccordion">
-            <div class="container">
-                <!-- Nav tabs -->
-                <ul class="nav-tabs product-tab" role="tablist">
-                    <li><a href="#Tab1" role="tab" data-toggle="tab">Description</a></li>
-                    <li><a href="#Tab2" role="tab" data-toggle="tab">Extra Info</a></li>
-                    <li><a href="#Tab3" role="tab" data-toggle="tab">Order & Delivery</a></li>
-                    <li><a href="#Tab4" role="tab" data-toggle="tab">Categories</a></li>
-                    <li><a href="#Tab5" role="tab" data-toggle="tab">Reviews</a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane" id="Tab1">
-                       {{-- Description Goes Here --}}
-                       {!! html_entity_decode($Product->content, ENT_QUOTES, 'UTF-8') !!}
-                       {{-- End of Description --}}
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="Tab2">
-                        <p><strong class="custom-color">Condition:  </strong>{{$Product->pro_condition}}</p>
-                        <p><strong class="custom-color">Stock Status:  </strong>{{$Product->stock}}</p>
-                        <?php $Category = DB::table('categories')->where('id',$Product->category)->get(); ?>
-                        @foreach ($Category as $Category)
-                        <p><strong class="custom-color">Category:  </strong>{{$Category->title}}</p>
-                        @endforeach
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="Tab3">
-                        <h3>Order & Delivery</h3>
-                        <div class="table-responsive">
-                            {!! html_entity_decode($Settings->risks, ENT_QUOTES, 'UTF-8') !!}
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="Tab4">
-                        <ul class="tags">
-                            <?php $Category = DB::table('categories')->get(); ?>
-                            @foreach ($Category as $Category)
-                            <li><a href="{{url('/')}}/products/{{$Category->slung}}"><span class="value"><span>{{$Category->title}}</span></span></a></li>
-                            @endforeach
-                        </ul>
-                        <div class="divider"></div>
-                        {{-- <h3>Add your tag</h3>
-                        <form class="contact-form white" action="#">
-                            <label>Tag<span class="required">*</span></label>
-                            <input class="form-control input-lg">
-                            <div>
-                                <button class="btn btn-lg">Submit Tag</button>
-                            </div>
-                            <div class="required-text">* Required Fields</div>
-                        </form> --}}
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="Tab5">
-                        <form id="post-reviews" class="contact-form white" action="{{url('/')}}">
-                            @csrf
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <td></td>
-                                        <td class="text-center">1 star</td>
-                                        <td class="text-center">2 star</td>
-                                        <td class="text-center">3 star</td>
-                                        <td class="text-center">4 star</td>
-                                        <td class="text-center">5 star</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Price</strong></td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-price1" type="radio" name="vote_price" value="1"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-price2" type="radio" name="vote_price" value="2"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-price3" type="radio" name="vote_price" value="3"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-price4" type="radio" name="vote_price" value="4"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-price5" type="radio" name="vote_price" value="5"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Value</strong></td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-value1" type="radio" name="vote_value" value="1"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
+                            @else
+                                <div class="price-box">
+                                    @if($Trends->price == $Trends->price_raw)
+                                        <span class="new-price">Now  <?php $total = $Trends->price; echo ceil($total) ?></span>
                                         
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-value2" type="radio" name="vote_value" value="2"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-value3" type="radio" name="vote_value" value="3"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-value4" type="radio" name="vote_value" value="4"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-value5" type="radio" name="vote_value" value="5"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Quality</strong></td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-quality1" type="radio" name="vote_quality" value="1"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-quality2" type="radio" name="vote_quality" value="2"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-quality3" type="radio" name="vote_quality" value="3"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-quality4" type="radio" name="vote_quality" value="4"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <label class="radio">
-                                                <input id="vote-quality5" type="radio" name="vote_quality" value="5"><span class="outer"><span class="inner"></span></span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <h3>Add new review</h3>
-                            @honeypot
-                            <label>Review<span class="required">*</span></label>
-                            <input type="hidden" value="{{$Product->id}}" name="product_id">
-                            <textarea name="content" class="form-control input-lg" required></textarea>
-                            <div>
-                                <button type="submit" class="btn btn-lg">Submit Review <img class="loading-gif" width="30" src="{{url('/')}}/uploads/icon/loading.gif" alt=""></button>
-                            </div>
-                            <div class="required-text">* Required Fields</div>
-                        </form>
-                        <div class="alert-success"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                    @else
+                                        <span class="new-price">Now  <?php $total = $Trends->price; echo ceil($total) ?></span><br>
+                                        <span class="old-price">Was  <?php $total = $Trends->price_raw; echo ceil($total) ?></span>
+                                    @endif
+                                </div><!-- End .price-box -->
+                            @endif
+                            {{--  --}}
+                        </div><!-- End .product-price -->
+                    </div><!-- End .product-body -->
+                </div><!-- End .product -->
+                @endforeach
 
-
-    <div class="block">
-        <div class="container">
-            <div class="row">
-                <?php $Blogs = DB::table('blogs')->limit(3)->orderBy('id','DESC')->get(); ?>
-                <div class="col-md-6">
-                    <!-- Blog Carousel -->
-                    <div class="title">
-                        <h2>From Blog</h2>
-                        <div class="carousel-arrows"></div>
-                    </div>
-                    <?php $Blog = DB::table('blogs')->limit(4)->inRandomOrder()->get(); ?>
-                    <!-- Blog Carousel Item -->
-                    <div class="blog-carousel">
-                        @foreach ($Blog as $item)
-                        <div class="blog-item">
-                            <a href="blog.html" class="blog-item-photo"> <img class="product-image-photo" src="{{url('/')}}/uploads/blogs/{{$item->image_one}}" alt="From Blog"> </a>
-                            <div class="blog-item-info">
-                                <a href="blog.html" class="blog-item-title">{{$item->title}}</a>
-                                <div class="blog-item-teaser">{{$item->meta}}</div>
-                                <div class="blog-item-links"> <span class="pull-left"> <span><a href="{{url('/')}}/latest-news/{{$item->slung}}" class="readmore">Read more</a></span> </span> <span class="pull-right"> <span>Post by <a href="#">{{$item->author}}</a></span> </span>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        <!-- /Blog Carousel Item -->
-                    </div>
-                    <!-- /Blog Carousel -->
-                </div>
-                <?php $ProductsRelated = DB::table('products')->where('category',$Product->category)->get(); ?>
-                <div class="col-md-6">
-                    <!-- Deal Carousel -->
-                    <div class="title">
-                        <h2 class="custom-color">Related Products</h2>
-                        <div class="toggle-arrow"></div>
-                        <div class="carousel-arrows"></div>
-                    </div>
-                    <div class="collapsed-content">
-                        <div class="deal-carousel-2 products-grid product-variant-5">
-                            @foreach ($ProductsRelated as $item)
-                                <!-- Product Item -->
-                            <div class="product-item large">
-                                <div class="product-item-inside">
-                                    <div class="product-item-info">
-                                        <!-- Product Photo -->
-                                        <div class="product-item-photo">
-                                            <!-- Product Label -->
-                                            <div class="product-item-label label-new"><span>New</span></div>
-                                            <!-- /Product Label -->
-                                            <!-- product main photo -->
-                                            <!-- product inside carousel -->
-                                            <div class="carousel-inside slide" data-ride="carousel">
-                                                <div class="carousel-inner" role="listbox">
-                                                    <div class="item active">
-                                                        <a href="#"><img class="product-image-photo" src="{{url('/')}}/uploads/products/{{$item->image_one}}" alt="{{$item->name}}"></a>
-                                                    </div>
-                                                  
-                                                </div>
-                                                {{-- <a class="carousel-control next"></a>
-                                                <a class="carousel-control prev"></a> --}}
-                                            </div>
-                                            <!-- /product inside carousel -->
-                                            <a href="{{url('/')}}/quick-view/{{$item->id}}" title="Quick View" class="quick-view-link quick-view-btn"> <i class="icon icon-eye"></i><span>Quick View</span></a>
-                                            <!-- /product main photo  -->
-                                            <!-- Product Actions -->
-                                            {{-- <a href="#" title="Add to Wishlist" class="no_wishlist"> <i class="icon icon-heart"></i><span>Add to Wishlist</span> </a> --}}
-                                            <div class="product-item-actions">
-                                                <div class="share-button toBottom">
-                                                    <span class="toggle"></span>
-                                                    <ul class="social-list">
-                                                        <li>
-                                                            <a target="new" href="https://twitter.com/share?url={{url('/')}}/product/{{$item->slung}}" class="icon icon-twitter-logo twitter"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a target="new" href="https://www.facebook.com/sharer/sharer.php?u={{url('/')}}/product/{{$item->slung}}" class="icon icon-facebook-logo facebook"></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <!-- /Product Actions -->
-                                        </div>
-                                        <!-- /Product Photo -->
-                                        <!-- Product Details -->
-                                        <div class="product-item-details">
-                                            <div class="product-item-name"> <a title="{{$item->name}}" href="{{url('/')}}/product/{{$item->slung}}" class="product-item-link">{{$item->name}}</a> </div>
-                                            <div class="product-item-description">{{$item->meta}}</div>
-                                            <div class="price-box"> <span class="price-container"> <span class="price-wrapper"><span class="price">${{$item->price}}</span> </span>
-                                                </span>
-                                            </div>
-                                            <div class="product-item-rating"> <i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i></div>
-                                            <button id="option" onclick="addToCart(this)" class="btn add-to-cart" data-product="{{$item->id}}"> <i class="icon icon-cart"></i><span>Add to Cart</span> <img class="loading-gif" width="30" src="{{url('/')}}/uploads/icon/loading.gif" alt=""></button>
-                                        </div>
-                                        <!-- /Product Details -->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Product Item -->
-                            @endforeach
-                        </div>
-                    </div>
-                    <!-- /Deal Carousel -->
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+            
+            </div><!-- End .owl-carousel -->
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
+{{--  --}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function(){

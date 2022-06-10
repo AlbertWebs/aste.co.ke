@@ -33,6 +33,10 @@ Route::post('/send-contact', [HomeController::class, 'contact_post']);
 Route::post('/post-review', [HomeController::class, 'post_review']);
 
 
+Route::get('/update-temp', [HomeController::class, 'tempUpdate']);
+
+
+
 Route::post('/secure-login', [App\Http\Controllers\HomeController::class, 'handleLogin']);
 Route::post('/secure-sign-up', [App\Http\Controllers\HomeController::class, 'handleSignUp']);
 

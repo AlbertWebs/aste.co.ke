@@ -230,4 +230,19 @@ class HomeController extends Controller
             return $status;
         }
     }
+
+    public function tempUpdate(){
+        $First = DB::table('products')->where('id','1')->get();
+        foreach ($First as $key => $value) {
+            $Description = $value->content;
+            $Meta = $value->meta;
+
+            $UpdateDetails = array(
+                'content' =>$Description,
+                'meta' =>$Meta,
+            );
+        }
+        DB::table('products')->update($UpdateDetails);
+        return "Done";
+    }
 }
