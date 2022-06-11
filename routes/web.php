@@ -20,7 +20,7 @@ use App\Http\Controllers\BlogController;
 |
 */
 
-Route::get('/', [HomeController::class, 'welcome'])->name('homes');
+Route::get('/', [HomeController::class, 'index'])->name('homes');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'about']);
 Route::get('/products', [HomeController::class, 'products']);
