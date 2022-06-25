@@ -282,7 +282,7 @@
                                     <a href="tel:{{$Settings->mobile_one}}"><i class="icon-phone"></i> Call Us</a>
                                 </li>
                                 <li>
-                                    <a href="tel:{{$Settings->email}}"><i class="la la-envelope"></i> Mail Us</a>
+                                    <a href="mailto:{{$Settings->email}}"><i class="la la-envelope"></i> Mail Us</a>
                                 </li>
                                 
                             </ul><!-- End .menu -->

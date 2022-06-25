@@ -57,7 +57,8 @@
   margin-bottom: 1rem; }
 
 .intro-title {
-  font-family: 'flamingregular', serif;
+  /* font-family: 'flamingregular', serif; */
+  font-family: 'typodermic';
   font-weight: 400;
   font-size: 8.6rem;
   line-height: .75;

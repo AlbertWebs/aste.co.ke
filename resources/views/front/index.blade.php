@@ -13,7 +13,7 @@
                     }
                 }
             }'>
-            <div class="intro-slide" style="background-image: url({{asset('theme/assets/images/demos/demo-6/slider/slide-1.jpg')}});">
+            {{-- <div class="intro-slide" style="background-image: url({{asset('theme/assets/images/demos/demo-6/slider/pexels-adrienne-andersen-2334906.jpg')}});">
                 <div class="container intro-content text-center">
                     <h3 class="intro-subtitle text-white">You're Looking Good</h3><!-- End .h3 intro-subtitle -->
                     <h1 class="intro-title text-white">New Lookbook</h1><!-- End .intro-title -->
@@ -22,12 +22,13 @@
                         <span>Discover More</span>
                     </a>
                 </div><!-- End .intro-content -->
-            </div><!-- End .intro-slide -->
+            </div><!-- End .intro-slide --> --}}
 
-            <div class="intro-slide" style="background-image: url({{asset('theme/assets/images/demos/demo-6/slider/slide-2.jpg')}});">
+            <div class="intro-slide" style="background-image: url({{asset('theme/assets/images/demos/demo-6/slider/pexels-artem-beliaikin-2534961.jpg')}});">
                 <div class="container intro-content text-center">
-                    <h3 class="intro-subtitle text-white">Don’t Miss</h3><!-- End .h3 intro-subtitle -->
-                    <h1 class="intro-title text-white">Amaizing Deals</h1><!-- End .intro-title -->
+                    <h3 class="intro-subtitle text-white">Thinking Fashion</h3><!-- End .h3 intro-subtitle -->
+                    <br>
+                    <h1 class="intro-title text-white">Think ASTE</h1><!-- End .intro-title -->
 
                     <a href="{{url('/')}}/products" class="btn btn-outline-white-4">
                         <span>Discover More</span>

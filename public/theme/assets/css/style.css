@@ -10218,7 +10218,8 @@ button:focus {
   line-height: 1.2;
   letter-spacing: -.03em;
   margin-bottom: 1.2rem;
-  text-indent: -.2rem; }
+  text-indent: -.2rem; 
+}
 
 .brand {
   display: flex;
@@ -16865,7 +16866,7 @@ button:focus {
 /*# sourceMappingURL=style.css.map */
 .about-us{
   max-width:800px;
-  padding:100px;
+  /* padding:100px; */
   margin:0 auto;
   text-align: center;
   color:#000000 !important;
