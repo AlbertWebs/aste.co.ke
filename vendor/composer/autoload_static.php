@@ -149,6 +149,7 @@ class ComposerStaticInit472f1362a81198dfec1300313f4545ad
         ),
         'K' => 
         array (
+            'Knox\\Pesapal\\' => 13,
             'KitLoong\\MigrationsGenerator\\' => 29,
         ),
         'I' => 
@@ -495,6 +496,10 @@ class ComposerStaticInit472f1362a81198dfec1300313f4545ad
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
         ),
+        'Knox\\Pesapal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knox/pesapal/src',
+        ),
         'KitLoong\\MigrationsGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/kitloong/laravel-migrations-generator/src',
@@ -686,6 +691,8 @@ class ComposerStaticInit472f1362a81198dfec1300313f4545ad
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MpesaController' => __DIR__ . '/../..' . '/app/Http/Controllers/MpesaController.php',
+        'App\\Http\\Controllers\\PaymentsController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaymentsController.php',
+        'App\\Http\\Controllers\\ShopController' => __DIR__ . '/../..' . '/app/Http/Controllers/ShopController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -716,6 +723,7 @@ class ComposerStaticInit472f1362a81198dfec1300313f4545ad
         'App\\Models\\Notification' => __DIR__ . '/../..' . '/app/Models/Notification.php',
         'App\\Models\\Notifications' => __DIR__ . '/../..' . '/app/Models/Notifications.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
+        'App\\Models\\Payment' => __DIR__ . '/../..' . '/app/Models/Payment.php',
         'App\\Models\\PostView' => __DIR__ . '/../..' . '/app/Models/PostView.php',
         'App\\Models\\Privacy' => __DIR__ . '/../..' . '/app/Models/Privacy.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
@@ -3445,6 +3453,23 @@ class ComposerStaticInit472f1362a81198dfec1300313f4545ad
         'KitLoong\\MigrationsGenerator\\Support\\IndexNameHelper' => __DIR__ . '/..' . '/kitloong/laravel-migrations-generator/src/Support/IndexNameHelper.php',
         'KitLoong\\MigrationsGenerator\\Support\\Regex' => __DIR__ . '/..' . '/kitloong/laravel-migrations-generator/src/Support/Regex.php',
         'KitLoong\\MigrationsGenerator\\Support\\TableName' => __DIR__ . '/..' . '/kitloong/laravel-migrations-generator/src/Support/TableName.php',
+        'Knox\\Pesapal\\Contracts\\PesapalContract' => __DIR__ . '/..' . '/knox/pesapal/src/Contracts/PesapalContract.php',
+        'Knox\\Pesapal\\Exceptions\\PesapalException' => __DIR__ . '/..' . '/knox/pesapal/src/Exceptions/PesapalException.php',
+        'Knox\\Pesapal\\Facades\\Pesapal' => __DIR__ . '/..' . '/knox/pesapal/src/Facades/Pesapal.php',
+        'Knox\\Pesapal\\OAuth\\Exceptions\\OAuthException' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/Exceptions/OAuthException.php',
+        'Knox\\Pesapal\\OAuth\\OAuthConsumer' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthConsumer.php',
+        'Knox\\Pesapal\\OAuth\\OAuthDataStore' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthDataStore.php',
+        'Knox\\Pesapal\\OAuth\\OAuthRequest' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthRequest.php',
+        'Knox\\Pesapal\\OAuth\\OAuthServer' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthServer.php',
+        'Knox\\Pesapal\\OAuth\\OAuthSignatureMethod' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthSignatureMethod.php',
+        'Knox\\Pesapal\\OAuth\\OAuthSignatureMethod_HMAC_SHA1' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthSignatureMethod_HMAC_SHA1.php',
+        'Knox\\Pesapal\\OAuth\\OAuthSignatureMethod_PLAINTEXT' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthSignatureMethod_PLAINTEXT.php',
+        'Knox\\Pesapal\\OAuth\\OAuthSignatureMethod_RSA_SHA1' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthSignatureMethod_RSA_SHA1.php',
+        'Knox\\Pesapal\\OAuth\\OAuthToken' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthToken.php',
+        'Knox\\Pesapal\\OAuth\\OAuthUtil' => __DIR__ . '/..' . '/knox/pesapal/src/OAuth/OAuthUtil.php',
+        'Knox\\Pesapal\\Pesapal' => __DIR__ . '/..' . '/knox/pesapal/src/Pesapal.php',
+        'Knox\\Pesapal\\PesapalAPIController' => __DIR__ . '/..' . '/knox/pesapal/src/PesapalAPIController.php',
+        'Knox\\Pesapal\\PesapalServiceProvider' => __DIR__ . '/..' . '/knox/pesapal/src/PesapalServiceProvider.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
         'Laravel\\Sail\\Console\\PublishCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/PublishCommand.php',
         'Laravel\\Sail\\SailServiceProvider' => __DIR__ . '/..' . '/laravel/sail/src/SailServiceProvider.php',

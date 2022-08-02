@@ -75,6 +75,7 @@ return array(
     'Laravel\\Socialite\\' => array($vendorDir . '/laravel/socialite/src'),
     'Laravel\\SerializableClosure\\' => array($vendorDir . '/laravel/serializable-closure/src'),
     'Laravel\\Sail\\' => array($vendorDir . '/laravel/sail/src'),
+    'Knox\\Pesapal\\' => array($vendorDir . '/knox/pesapal/src'),
     'KitLoong\\MigrationsGenerator\\' => array($vendorDir . '/kitloong/laravel-migrations-generator/src'),
     'InstagramScraper\\' => array($vendorDir . '/raiym/instagram-php-scraper/src/InstagramScraper'),
     'Illuminate\\Support\\' => array($vendorDir . '/laravel/framework/src/Illuminate/Macroable', $vendorDir . '/laravel/framework/src/Illuminate/Collections'),

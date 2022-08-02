@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'c3f64062b71ef1569058de7f2490b5fb17078d74',
+    'reference' => '01d2b021d01f0f1c08d0bd9ea1f37bea0077050d',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -574,6 +574,15 @@ private static $installed = array (
       ),
       'reference' => 'db00d2dc59916f12bb2449b0b527fb3e05e58491',
     ),
+    'knox/pesapal' => 
+    array (
+      'pretty_version' => '1.4.3',
+      'version' => '1.4.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'db78c66ddc21697f5a4942c5614489684b16bd73',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
@@ -597,7 +606,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'c3f64062b71ef1569058de7f2490b5fb17078d74',
+      'reference' => '01d2b021d01f0f1c08d0bd9ea1f37bea0077050d',
     ),
     'laravel/sail' => 
     array (
