@@ -81,6 +81,9 @@ Route::get('/shopping-cart/remove-from-cart/{id}', [CartController::class, 'remo
 Route::post('/shopping-cart/remove-cart-post}', [CartController::class, 'remover'])->name('cart.removercart');
 Route::get('/shopping-cart/remove-wishlist/{id}', [CartController::class, 'remove_wishlist'])->name('cart.remove.wishlist');
 
+Route::get('/shopping-cart/checkout/make-payment', [App\Http\Controllers\ShopController::class, 'make_payments'])->name('payment'); //Updates Data
+Route::post('/shopping-cart/checkout/make-payments', [App\Http\Controllers\ShopController::class, 'make_payment'])->name('checkout');
+
 
 Route::get('/latest-news', [BlogController::class, 'index']);
 Route::get('/latest-news/{slung}', [BlogController::class, 'blog']);
@@ -322,3 +325,9 @@ Route::get('/facebook', [LoginController::class, 'facebook']);
 Route::get('/facebook/redirect', [LoginController::class, 'facebookRedirect']);
 Route::get('/google', [LoginController::class, 'google']);
 Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);
+
+Route::group(['prefix' => '/webhooks'], function () {
+    //PESAPAL
+    Route::get('donepayment', [App\Http\Controllers\PaymentsController::class, 'paymentsuccess'])->name('paymentsuccess');
+    Route::get('paymentconfirmation', [App\Http\Controllers\PaymentsController::class, 'paymentconfirmation']);
+});
