@@ -17,13 +17,67 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 use Artesaos\SEOTools\Facades\JsonLd;
+use App\Models\ReplyMessage;
 
 
 class ShopController extends Controller
 {
 
 
+    public function complete_order(){
+        // Create an invoice, Mail and Register
+        if(Session::has('Invoice')){
+            $InvoiceNumber = session()->get('Invoice');
+            $OrderNumberNumber = session()->get('Order');
+        }else{
+            // Create Invoice
+            $MPESA = DB::table('invoices')->orderBy('id','DESC')->Limit('1')->get();
+            $count_mpesa = count($MPESA);
+            if($count_mpesa == 0){
+                $InvoiceNumber = 'ASTE001';
+                $OrderNumberNumber = 'ASTE001';
+                session()->put('Order', $OrderNumberNumber);
+                session()->put('Invoice', $InvoiceNumber);
+            }else{
+                foreach($MPESA as $mpesa){
+                    $LastID = $mpesa->id;
+                    $Next = $LastID+1;
+                    $InvoiceNumber = "ASTE0".$Next;
+                    $OrderNumberNumber = "ASTE10".$Next;
+                    // Create Session
+                    session()->put('Order', $OrderNumberNumber);
+                    session()->put('Invoice', $InvoiceNumber);
+                    }
+            }
+        }
+        
+        $name = Auth::user()->name;
+        $email = Auth::user()->email;
+        $phone = Auth::user()->mobile;
+        $service = 'Order';
+        $pricee = \Cart::getContent();
+        foreach ($pricee as $key => $value) {
+            $price = $value->price;
+        
+        $budget = 'Order';
+        $content = 'Order';
 
+        $InvoiceNumber = session()->get('Invoice');
+        $OrderNumberNumber = session()->get('Order');
+        $ShippingFee = session()->get('Shipping');
+        $TotalCost = session()->get('TotalCost');;
+        ReplyMessage::mailclient($email,$name,$InvoiceNumber,$ShippingFee,$TotalCost);
+        ReplyMessage::mailmerchant($email,$name,$phone);
+
+   
+        session()->forget('Invoice');
+        session()->forget('Order');
+        session()->forget('Shipping');
+        session()->forget('TotalCost');
+
+        /**Load The Thank You Page */
+      }
+    }
 
     public function make_payments()
     {
@@ -32,6 +86,7 @@ class ShopController extends Controller
          // getOrderID
         // PlaceOrder
         orders::createOrder();
+        $this->complete_order();
         $latest = orders::orderBy('date','DESC')->first();
         $OrderId = $latest->id;
 

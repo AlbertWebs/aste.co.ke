@@ -337,8 +337,7 @@ class CheckoutController extends Controller
 
         /** Load The Thank You Page */
         }}
-}
-
+    } 
 public function checkout(){
     $page_title = 'Checkout';
     $CartItems = \Cart::getContent();
