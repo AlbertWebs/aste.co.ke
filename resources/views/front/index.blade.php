@@ -40,18 +40,50 @@
         <span class="slider-loader"></span><!-- End .slider-loader -->
     </div><!-- End .intro-slider-container -->
 
-    <div class="container pt-6 new-arrivals">
-        <div class="row">
-            <div class="col-lg-12 mb-3 mb-lg-0 about-us">
-                <h2 class="title">We are Aste!</h2><!-- End .title -->
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. </p>
-                <hr class="mb">
-            </div><!-- End .col-lg-6 -->
-        </div><!-- End .row -->
-      
-        <div class="mb-5"></div><!-- End .mb-4 -->
-    </div>
     {{--  --}}
+    <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-3 mb-lg-0">
+                    <br>
+                    <h2 class="title">Our Story</h2><!-- End .title -->
+                   
+                    
+                    <p class="mb-2" style="color:#000000">
+                        Aste Company Limited was incorporated in 2021 with one goals.
+                        <ol>
+                            <li style="font-weight:600">To handmake leather & canvas gear with top quality and design.</li>
+                        
+                        </ol>
+                        
+                        Our name, Aste, means “majestic” in the Swahili slang and was chosen because of our goal to deliver the highest quality products. <br>
+                        
+                        <br>
+
+                        We are located at Nairobi CBD,  At Aste we are working with multiple partners to best represent our brand across the globe.
+                        <br>
+                        <br> 
+                    </p>
+
+                    <a href="{{url('/')}}/products-categories" class="btn btn-sm btn-minwidth btn-outline-primary-2">
+                        <i class="icon-shopping-cart"></i>
+                        <span>Shop Online</span>
+                        <i class="icon-long-arrow-right"></i>
+                    </a>
+                </div><!-- End .col-lg-5 -->
+
+                <div class="col-lg-7 offset-lg-1">
+                    <div class="about-imagess">
+                        <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/uploads/banners/amboseli.jpg" alt="Aste Company Limited">
+                    </div><!-- End .about-images -->
+                </div><!-- End .col-lg-6 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .bg-light-2 pt-6 pb-6 -->
+
+    {{--  --}}
+
+ 
 
 
     
@@ -137,27 +169,6 @@
     </div><!-- End .container -->
     {{--  --}}
 
-    <div class="mb-5"></div><!-- End .mb-5 -->
-
-    <div class="trending">
-        <a href="#">
-            <img src="{{asset('theme/assets/images/demos/demo-8/banners/banner-4.jpg')}}" alt="Banner">
-        </a>
-        <div class="banner banner-big d-md-block">
-            <div class="banner-content text-center">
-                <h4 class="banner-subtitle text-white">Trending</h4><!-- End .banner-subtitle -->
-                <h3 class="banner-title text-white">New League</h3><!-- End .banner-title -->
-                {{-- <p class="d-none d-lg-block text-white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br>Donec odio. Quisque volutpat mattis eros. </p>  --}}
-
-                <a href="{{url('/')}}/products" class="btn btn-primary-white"><span>Shop Now</span><i class="icon-long-arrow-right"></i></a>
-            </div><!-- End .banner-content -->
-        </div><!-- End .banner -->
-    </div>
-
-
-    <div class="mb-6"></div><!-- End .mb-5 -->
-
-
 
     <div class="mb-2"></div><!-- End .mb-5 -->
     
@@ -167,12 +178,12 @@
     {{--  --}}
 </div><!--End .container-->
 
-@include('front.new-arrival')
-<hr>    
+{{-- @include('front.new-arrival')
+<hr>     --}}
     
 <div class="mb-2"></div><!-- End .mb-2 -->
 
-<div class="container">
+<div class="container bg-light-2">
     <div class="cta cta-separator mb-5">
         <div class="row">
             <div class="col-lg-6">
