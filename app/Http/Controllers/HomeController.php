@@ -37,7 +37,8 @@ class HomeController extends Controller
         $Trending = DB::table('products')->where('trending','1')->orderBy('id','DESC')->paginate(8);
         $Lastest = DB::table('products')->orderBy('id','DESC')->paginate(20);
         $SiteSettings = DB::table('_site_settings')->get(); 
-        return view('front.index',compact('SiteSettings','Products','Slider','Trending','data','Lastest'));
+        $About = DB::table('abouts')->get();
+        return view('front.index',compact('SiteSettings','Products','Slider','Trending','data','Lastest','About'));
     }
     
     public function welcome(){

@@ -24,7 +24,9 @@
                 </div><!-- End .intro-content -->
             </div><!-- End .intro-slide --> --}}
 
-            <div class="intro-slide" style="background-image: url({{asset('theme/assets/images/demos/demo-6/slider/pexels-artem-beliaikin-2534961.jpg')}});">
+            <?php $Banners = DB::table('banners')->where('title','Slider')->get(); ?>
+            @foreach ($Banners as $banner)
+            <div class="intro-slide" style="background-image: url('{{asset('theme/assets/images/demos/demo-6/slider/')}}/{{$banner->image}}');">
                 <div class="container intro-content text-center">
                     <h3 class="intro-subtitle text-white">Thinking Fashion</h3><!-- End .h3 intro-subtitle -->
                     <br>
@@ -35,6 +37,7 @@
                     </a>
                 </div><!-- End .intro-content -->
             </div><!-- End .intro-slide -->
+            @endforeach
         </div><!-- End .intro-slider owl-carousel owl-theme -->
 
         <span class="slider-loader"></span><!-- End .slider-loader -->
@@ -50,19 +53,9 @@
                    
                     
                     <p class="mb-2" style="color:#000000">
-                        Aste Company Limited was incorporated in 2021 with one goals.
-                        <ol>
-                            <li style="font-weight:600">To handmake leather & canvas gear with top quality and design.</li>
-                        
-                        </ol>
-                        
-                        Our name, Aste, means “majestic” in the Swahili slang and was chosen because of our goal to deliver the highest quality products. <br>
-                        
-                        <br>
-
-                        We are located at Nairobi CBD,  At Aste we are working with multiple partners to best represent our brand across the globe.
-                        <br>
-                        <br> 
+                        @foreach ($About as $about)
+                         {!! html_entity_decode($about->content, ENT_QUOTES, 'UTF-8') !!}
+                        @endforeach
                     </p>
 
                     <a href="{{url('/')}}/products-categories" class="btn btn-sm btn-minwidth btn-outline-primary-2">
@@ -74,7 +67,10 @@
 
                 <div class="col-lg-7 offset-lg-1">
                     <div class="about-imagess">
-                        <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/uploads/banners/amboseli.jpg" alt="Aste Company Limited">
+                        <?php $Banners = DB::table('banners')->where('title','About Us')->get(); ?>
+                        @foreach ($Banners as $banner)
+                         <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/uploads/banners/{{$banner->image}}" alt="Aste Company Limited">
+                        @endforeach
                     </div><!-- End .about-images -->
                 </div><!-- End .col-lg-6 -->
             </div><!-- End .row -->
