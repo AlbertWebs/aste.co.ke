@@ -68,7 +68,10 @@
                         <button class="waves-effect waves-light btn-large btn-log-in" type="submit">Login</button>
                     </div>
                 </div>
-                <a href="forgot.html" class="for-pass">Forgot Password?</a>
+                <a href="{{ route('password.request') }}" class="for-pass">Forgot Password?</a>
+                
+                <a href="{{ route('register') }}" class="for-pass">New User? Register Here</a>
+                
             </form>
         </div>
     </div>
