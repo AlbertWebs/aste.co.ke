@@ -7,9 +7,9 @@
     </ifmodule>
      
     RewriteEngine On 
-    RewriteCond %{HTTP_HOST} ^aste.co.ke/public [NC] 
-    RewriteCond %{HTTPS} off 
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} !^aste.co.ke$
+RewriteRule ^(.*)$ https://aste.co.ke/public/$1 [R=301,L]
      
     RewriteCond %{REQUEST_FILENAME} -d [OR]
     RewriteCond %{REQUEST_FILENAME} -f
