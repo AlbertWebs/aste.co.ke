@@ -134,7 +134,7 @@
                     </div>
                     <div class="header-center">
                         <a href="{{url('/')}}" class="logo">
-                            <img src="{{url('/')}}/uploads/logo/logo.png" alt="{{$Settings->sitename}}" width="200" height="45">
+                            <img src="{{url('/')}}/public/uploads/logo/logo.png" alt="{{$Settings->sitename}}" width="200" height="45">
                         </a>
                     </div><!-- End .header-left -->
 
@@ -224,7 +224,7 @@
 
                                                 <figure style="height:60px; width:60px" class="product-image-container">
                                                     <a href="{{url('/')}}/product/{{$Product->slung}}" class="product-image">
-                                                        <img width="50" height="50" src="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
+                                                        <img width="50" height="50" src="{{url('/')}}/public/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
                                                     </a>
                                                 </figure>
                                                 <a href="{{url('/')}}/shopping-cart/remove-from-cart/{{$Product->id}}" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
@@ -469,7 +469,7 @@
                                         <div class="form-footer">
                                             <button type="submit" class="btn btn-outline-primary-2">
                                                 <span id="login-span">LOG IN</span>
-                                                <i class="icon-long-arrow-right"></i> <img class="loading-imager" width="22" src="{{url('/')}}/uploads/icon/loading.gif" alt="Aste Company Limited">
+                                                <i class="icon-long-arrow-right"></i> <img class="loading-imager" width="22" src="{{url('/')}}/public/uploads/icon/loading.gif" alt="Aste Company Limited">
                                             </button>
     
                                             <div class="custom-control custom-checkbox">
@@ -525,7 +525,7 @@
                                         <div class="form-footer">
                                             <button type="submit" class="btn btn-outline-primary-2">
                                                 <span>SIGN UP</span>
-                                                <i class="icon-long-arrow-right"></i> <img class="loading-imager" width="22" src="{{url('/')}}/uploads/icon/loading.gif" alt="Aste Company Limited">
+                                                <i class="icon-long-arrow-right"></i> <img class="loading-imager" width="22" src="{{url('/')}}/public/uploads/icon/loading.gif" alt="Aste Company Limited">
                                             </button>
 
                                             <div class="custom-control custom-checkbox">
