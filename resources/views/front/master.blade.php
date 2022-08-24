@@ -12,19 +12,21 @@
     <meta name="author" content="Designekta Studios">
     <!-- Favicon -->
     @include('favicon')
-    <link rel="stylesheet" href={{asset('theme/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css')}}>
+    <link rel="stylesheet" href="{{asset('theme/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css')}}">
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href={{asset('theme/assets/css/bootstrap.min.css')}}>
-    <link rel="stylesheet" href={{asset('theme/assets/css/plugins/owl-carousel/owl.carousel.css')}}>
-    <link rel="stylesheet" href={{asset('theme/assets/css/plugins/magnific-popup/magnific-popup.css')}}>
-    <link rel="stylesheet" href={{asset('theme/assets/css/plugins/jquery.countdown.css')}}>
+    <link rel="stylesheet" href="{{asset('theme/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/assets/css/plugins/owl-carousel/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/assets/css/plugins/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/assets/css/plugins/jquery.countdown.css')}}">
     <!-- Main CSS File -->
-    <link rel="stylesheet" href={{asset('theme/assets/css/style.css')}}>
-    <link rel="stylesheet" href={{asset('theme/assets/css/skins/skin-demo-6.css')}}>
-    <link rel="stylesheet" href={{asset('theme/assets/css/demos/demo-6.css')}}>
     <link rel="stylesheet" href="{{asset('theme/assets/css/demos/demo-fix.css')}}">
     <link rel="stylesheet" href="{{asset('theme/assets/css/demos/demo-5.css')}}">
     <link rel="stylesheet" href="{{asset('theme/assets/css/plugins/nouislider/nouislider.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/assets/css/skins/skin-demo-6.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/assets/css/demos/demo-6.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('theme/assets/css/skins/skin-demo-9.css')}}">
+    <link rel="stylesheet" href="{{asset('theme/assets/css/demos/demo-9.css')}}"> --}}
     {{--  --}}
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">

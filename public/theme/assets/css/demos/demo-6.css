@@ -603,3 +603,50 @@
     padding-right: 0; } }
 
 /*# sourceMappingURL=demo-6.css.map */
+
+
+.product-banner .banner-content {
+  top: 2rem;
+  bottom: 3.5rem;
+  right: 4rem;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+.product-banner .banner-title {
+  border-bottom: .1rem solid #fff; }
+  .product-banner .banner-title i {
+    font-size: 1.8rem;
+    letter-spacing: .1em;
+    margin-bottom: 1rem; }
+  .product-banner .banner-title h3 {
+    font-size: 1.8rem;
+    letter-spacing: .1em;
+    font-weight: 300;
+    text-transform: uppercase; }
+.product-banner .product-cat {
+  margin-bottom: .5rem; }
+  .product-banner .product-cat h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 0; }
+.product-banner .product-price {
+  margin-bottom: 0; }
+  .product-banner .product-price h4 {
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    margin-bottom: 0; }
+.product-banner .product-txt {
+  letter-spacing: .01em;
+  font-weight: 400; }
+.product-banner .btn.banner-link {
+  font-size: 1.3rem;
+  letter-spacing: .1em;
+  border: .2rem solid #fff;
+  min-width: 100%;
+  margin-top: 2.5rem; }
+  .product-banner .btn.banner-link:hover, .product-banner .btn.banner-link:focus {
+    border-color: #d62676; }

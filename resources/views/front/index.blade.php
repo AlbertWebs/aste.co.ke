@@ -154,8 +154,8 @@
 
 
     
-    <div class="container">
-        {{-- <hr class="mb-0"> --}}
+    {{-- <div class="container">
+   
        
         <div class="products">
             <div class="row justify-content-center">
@@ -176,23 +176,23 @@
 
                             <div class="product-action-vertical">
                                 <a href="{{url('/')}}/shopping-cart/add-to-wishlist/{{$Trends->id}}" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                            </div><!-- End .product-action-vertical -->
+                            </div>
 
                             <div class="product-action">
                                 <a href="{{url('/')}}/shopping-cart/add-to-cart/{{$Trends->id}}" class="btn-product btn-cart"><span>add to cart</span></a>
-                            </div><!-- End .product-action -->
-                        </figure><!-- End .product-media -->
+                            </div>
+                        </figure>
 
                         <div class="product-body text-center">
                             <?php $Category = DB::table('categories')->where('id',$Trends->category)->get(); ?>
                             @foreach ($Category as $item)
                             <div class="product-cat">
                                 <a href="#">{{$item->title}}</a>
-                            </div><!-- End .product-cat -->
+                            </div>
                             @endforeach
-                            <h3 class="product-title text-center"><a href="{{url('/')}}/product/{{$Trends->slung}}">{{$Trends->name}}</a></h3><!-- End .product-title -->
+                            <h3 class="product-title text-center"><a href="{{url('/')}}/product/{{$Trends->slung}}">{{$Trends->name}}</a></h3>
                             <div class="product-price price-center">
-                                {{--  --}}
+                              
                                 @if (session()->has('rates'))
                                     <div class="price-box">
                                         <?php
@@ -217,27 +217,201 @@
                                             <span class="new-price">Now  <?php $total = $Trends->price; echo ceil($total) ?></span><br>
                                             <span class="old-price">Was  <?php $total = $Trends->price_raw; echo ceil($total) ?></span>
                                         @endif
-                                    </div><!-- End .price-box -->
+                                    </div>
                                 @endif
-                                {{--  --}}
-                            </div><!-- End .product-price -->
-                        </div><!-- End .product-body -->
-                    </div><!-- End .product -->
-                </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @endforeach
 
             
-            </div><!-- End .row -->
-        </div><!-- End .products -->
+            </div>
+        </div>
 
         <div class="more-container text-center mt-1 mb-3">
             <a href="{{url('/')}}/products-categories" class="btn btn-outline-primary-2 btn-round btn-more">Load more</a>
-        </div><!-- End .more-container -->
-    </div><!-- End .container -->
+        </div>
+    </div> --}}
     {{--  --}}
 
 
     <div class="mb-2"></div><!-- End .mb-5 -->
+    <div class="container pb-2">
+        <div class="heading heading-flex mb-3">
+            <div class="heading-left">
+                <h2 class="title">Bags , Sandals  & Accessories</h2><!-- End .title -->
+            </div><!-- End .heading-left -->
+
+           <div class="heading-right">
+                <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="bags-women-link" data-toggle="tab" href="#bags-women-tab" role="tab" aria-controls="bags-women-tab" aria-selected="true">Leather Meets Canvas</a>
+                    </li>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link" id="bags-men-link" data-toggle="tab" href="#bags-men-tab" role="tab" aria-controls="bags-men-tab" aria-selected="false">Men's</a>
+                    </li> --}}
+                </ul>
+           </div><!-- End .heading-right -->
+        </div><!-- End .heading -->
+
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="banner banner-overlay product-banner">
+                    <a href="#">
+                        <img src="{{asset('theme/assets/images/demos/demo-9/banners/banner-6.jpg')}}" alt="banner image">
+                    </a>
+                    <div class="banner-content">
+                        <div class="banner-top">
+                            <div class="banner-title text-white text-center">
+                                <i class="la la-star-o"></i><h3 class="text-white">Our Experts<br>Picks</h3>
+                            </div>
+                        </div>
+                        <div class="banner-bottom">
+                            
+                            <div class="product-price">
+                                <h4 class="text-white">$129.99</h4>
+                            </div>
+                            <div class="product-txt">
+                                <p class="text-white">Cross Body Bag</p>
+                            </div>
+                            <a href="{{url('/')}}/products-categories" class="btn btn-outline-white banner-link">Shop Now</a>
+                        </div>
+                    </div>
+                </div><!-- End .banner banner-overlay -->
+            </div><!-- End .col-lg-3 -->
+            
+            <div class="col-lg-9">
+                <div class="tab-content tab-content-carousel">
+                    <div class="tab-pane p-0 fade show active" id="bags-women-tab" role="tabpanel" aria-labelledby="bags-women-link">
+                        <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                            data-owl-options='{
+                                "nav": false, 
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "0": {
+                                        "items":2
+                                    },
+                                    "480": {
+                                        "items":2
+                                    },
+                                    "768": {
+                                        "items":3
+                                    },
+                                    "1200": {
+                                        "items":3,
+                                        "nav": true,
+                                        "dots": false
+                                    }
+                                }
+                            }'>
+                            @foreach ($Trending as $Trends)
+                            <div class="product product-7 text-center">
+                                <figure class="product-media">
+                                    <a href="{{url('/')}}/product/{{$Trends->slung}}">
+                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                        @if($Trends->image_two == null or $Trends->image_two == 0)
+        
+                                        @else
+                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
+                                        @endif
+                                    </a>
+
+                                    <div class="product-action-vertical">
+                                        <a href="{{url('/')}}/shopping-cart/add-to-wishlist/{{$Trends->id}}" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                    </div><!-- End .product-action-vertical -->
+        
+
+                                    <div class="product-action">
+                                        <a href="{{url('/')}}/shopping-cart/add-to-cart/{{$Trends->id}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+                                    <?php $Category = DB::table('categories')->where('id',$Trends->category)->get(); ?>
+                                    @foreach ($Category as $item)
+                                    <h3 class="product-title"><a href="#">{{$item->title}}</a></h3><!-- End .product-title -->
+                                    @endforeach
+                                    <div class="product-price">
+                                        @if (session()->has('rates'))
+                                            <div class="price-box">
+                                                <?php
+                                                    $rates = Session::get('rates');
+                                                    $Rates = DB::table('rates')->where('rates',$rates)->get();
+                                                ?>
+                                                @foreach ($Rates as $rt)
+                                                    @if($Trends->price == $Trends->price_raw)
+                                                    <span>{{$rt->symbol}} <?php $total = $Trends->price*$rt->rates; echo ceil($total) ?></span>
+                                                    @else
+                                                        <span class="new-price">Now {{$rt->symbol}} <?php $total = $Trends->price*$rt->rates; echo ceil($total) ?></span><br>
+                                                        <span class="old-price">Was {{$rt->symbol}} <?php $total = $Trends->price_raw*$rt->rates; echo ceil($total) ?></span>
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                        @else
+                                            <div class="price-box">
+                                                @if($Trends->price == $Trends->price_raw)
+                                                    <span class="new-price">Now  <?php $total = $Trends->price; echo ceil($total) ?></span>
+                                                    
+                                                @else
+                                                    <span class="new-price">Now  <?php $total = $Trends->price; echo ceil($total) ?></span><br>
+                                                    <span class="old-price">Was  <?php $total = $Trends->price_raw; echo ceil($total) ?></span>
+                                                @endif
+                                            </div><!-- End .price-box -->
+                                        @endif
+                                    </div><!-- End .product-price -->
+
+                                    <div class="ratings-container">
+                                        <div class="ratings">
+                                            <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
+                                        </div><!-- End .ratings -->
+                                        <span class="ratings-text">( 2 Reviews )</span>
+                                    </div><!-- End .rating-container -->
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                            @endforeach
+                            
+                        </div><!-- End .owl-carousel -->
+                    </div><!-- .End .tab-pane -->
+                    <div class="tab-pane p-0 fade" id="bags-men-tab" role="tabpanel" aria-labelledby="bags-men-link">
+                        <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                            data-owl-options='{
+                                "nav": false, 
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "0": {
+                                        "items":2
+                                    },
+                                    "480": {
+                                        "items":2
+                                    },
+                                    "768": {
+                                        "items":3
+                                    },
+                                    "992": {
+                                        "items":4
+                                    },
+                                    "1200": {
+                                        "items":4,
+                                        "nav": true,
+                                        "dots": false
+                                    }
+                                }
+                            }'>
+                        </div><!-- End .owl-carousel -->
+                    </div><!-- .End .tab-pane -->
+                </div><!-- End .tab-content -->
+            </div>
+            <div class="more-container text-center mt-1 mb-3">
+                <a href="{{url('/')}}/products-categories" class="btn btn-outline-primary-2 btn-round btn-more">Load more</a>
+            </div>
+        </div>
+    </div><!-- End .container -->
     
     <div class="container">
     </div><!-- End .container -->
