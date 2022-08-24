@@ -140,7 +140,7 @@
                     <div class="about-imagess">
                         <?php $Banners = DB::table('banners')->where('title','About Us')->get(); ?>
                         @foreach ($Banners as $banner)
-                         <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/uploads/banners/{{$banner->image}}" alt="Aste Company Limited">
+                         <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/public/uploads/banners/{{$banner->image}}" alt="Aste Company Limited">
                         @endforeach
                     </div><!-- End .about-images -->
                 </div><!-- End .col-lg-6 -->
@@ -166,11 +166,11 @@
                     <div class="product product-7 text-center">
                         <figure class="product-media">
                             <a href="{{url('/')}}/product/{{$Trends->slung}}">
-                                <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
                                 @if($Trends->image_two == null or $Trends->image_two == 0)
 
                                 @else
-                                <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
+                                <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
                                 @endif
                             </a>
 
@@ -312,11 +312,11 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="{{url('/')}}/product/{{$Trends->slung}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                        <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
                                         @if($Trends->image_two == null or $Trends->image_two == 0)
         
                                         @else
-                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
+                                        <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
                                         @endif
                                     </a>
 

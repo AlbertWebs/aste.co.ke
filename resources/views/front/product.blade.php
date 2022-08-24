@@ -63,39 +63,39 @@
                         <div class="product-gallery product-gallery-vertical">
                             <div class="row">
                                 <figure class="product-main-image">
-                                    <img id="product-zoom" src="{{url('/')}}/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
+                                    <img id="product-zoom" src="{{url('/')}}/public/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/public/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
 
-                                    <a href="{{url('/')}}/uploads/products/{{$Product->image_one}}" id="btn-product-gallery" class="btn-product-gallery">
+                                    <a href="{{url('/')}}/public/uploads/products/{{$Product->image_one}}" id="btn-product-gallery" class="btn-product-gallery">
                                         <i class="icon-arrows"></i>
                                     </a>
                                 </figure><!-- End .product-main-image -->
 
                                 <div id="product-zoom-gallery" class="product-image-gallery">
-                                    <a class="product-gallery-item active" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_one}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
+                                    <a class="product-gallery-item active" href="#" data-image="{{url('/')}}/public/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/public/uploads/products/{{$Product->image_one}}">
+                                        <img src="{{url('/')}}/public/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
                                     </a>
 
                                     @if($Product->image_two == null OR $Product->image_two =="0")
 
                                     @else
-                                    <a class="product-gallery-item" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_two}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_two}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_two}}" alt="product cross">
+                                    <a class="product-gallery-item" href="#" data-image="{{url('/')}}/public/uploads/products/{{$Product->image_two}}" data-zoom-image="{{url('/')}}/public/uploads/products/{{$Product->image_two}}">
+                                        <img src="{{url('/')}}/public/uploads/products/{{$Product->image_two}}" alt="product cross">
                                     </a>
                                     @endif
 
                                     @if($Product->image_three == null OR $Product->image_three =="0")
 
                                     @else
-                                    <a class="product-gallery-item" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_three}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_three}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_three}}" alt="product with model">
+                                    <a class="product-gallery-item" href="#" data-image="{{url('/')}}/public/uploads/products/{{$Product->image_three}}" data-zoom-image="{{url('/')}}/public/uploads/products/{{$Product->image_three}}">
+                                        <img src="{{url('/')}}/public/uploads/products/{{$Product->image_three}}" alt="product with model">
                                     </a>
                                     @endif
 
                                     @if($Product->image_four == null OR $Product->image_four =="0")
 
                                     @else
-                                    <a class="product-gallery-item" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_four}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_four}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_four}}" alt="product back">
+                                    <a class="product-gallery-item" href="#" data-image="{{url('/')}}/public/uploads/products/{{$Product->image_four}}" data-zoom-image="{{url('/')}}/public/uploads/products/{{$Product->image_four}}">
+                                        <img src="{{url('/')}}/public/uploads/products/{{$Product->image_four}}" alt="product back">
                                     </a>
                                     @endif
                                 </div><!-- End .product-image-gallery -->
@@ -340,11 +340,11 @@
                 <div class="product product-7 text-center">
                     <figure class="product-media">
                         <a href="{{url('/')}}/product/{{$Trends->slung}}">
-                            <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                            <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
                             @if($Trends->image_two == null or $Trends->image_two == 0)
 
                             @else
-                            <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
+                            <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
                             @endif
                         </a>
 
