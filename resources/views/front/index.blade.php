@@ -28,7 +28,7 @@
             @foreach ($Banners as $banner)
             <div class="intro-slide" style="background-image: url('{{asset('theme/assets/images/demos/demo-6/slider/')}}/{{$banner->image}}');">
                 <div class="container intro-content text-center">
-                    <h3 class="intro-subtitle text-white">Thinking Fashion</h3><!-- End .h3 intro-subtitle -->
+                    <h3 class="intro-subtitle text-white">Leather Meets Canvas</h3><!-- End .h3 intro-subtitle -->
                     <br>
                     <h1 class="intro-title text-white">Think ASTE</h1><!-- End .intro-title -->
 
@@ -42,6 +42,77 @@
 
         <span class="slider-loader"></span><!-- End .slider-loader -->
     </div><!-- End .intro-slider-container -->
+    <br>
+    <div class="pt-3 pb-3">
+        <div class="container">
+            <div class="banner-group">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4" >
+                        <div class="banner banner-overlay banner-lg" >
+                            <a href="#">
+                                <img  src="{{asset('theme/assets/images/demos/demo-9/banners/banner-1.jpg')}}" alt="Banner">
+                            </a>
+
+                            <div class="banner-content banner-content-bottom">
+                                <h4 class="banner-subtitle text-white"><a href="#">Leather</a></h4><!-- End .banner-subtitle -->
+                                <h3 class="banner-title text-white"><a href="#">Handbags</a></h3><!-- End .banner-title -->
+                                <div class="banner-text text-white"><a href="#">from $89.00</a></div><!-- End .banner-text -->
+                                <a href="#" style="border:2px solid #d62676; border-radius:10px;" class="btn btn-outline-white banner-link">Discover Now</a>
+                            </div><!-- End .banner-content -->
+                        </div><!-- End .banner -->
+                    </div><!-- End .col-lg-4 -->
+
+                    <div class="col-sm-6 col-lg-4 order-lg-last">
+                        <div class="banner banner-overlay banner-lg">
+                            <a href="#">
+                                <img src="{{asset('theme/assets/images/demos/demo-9/banners/banner-4.jpg')}}" alt="Banner">
+                            </a>
+
+                            <div class="banner-content banner-content-top">
+                                <h4 class="banner-subtitle text-white"><a href="#"></a></h4><!-- End .banner-subtitle -->
+                                <h3 class="banner-title text-white"><a href="#">Leather Meets Canvas</a></h3><!-- End .banner-title -->
+                                <div class="banner-text text-white"><a href="#">from $99.00</a></div><!-- End .banner-text -->
+                                <a style="border:2px solid #d62676; border-radius:10px;" href="#" class="btn btn-outline-white banner-link">Discover Now</a>
+                            </div><!-- End .banner-content -->
+                        </div><!-- End .banner -->
+                    </div><!-- End .col-lg-4 -->
+
+                    <div class="col-12 col-lg-4">
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-12">
+                                <div class="banner banner-overlay">
+                                    <a href="#">
+                                        <img src="{{asset('theme/assets/images/demos/demo-9/banners/banner-2.jpg')}}" alt="Banner">
+                                    </a>
+
+                                    <div class="banner-content">
+                                        <h4 class="banner-subtitle text-white"><a href="#">Canvas</a></h4><!-- End .banner-subtitle -->
+                                        <h3 class="banner-title text-white"><a href="#">Custom Canvas Wear</a></h3><!-- End .banner-title -->
+                                        <a style="border:2px solid #d62676; border-radius:10px;" href="#" class="btn btn-outline-white banner-link">Shop Now</a>
+                                    </div><!-- End .banner-content -->
+                                </div><!-- End .banner -->
+                            </div><!-- End .col-sm-6 col-lg-12 -->
+
+                            <div class="col-sm-6 col-lg-12">
+                                <div class="banner banner-overlay">
+                                    <a href="#">
+                                        <img src="{{asset('theme/assets/images/demos/demo-9/banners/banner-3.jpg')}}" alt="Banner">
+                                    </a>
+
+                                    <div class="banner-content">
+                                        <h4 class="banner-subtitle text-white"><a href="#"> </a></h4><!-- End .banner-subtitle -->
+                                        <h3 class="banner-title text-white"><a href="#">Wallets and Belts</a></h3><!-- End .banner-title -->
+                                        <a style="border:2px solid #d62676; border-radius:10px;" href="#" class="btn btn-outline-white banner-link">Shop Now</a>
+                                    </div><!-- End .banner-content -->
+                                </div><!-- End .banner -->
+                            </div><!-- End .col-sm-6 col-lg-12 -->
+                        </div><!-- End .row -->
+                    </div><!-- End .col-lg-4 -->
+                </div><!-- End .row -->
+            </div><!-- End .banner-group -->
+
+        </div><!-- End .container -->
+    </div><!-- End .bg-lighter -->
 
     {{--  --}}
     <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
@@ -69,7 +140,7 @@
                     <div class="about-imagess">
                         <?php $Banners = DB::table('banners')->where('title','About Us')->get(); ?>
                         @foreach ($Banners as $banner)
-                         <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/public/uploads/banners/{{$banner->image}}" alt="Aste Company Limited">
+                         <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/uploads/banners/{{$banner->image}}" alt="Aste Company Limited">
                         @endforeach
                     </div><!-- End .about-images -->
                 </div><!-- End .col-lg-6 -->
