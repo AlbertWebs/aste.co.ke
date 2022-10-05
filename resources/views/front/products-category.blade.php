@@ -115,13 +115,13 @@
                                                     <div class="carousel-inside slide" data-ride="carousel">
                                                         <div class="carousel-inner" role="listbox">
                                                             <div class="item active">
-                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/public/uploads/products/{{$product->image_one}}" alt="{{$product->name}}"></a>
+                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/uploads/products/{{$product->image_one}}" alt="{{$product->name}}"></a>
                                                             </div>
                                                             <div class="item">
-                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/public/uploads/products/{{$product->image_two}}" alt="{{$product->name}}"></a>
+                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/uploads/products/{{$product->image_two}}" alt="{{$product->name}}"></a>
                                                             </div>
                                                             <div class="item">
-                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/public/uploads/products/{{$product->image_three}}" alt="{{$product->name}}"></a>
+                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/uploads/products/{{$product->image_three}}" alt="{{$product->name}}"></a>
                                                             </div>
                                                         </div>
                                                         <a class="carousel-control next"></a>
@@ -165,7 +165,7 @@
                                                         </span>
                                                     </div>
                                                     <div class="product-item-rating"> <i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i></div>
-                                                    <button id="option" onclick="addToCart(this)" class="btn add-to-cart" data-product="{{$product->id}}"> <i class="icon icon-cart"></i><span>Add to Cart</span> <img class="loading-gif" width="30" src="{{url('/')}}/public/uploads/icon/loading.gif" alt=""></button>
+                                                    <button id="option" onclick="addToCart(this)" class="btn add-to-cart" data-product="{{$product->id}}"> <i class="icon icon-cart"></i><span>Add to Cart</span> <img class="loading-gif" width="30" src="{{url('/')}}/uploads/icon/loading.gif" alt=""></button>
                                                 </div>
                                                 <!-- /Product Details -->
                                             </div>
@@ -186,13 +186,13 @@
                                                     <div class="carousel-inside slide" data-ride="carousel">
                                                         <div class="carousel-inner" role="listbox">
                                                             <div class="item active">
-                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/public/uploads/products/{{$product->image_one}}" alt="{{$product->name}}"></a>
+                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/uploads/products/{{$product->image_one}}" alt="{{$product->name}}"></a>
                                                             </div>
                                                             <div class="item">
-                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/public/uploads/products/{{$product->image_two}}" alt="{{$product->name}}"></a>
+                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/uploads/products/{{$product->image_two}}" alt="{{$product->name}}"></a>
                                                             </div>
                                                             <div class="item">
-                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/public/uploads/products/{{$product->image_three}}" alt="{{$product->name}}"></a>
+                                                                <a href="#"><img class="product-image-photo" src="{{url('/')}}/uploads/products/{{$product->image_three}}" alt="{{$product->name}}"></a>
                                                             </div>
                                                         </div>
                                                         <a class="carousel-control next"></a>
@@ -239,7 +239,7 @@
                                                         </span>
                                                     </div>
                                                     <div class="product-item-rating"> <i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i><i class="icon icon-star-fill"></i></div>
-                                                    <button onclick="addToCart(this)" class="btn add-to-cart" data-product-id="{{$product->id}}" data-product="{{$product->id}}"> <i class="icon icon-cart"></i><span>Add to Cart</span> <img class="loading-gif" width="30" src="{{url('/')}}/public/uploads/icon/loading.gif" alt=""></button>
+                                                    <button onclick="addToCart(this)" class="btn add-to-cart" data-product-id="{{$product->id}}" data-product="{{$product->id}}"> <i class="icon icon-cart"></i><span>Add to Cart</span> <img class="loading-gif" width="30" src="{{url('/')}}/uploads/icon/loading.gif" alt=""></button>
                                                 </div>
                                                 <!-- /Product Details -->
                                             </div>

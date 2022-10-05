@@ -47,25 +47,25 @@
         <div class="container">
             <div class="banner-group">
                 <div class="row">
-                    <div class="col-sm-6 col-lg-4" >
-                        <div class="banner banner-overlay banner-lg" >
+                    <div class="col-sm-6 col-lg-4" style="border-radius:10px">
+                        <div class="banner banner-overlay banner-lg"  style="border-radius:10px">
                             <a href="#">
-                                <img  src="{{asset('theme/assets/images/demos/demo-9/banners/banner-1.jpg')}}" alt="Banner">
+                                <img style="border-radius:10px" src="{{asset('uploads/banners/il_fullxfull.2094478646_1vpz.jpg')}}" alt="Banner">
                             </a>
 
-                            <div class="banner-content banner-content-bottom">
-                                <h4 class="banner-subtitle text-white"><a href="#">Leather</a></h4><!-- End .banner-subtitle -->
-                                <h3 class="banner-title text-white"><a href="#">Handbags</a></h3><!-- End .banner-title -->
-                                <div class="banner-text text-white"><a href="#">from $89.00</a></div><!-- End .banner-text -->
+                            <div class="banner-content banner-content-bottom" style="border-radius:10px">
+                                <h4 class="banner-subtitle text-white"><a  href="{{url('/')}}/products">Leather</a></h4><!-- End .banner-subtitle -->
+                                <h3 class="banner-title text-white"><a href="{{url('/')}}/products">Handbags</a></h3><!-- End .banner-title -->
+                                <div class="banner-text text-white"><a href="{{url('/')}}/products">from $89.00</a></div><!-- End .banner-text -->
                                 <a href="#" style="border:2px solid #d62676; border-radius:10px;" class="btn btn-outline-white banner-link">Discover Now</a>
                             </div><!-- End .banner-content -->
                         </div><!-- End .banner -->
                     </div><!-- End .col-lg-4 -->
 
-                    <div class="col-sm-6 col-lg-4 order-lg-last">
-                        <div class="banner banner-overlay banner-lg">
-                            <a href="#">
-                                <img src="{{asset('theme/assets/images/demos/demo-9/banners/banner-4.jpg')}}" alt="Banner">
+                    <div class="col-sm-6 col-lg-4 order-lg-last" style="border-radius:10px">
+                        <div class="banner banner-overlay banner-lg" style="border-radius:10px">
+                            <a href="#" style="border-radius:10px"> 
+                                <img style="border-radius:10px" src="{{asset('uploads/banners/canvas.jpg')}}" alt="Banner">
                             </a>
 
                             <div class="banner-content banner-content-top">
@@ -78,25 +78,25 @@
                     </div><!-- End .col-lg-4 -->
 
                     <div class="col-12 col-lg-4">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-12">
-                                <div class="banner banner-overlay">
+                        <div class="row" style="border-radius:10px">
+                            <div class="col-sm-6 col-lg-12" style="border-radius:10px">
+                                <div class="banner banner-overlay" style="border-radius:10px">
                                     <a href="#">
-                                        <img src="{{asset('theme/assets/images/demos/demo-9/banners/banner-2.jpg')}}" alt="Banner">
+                                        <img style="border-radius:10px" src="{{asset('uploads/banners/canvas-category.jpeg')}}" alt="Banner">
                                     </a>
 
                                     <div class="banner-content">
-                                        <h4 class="banner-subtitle text-white"><a href="#">Canvas</a></h4><!-- End .banner-subtitle -->
-                                        <h3 class="banner-title text-white"><a href="#">Custom Canvas Wear</a></h3><!-- End .banner-title -->
-                                        <a style="border:2px solid #d62676; border-radius:10px;" href="#" class="btn btn-outline-white banner-link">Shop Now</a>
+                                        <h4 class="banner-subtitle text-white"><a href="{{url('/')}}/products">Canvas</a></h4><!-- End .banner-subtitle -->
+                                        <h3 class="banner-title text-white"><a href="{{url('/')}}/products">Custom Canvas Wear</a></h3><!-- End .banner-title -->
+                                        <a target="new" style="border:2px solid #d62676; border-radius:10px;" href="{{url('/')}}/products" class="btn btn-outline-white banner-link">Shop Now</a>
                                     </div><!-- End .banner-content -->
                                 </div><!-- End .banner -->
                             </div><!-- End .col-sm-6 col-lg-12 -->
 
                             <div class="col-sm-6 col-lg-12">
-                                <div class="banner banner-overlay">
+                                <div class="banner banner-overlay" style="border-radius:10px">
                                     <a href="#">
-                                        <img src="{{asset('theme/assets/images/demos/demo-9/banners/banner-3.jpg')}}" alt="Banner">
+                                        <img style="border-radius:10px" src="{{asset('uploads/banners/wallets.jpeg')}}" alt="Banner">
                                     </a>
 
                                     <div class="banner-content">
@@ -140,7 +140,7 @@
                     <div class="about-imagess">
                         <?php $Banners = DB::table('banners')->where('title','About Us')->get(); ?>
                         @foreach ($Banners as $banner)
-                         <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/public/uploads/banners/{{$banner->image}}" alt="Aste Company Limited">
+                         <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/uploads/banners/{{$banner->image}}" alt="Aste Company Limited">
                         @endforeach
                     </div><!-- End .about-images -->
                 </div><!-- End .col-lg-6 -->
@@ -166,11 +166,11 @@
                     <div class="product product-7 text-center">
                         <figure class="product-media">
                             <a href="{{url('/')}}/product/{{$Trends->slung}}">
-                                <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
                                 @if($Trends->image_two == null or $Trends->image_two == 0)
 
                                 @else
-                                <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
+                                <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
                                 @endif
                             </a>
 
@@ -312,11 +312,11 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="{{url('/')}}/product/{{$Trends->slung}}">
-                                        <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
                                         @if($Trends->image_two == null or $Trends->image_two == 0)
         
                                         @else
-                                        <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
+                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
                                         @endif
                                     </a>
 

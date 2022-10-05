@@ -40,11 +40,11 @@
 
                                     @endif
                                     <a href="product.html">
-                                        <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
                                         @if($Trends->image_two == null or $Trends->image_two == 0)
 
                                         @else
-                                        <img src="{{url('/')}}/public/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
+                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
                                         @endif
                                     </a>
 

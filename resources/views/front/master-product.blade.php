@@ -146,7 +146,7 @@
 						<!-- Logo -->
 						<div class="header-logo">
 							<a href="{{url('/')}}" title="Logo">
-								<img width="175" src="{{url('/')}}/public/uploads/logo/{{$Settings->logo}}">
+								<img width="175" src="{{url('/')}}/uploads/logo/{{$Settings->logo}}">
 							</a>
 						</div>
 						<!-- /Logo -->
