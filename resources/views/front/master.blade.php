@@ -134,7 +134,7 @@
                     </div>
                     <div class="header-center">
                         <a href="{{url('/')}}" class="logo">
-                            <img src="{{url('/')}}/uploads/logo/logo.png" alt="{{$Settings->sitename}}" width="200" height="45">
+                            <img src="{{url('/')}}/public/uploads/logo/logo.png" alt="{{$Settings->sitename}}" width="200" height="45">
                         </a>
                     </div><!-- End .header-left -->
 
