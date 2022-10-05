@@ -9947,7 +9947,7 @@ small.form-text {
   width: 100%;
   display: block;
   position: relative;
-  background-color: #ccc;
+  /* background-color: #ccc; */
   margin-bottom: 2rem; }
   .owl-carousel .instagram-feed {
     margin-bottom: 0; }
