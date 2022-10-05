@@ -55,7 +55,7 @@
 
                             <div class="banner-content banner-content-bottom" style="border-radius:10px">
                                 <h4 class="banner-subtitle text-white"><a  href="{{url('/')}}/products">Leather</a></h4><!-- End .banner-subtitle -->
-                                <h3 class="banner-title text-white"><a href="{{url('/')}}/products">Handbags</a></h3><!-- End .banner-title -->
+                                <h3 class="banner-title text-white"><a style="text-shadow: 1px 1px 0px #000000;" href="{{url('/')}}/products">Handbags</a></h3><!-- End .banner-title -->
                                 <div class="banner-text text-white"><a href="{{url('/')}}/products">from $89.00</a></div><!-- End .banner-text -->
                                 <a href="#" style="border:2px solid #d62676; border-radius:10px;" class="btn btn-outline-white banner-link">Discover Now</a>
                             </div><!-- End .banner-content -->
@@ -70,7 +70,7 @@
 
                             <div class="banner-content banner-content-top">
                                 <h4 class="banner-subtitle text-white"><a href="#"></a></h4><!-- End .banner-subtitle -->
-                                <h3 class="banner-title text-white"><a href="#">Leather Meets Canvas</a></h3><!-- End .banner-title -->
+                                <h3 class="banner-title text-white"><a style="text-shadow: 1px 1px 0px #000000;" href="#">Leather Meets Canvas</a></h3><!-- End .banner-title -->
                                 <div class="banner-text text-white"><a href="#">from $99.00</a></div><!-- End .banner-text -->
                                 <a style="border:2px solid #d62676; border-radius:10px;" href="#" class="btn btn-outline-white banner-link">Discover Now</a>
                             </div><!-- End .banner-content -->
@@ -87,7 +87,7 @@
 
                                     <div class="banner-content">
                                         <h4 class="banner-subtitle text-white"><a href="{{url('/')}}/products">Canvas</a></h4><!-- End .banner-subtitle -->
-                                        <h3 class="banner-title text-white"><a href="{{url('/')}}/products">Custom Canvas Wear</a></h3><!-- End .banner-title -->
+                                        <h3 class="banner-title text-white"><a style="text-shadow: 1px 1px 0px #000000;" href="{{url('/')}}/products">Custom Canvas Wear</a></h3><!-- End .banner-title -->
                                         <a target="new" style="border:2px solid #d62676; border-radius:10px;" href="{{url('/')}}/products" class="btn btn-outline-white banner-link">Shop Now</a>
                                     </div><!-- End .banner-content -->
                                 </div><!-- End .banner -->
@@ -101,7 +101,7 @@
 
                                     <div class="banner-content">
                                         <h4 class="banner-subtitle text-white"><a href="#"> </a></h4><!-- End .banner-subtitle -->
-                                        <h3 class="banner-title text-white"><a href="#">Wallets and Belts</a></h3><!-- End .banner-title -->
+                                        <h3 class="banner-title text-white"><a style="text-shadow: 1px 1px 0px #000000;" href="#">Wallets and Belts</a></h3><!-- End .banner-title -->
                                         <a style="border:2px solid #d62676; border-radius:10px;" href="#" class="btn btn-outline-white banner-link">Shop Now</a>
                                     </div><!-- End .banner-content -->
                                 </div><!-- End .banner -->
