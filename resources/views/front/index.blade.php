@@ -140,7 +140,7 @@
                     <div class="about-imagess">
                         <?php $Banners = DB::table('banners')->where('title','About Us')->get(); ?>
                         @foreach ($Banners as $banner)
-                         <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/uploads/banners/{{$banner->image}}" alt="Aste Company Limited">
+                         <img style="border:0px solid #d62676; border-radius:10px" src="{{url('/')}}/public/uploads/banners/{{$banner->image}}" alt="Aste Company Limited">
                         @endforeach
                     </div><!-- End .about-images -->
                 </div><!-- End .col-lg-6 -->
