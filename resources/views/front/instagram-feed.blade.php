@@ -43,7 +43,7 @@
             <img src="{{$image['url']}}" alt="img">
     
             <div class="instagram-feed-content">
-                <a style="2.6px !important" target="new" href="{{$image['permalink']}}"><i style="font-size:30px;" class="icon-search"></i></a>
+                <a style="2.6px !important" target="new" href="{{$image['permalink']}}"><i style="font-size:30px;" class="icon-instagram"></i></a>
                 {{-- <a href="#"><i class="icon-comments"></i>65</a> --}}
             </div><!-- End .instagram-feed-content -->
         </div><!-- End .instagram-feed -->
