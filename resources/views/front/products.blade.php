@@ -40,7 +40,7 @@
 
                                     @endif
                                     <a href="product.html">
-                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-images">
                                         @if($Trends->image_two == null or $Trends->image_two == 0)
 
                                         @else

@@ -312,7 +312,7 @@
                             <div class="product product-7 text-center" style="border-radius:10px">
                                 <figure class="product-media" style="border-radius:10px">
                                     <a href="{{url('/')}}/product/{{$Trends->slung}}">
-                                        <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                        <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-images">
                                         @if($Trends->image_one == null or $Trends->image_one == 0)
         
                                         @else
