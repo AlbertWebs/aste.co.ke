@@ -337,10 +337,10 @@
                 }'>
                 <?php $ProductsRelated = DB::table('products')->where('category',$Product->category)->get(); ?>
                 @foreach ($ProductsRelated as $Trends)
-                <div class="product product-7 text-center">
-                    <figure class="product-media">
+                <div class="product product-7 text-center" style="border-radius:10px">
+                    <figure class="product-media" style="border-radius:10px">
                         <a href="{{url('/')}}/product/{{$Trends->slung}}">
-                            <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-images">
+                            <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-images">
                             @if($Trends->image_two == null or $Trends->image_two == 0)
 
                             @else

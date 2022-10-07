@@ -309,14 +309,14 @@
                                 }
                             }'>
                             @foreach ($Trending as $Trends)
-                            <div class="product product-7 text-center">
-                                <figure class="product-media">
+                            <div class="product product-7 text-center" style="border-radius:10px">
+                                <figure class="product-media" style="border-radius:10px">
                                     <a href="{{url('/')}}/product/{{$Trends->slung}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
-                                        @if($Trends->image_two == null or $Trends->image_two == 0)
+                                        <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                        @if($Trends->image_one == null or $Trends->image_one == 0)
         
                                         @else
-                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="Product image" class="product-image-hover">
+                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image-hover">
                                         @endif
                                     </a>
 

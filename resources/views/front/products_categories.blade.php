@@ -31,16 +31,16 @@
                         <div class="row justify-content-center">
                            
                         @foreach ($Products as $Trends)
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="product product-7 text-center">
-                                <figure class="product-media">
+                        <div class="col-6 col-md-4 col-lg-3" style="border-radius:10px">
+                            <div class="product product-7 text-center" style="border-radius:10px">
+                                <figure class="product-media" style="border-radius:10px">
                                     @if($Trends->stock == "Out Of Stock")
                                     <span class="product-label label-out">Out of Stock</span>
                                     @else
 
                                     @endif
                                     <a href="product.html">
-                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                                        <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
                                         @if($Trends->image_two == null or $Trends->image_two == 0)
 
                                         @else
