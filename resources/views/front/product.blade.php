@@ -326,7 +326,7 @@
                             "items":3
                         },
                         "992": {
-                            "items":5
+                            "items":3
                         },
                         "1200": {
                             "items":5,
@@ -340,7 +340,7 @@
                 <div class="product product-7 text-center">
                     <figure class="product-media">
                         <a href="{{url('/')}}/product/{{$Trends->slung}}">
-                            <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image">
+                            <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-images">
                             @if($Trends->image_two == null or $Trends->image_two == 0)
 
                             @else
