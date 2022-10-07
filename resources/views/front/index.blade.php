@@ -287,10 +287,13 @@
                     <div class="tab-pane p-0 fade show active" id="bags-women-tab" role="tabpanel" aria-labelledby="bags-women-link">
                         <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
                             data-owl-options='{
-                                "nav": false, 
+                                "nav": true, 
+                                "autoplay": true, 
+                                "autoplayTimeout": 2000, 
+                                "autoplayHoverPause": true, 
                                 "dots": true,
                                 "margin": 20,
-                                "loop": false,
+                                "loop": true,
                                 "responsive": {
                                     "0": {
                                         "items":2
