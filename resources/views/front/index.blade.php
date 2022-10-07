@@ -483,7 +483,7 @@
     </div><!-- End .cta -->
 </div><!-- End .container -->
 
-@include('front.instagram-feeds')
+@include('front.instagram-feed')
 
 </main><!-- End .main -->
 @endforeach
