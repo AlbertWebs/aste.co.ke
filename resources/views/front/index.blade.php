@@ -289,7 +289,7 @@
                             data-owl-options='{
                                 "nav": true, 
                                 "autoplay": true, 
-                                "autoplayTimeout": 2000, 
+                                "autoplayTimeout": 5000, 
                                 "autoplayHoverPause": true, 
                                 "dots": true,
                                 "margin": 20,
