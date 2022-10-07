@@ -241,7 +241,7 @@
     <div class="container pb-2">
         <div class="heading heading-flex mb-3">
             <div class="heading-left">
-                <h2 class="title">Bags , Sandals  & Accessories</h2><!-- End .title -->
+                <h2 class="title">African Heritage</h2><!-- End .title -->
             </div><!-- End .heading-left -->
 
            <div class="heading-right">
