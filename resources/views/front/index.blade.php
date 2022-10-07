@@ -333,7 +333,7 @@
                                 <div class="product-body">
                                     <?php $Category = DB::table('categories')->where('id',$Trends->category)->get(); ?>
                                     @foreach ($Category as $item)
-                                    <h3 class="product-title"><a href="#">{{$item->title}}</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="#">{{$Trends->name}}</a></h3><!-- End .product-title -->
                                     @endforeach
                                     <div class="product-price">
                                         @if (session()->has('rates'))
