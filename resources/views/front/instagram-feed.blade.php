@@ -9,9 +9,12 @@
     data-owl-options='{
         "nav": false, 
         "dots": false,
+        "autoplay": true, 
+        "autoplayTimeout": 5000, 
+        "autoplayHoverPause": true, 
         "items": 6,
-        "margin": 0,
-        "loop": false,
+        "margin": 3,
+        "loop": true,
         "responsive": {
             "0": {
                 "items":1
