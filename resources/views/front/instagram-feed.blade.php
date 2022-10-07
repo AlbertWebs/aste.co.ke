@@ -1,6 +1,6 @@
 <div class="container instagram">
     <div class="heading text-center">
-        <h2 class="title title-lg">Follow Us On Instagram</h2><!-- End .title -->
+        <h2 class="title title-lg">Follow Us On <a target="new" href="https://www.instagram.com/aste.co.ke/">Instagram</a></h2><!-- End .title -->
         <p class="title-desc">Wanna share your style with us?</p><!-- End .title-desc -->
     </div><!-- End .heading -->
 </div><!-- End .container -->
