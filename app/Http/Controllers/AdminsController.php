@@ -658,7 +658,7 @@ class AdminsController extends Controller
 
     public function edit_Product(Request $request, $id){
         activity()->log('Evoked Edit Product For Product ID number '.$id.' ');
-        $path = 'uploads/products';
+        $path = public_path('uploads/products');
             if(isset($request->image_one)){
                 $file = $request->file('image_one');
                 $filename = $file->getClientOriginalName();
