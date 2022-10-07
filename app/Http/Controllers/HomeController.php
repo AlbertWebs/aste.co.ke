@@ -33,7 +33,7 @@ class HomeController extends Controller
             'instagram_feed' => Profile::where('username', 'aste.co.ke')->first()->feed(9),
         ];
         $Slider = DB::table('sliders')->get(); 
-        $Products = DB::table('products')->where('featured','1')->paginate(12);
+        $Products = DB::table('products')->where('featured','1')->paginate(8);
         $Trending = DB::table('products')->where('trending','1')->orderBy('id','DESC')->paginate(8);
         $Lastest = DB::table('products')->orderBy('id','DESC')->paginate(20);
         $SiteSettings = DB::table('_site_settings')->get(); 
@@ -42,16 +42,16 @@ class HomeController extends Controller
     }
     
     public function welcome(){
-        $Products = DB::table('products')->where('featured','1')->paginate(12);
-        $Trending = DB::table('products')->where('trending','1')->paginate(12);
+        $Products = DB::table('products')->where('featured','1')->paginate(8);
+        $Trending = DB::table('products')->where('trending','1')->paginate(8);
         $SiteSettings = DB::table('_site_settings')->get(); 
         $About = DB::table('abouts')->get();
         return view('front.welcome',compact('SiteSettings','Products','About','Trending'));
     }
 
     public function about(){
-        $Products = DB::table('products')->where('featured','1')->paginate(12);
-        $Trending = DB::table('products')->where('trending','1')->paginate(12);
+        $Products = DB::table('products')->where('featured','1')->paginate(8);
+        $Trending = DB::table('products')->where('trending','1')->paginate(8);
         $SiteSettings = DB::table('_site_settings')->get(); 
         $About = DB::table('abouts')->get();
         return view('front.about',compact('SiteSettings','Products','About','Trending'));
@@ -59,7 +59,7 @@ class HomeController extends Controller
 
     public function products(){
         $SiteSettings = DB::table('_site_settings')->get(); 
-        $Products = DB::table('products')->paginate(12);
+        $Products = DB::table('products')->paginate(8);
         $Categories = DB::table('categories')->inRandomOrder()->limit('4')->get();
         $Title = "All Products";
         return view('front.products',compact('SiteSettings','Products','Categories','Title'));
@@ -68,7 +68,7 @@ class HomeController extends Controller
     public function products_categories(){
         $Title = "Our Store";
         $SiteSettings = DB::table('_site_settings')->get(); 
-        $Products = DB::table('products')->paginate(12);
+        $Products = DB::table('products')->paginate(8);
         $Categories = DB::table('categories')->inRandomOrder()->limit('4')->get();
         return view('front.products_categories',compact('SiteSettings','Products','Categories','Title'));
     }
@@ -77,7 +77,7 @@ class HomeController extends Controller
         $ClickedCategory = DB::table('categories')->where('slung',$slung)->get();
         foreach ($ClickedCategory as $key => $value) {
             $SiteSettings = DB::table('_site_settings')->get(); 
-            $Products = DB::table('products')->where('category',$value->id)->paginate(12);
+            $Products = DB::table('products')->where('category',$value->id)->paginate(8);
             $Categories = DB::table('categories')->inRandomOrder()->limit('4')->get();
             $Title = $value->title;
             return view('front.products_categories',compact('SiteSettings','Products','Categories','Title'));
