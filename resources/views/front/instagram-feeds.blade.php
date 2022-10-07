@@ -19,7 +19,7 @@
                         <div class="instagram-feed">
                             <img style="border-radius:10px; height:auto; max-height: 100%; max-width: 100%; width: auto; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;" class="insta" src="{{$image['url']}}" alt="img">
                             <div class="instagram-feed-content" style="text-align:center">
-                                <a target="new" href="{{$image['permalink']}}">{{$image['caption']}}</a>
+                                <a target="new" href="{{$image['permalink']}}"><i class="icon-search" aria-hidden="true"></i></a>
                                 {{-- <a href="#"><i class="icon-comments"></i>45</a> --}}
                             </div><!-- End .instagram-feed-content -->
                         </div><!-- End .instagram-feed -->
