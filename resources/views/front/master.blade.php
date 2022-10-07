@@ -265,7 +265,7 @@
 
             <div class="header-bottom sticky-header">
                 <div class="container">
-                    <div class="header-left">
+                    <div class="header-center mobile-left">
                         <nav class="main-nav">
                             <ul class="menu sf-arrows" style="margin:0 auto !important">
                                 <li class="megamenu-container active">
