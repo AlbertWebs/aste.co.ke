@@ -313,10 +313,10 @@
                                 <figure class="product-media" style="border-radius:10px">
                                     <a href="{{url('/')}}/product/{{$Trends->slung}}">
                                         <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-images">
-                                        @if($Trends->image_one == null or $Trends->image_one == 0)
+                                        @if($Trends->image_two == null or $Trends->image_two == 0)
         
                                         @else
-                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-image-hover">
+                                        <img src="{{url('/')}}/uploads/products/{{$Trends->image_two}}" alt="{{$Trends->name}}" class="product-image-hover">
                                         @endif
                                     </a>
 
