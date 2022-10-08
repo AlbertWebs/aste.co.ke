@@ -39,7 +39,7 @@
                                     @else
 
                                     @endif
-                                    <a href="product.html">
+                                    <a href="{{url('/')}}/product/{{$Trends->slung}}">
                                         <img src="{{url('/')}}/uploads/products/{{$Trends->image_one}}" alt="Product image" class="product-images">
                                         @if($Trends->image_two == null or $Trends->image_two == 0)
 

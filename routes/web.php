@@ -8,6 +8,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DemoController;
 
 /*
 |--------------------------------------------------------------------------

@@ -2055,8 +2055,8 @@ class AdminsController extends Controller
 
         foreach($Products as $ProAdd){
 
-                $ProductUrl = "https://aste.co.ke/e-commerce/product/$ProAdd->slung";
-                $ImageURL = "https://aste.co.ke/uploads/products/$ProAdd->image_one";
+                $ProductUrl = "https://aste.co.ke/product/$ProAdd->slung";
+                $ImageURL = "https://aste.co.ke/public/uploads/products/$ProAdd->image_one";
                 $ProExcel  = new ProExcel;
                 $ProExcel->code = $ProAdd->sku;
                 $ProExcel->google_product_category = $ProAdd->google_product_category;

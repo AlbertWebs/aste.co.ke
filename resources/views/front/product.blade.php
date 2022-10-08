@@ -60,10 +60,10 @@
             <div class="product-details-top">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="product-gallery product-gallery-vertical">
+                        <div class="product-gallery product-gallery-vertical" style="border-radius:10px">
                             <div class="row">
-                                <figure class="product-main-image">
-                                    <img id="product-zoom" src="{{url('/')}}/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
+                                <figure class="product-main-image" style="border-radius:10px">
+                                    <img style="border-radius:10px" id="product-zoom" src="{{url('/')}}/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
 
                                     <a href="{{url('/')}}/uploads/products/{{$Product->image_one}}" id="btn-product-gallery" class="btn-product-gallery">
                                         <i class="icon-arrows"></i>
@@ -72,14 +72,14 @@
 
                                 <div id="product-zoom-gallery" class="product-image-gallery">
                                     <a class="product-gallery-item active" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_one}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_one}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
+                                        <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Product->image_one}}" alt="{{$Product->name}}">
                                     </a>
 
                                     @if($Product->image_two == null OR $Product->image_two =="0")
 
                                     @else
                                     <a class="product-gallery-item" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_two}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_two}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_two}}" alt="product cross">
+                                        <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Product->image_two}}" alt="product cross">
                                     </a>
                                     @endif
 
@@ -87,7 +87,7 @@
 
                                     @else
                                     <a class="product-gallery-item" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_three}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_three}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_three}}" alt="product with model">
+                                        <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Product->image_three}}" alt="product with model">
                                     </a>
                                     @endif
 
@@ -95,7 +95,7 @@
 
                                     @else
                                     <a class="product-gallery-item" href="#" data-image="{{url('/')}}/uploads/products/{{$Product->image_four}}" data-zoom-image="{{url('/')}}/uploads/products/{{$Product->image_four}}">
-                                        <img src="{{url('/')}}/uploads/products/{{$Product->image_four}}" alt="product back">
+                                        <img style="border-radius:10px" src="{{url('/')}}/uploads/products/{{$Product->image_four}}" alt="product back">
                                     </a>
                                     @endif
                                 </div><!-- End .product-image-gallery -->
@@ -147,19 +147,37 @@
                                 <p> {!! html_entity_decode($Product->meta, ENT_QUOTES, 'UTF-8') !!} </p>
                             </div><!-- End .product-content -->
 
-                            <div class="details-filter-row details-row-size">
+                            {{-- <div class="product-details-action">
+                                <a style="font-size:20px; color:#25D366; border:1px solid #d62676; border-radius:10px; padding:20px" href="{{url('/')}}/shopping-cart/add-to-cart/{{$Product->id}}" class="btn-product btn-carts"><span style="font-size:20px; color:#25D366" class="icon-whatsapp"></span> &nbsp; Order with WhatsApp</a>
+                            </div> --}}
+                            
+                            <link rel="stylesheet" href="{{asset('theme/assets/css/whatsApp.css')}}">
+                            <a target="_blank" href="https://api.whatsapp.com/send?phone=254740646411&amp;text=Hi Aste, Looking to Buy {{url('/')}}/product/{{$Product->slung}}, " rel="nofollow noopener noreferrer" class="wa__button wa__r_button wa__stt_online wa__btn_w_img" style="background-color: rgb(63, 63, 63);">
+                                <div class="wa__cs_img">
+                                  <div class="wa__cs_img_wrap" style="background: url('{{url('/')}}/uploads/banners/girl.png') center center no-repeat; background-size: cover"></div>
+                                </div>
+                                <div class="wa__btn_txt">
+                                  <div class="wa__cs_info">
+                                    <div class="wa__cs_name" style="color: #d5f0d9; opacity: 1">Jacky</div>
+                                    <div class="wa__cs_status">Online</div>
+                                  </div>
+                                  <div class="wa__btn_title" style="color: #fff">buy on whatsapp</div>
+                                </div>
+                              </a>
+                            {{-- <div class="details-filter-row details-row-size">
                                 <label>Color:</label>
                                 <div class="select-custom">
                                     <select name="size" id="size" class="form-control">
                                         <option value="#" selected="selected">Specify Your Colour On Checkout</option>
                                     </select>
-                                </div><!-- End .select-custom -->
+                                </div>
                                 <div class="product-nav product-nav-thumbs">
                                     
-                                </div><!-- End .product-nav -->
-                            </div><!-- End .details-filter-row -->
+                                </div>
+                            </div> --}}
+                         
 
-                            <div class="details-filter-row details-row-size">
+                            {{-- <div class="details-filter-row details-row-size">
                                 <label for="size">Size:</label>
                                 <div class="select-custom">
                                     <select name="size" id="size" class="form-control">
@@ -169,20 +187,21 @@
                                         <option value="l">Large</option>
                                         <option value="xl">Extra Large</option>
                                     </select>
-                                </div><!-- End .select-custom -->
+                                </div>
 
                                 <a target="new" href="{{url('/')}}/size-guide" class="size-guide"><i class="icon-th-list"></i>size guide</a>
-                            </div><!-- End .details-filter-row -->
+                            </div> --}}
 
                             <div class="details-filter-row details-row-size">
                                 <label for="qty">Qty:</label>
                                 <div class="product-details-quantity">
                                     <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                                </div><!-- End .product-details-quantity -->
+                                    
+                                </div>
                             </div><!-- End .details-filter-row -->
 
                             <div class="product-details-action">
-                                <a href="{{url('/')}}/shopping-cart/add-to-cart/{{$Product->id}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                                <a style="border-radius:10px;" href="{{url('/')}}/shopping-cart/add-to-cart/{{$Product->id}}" class="btn-product btn-cart"><span>add to cart</span></a>
 
                                 <div class="details-action-wrapper">
                                     <a href="{{url('/')}}/shopping-cart/add-to-wishlist/{{$Product->id}}" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
