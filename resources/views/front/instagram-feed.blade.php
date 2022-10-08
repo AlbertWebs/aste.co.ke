@@ -40,7 +40,7 @@
     @isset($data['instagram_feed'])
         @foreach ($data['instagram_feed'] as  $image)
         <div class="instagram-feed">
-            <img src="{{$image['url']}}" alt="img">
+            <img style="border-radius: 10px;" src="{{$image['url']}}" alt="img">
     
             <div class="instagram-feed-content">
                 <a style="2.6px !important" target="new" href="{{$image['permalink']}}"><i style="font-size:30px;" class="icon-instagram"></i></a>
