@@ -320,6 +320,11 @@ Route::post('admin/deleteTopicsAjax', [AdminsController::class, 'deleteTopicsAja
 Route::post('admin/deleteSignalsAjax', [AdminsController::class, 'deleteSignalsAjax'])->middleware('is_admin');
 Route::post('admin/deleteProductAjax', [AdminsController::class, 'deleteProductAjax'])->middleware('is_admin');
 
+Route::get('admin/addProductToFacebookPixel', [AdminsController::class, 'addProductToFacebookPixel'])->middleware('is_admin');
+Route::get('admin/emptyProductToFacebookPixel', [AdminsController::class, 'emptyProductToFacebookPixel'])->middleware('is_admin');
+
+
+
 // SocialMedia
 Route::get('/facebook', [LoginController::class, 'facebook']);
 Route::get('/facebook/redirect', [LoginController::class, 'facebookRedirect']);
@@ -331,3 +336,7 @@ Route::group(['prefix' => '/webhooks'], function () {
     Route::get('donepayment', [App\Http\Controllers\PaymentsController::class, 'paymentsuccess'])->name('paymentsuccess');
     Route::get('paymentconfirmation', [App\Http\Controllers\PaymentsController::class, 'paymentconfirmation']);
 });
+
+Route::get('export', [DemoController::class, 'export'])->name('exporting');
+Route::get('importExportView', [DemoController::class, 'importExportView']);
+Route::get('import', [DemoController::class, 'import']);
